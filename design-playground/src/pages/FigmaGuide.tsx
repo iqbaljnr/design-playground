@@ -13,6 +13,7 @@ import {
   FigmaPropertiesAnnotatedInteractive,
   FigmaWorkspaceAnnotatedInteractive,
 } from '../components/interactive/FigmaAnnotatedDiagrams';
+import { FigmaBasicToolsReelsDemo } from '../components/interactive/FigmaBasicToolsReels';
 import { MiniFigmaExercise } from '../components/interactive/MiniFigmaExercise';
 import {
   CraftSlide22FigmaIntroDemo,
@@ -202,6 +203,7 @@ export function FigmaGuide() {
           </div>
 
           <CraftSlide24EssentialToolsDemo />
+          <FigmaBasicToolsReelsDemo />
           <FigmaWorkspaceTour mode="shortcuts-only" />
         </section>
 
