@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#161616" />
+  <circle cx="46" cy="18" r="4.5" fill="#D4D4D8" />
+  <text x="30" y="42" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-weight="700" font-size="22" letter-spacing="-1" fill="#F4F4F5">DP</text>
+</svg>
