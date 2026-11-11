@@ -247,7 +247,7 @@ export function PresentationOverlay() {
       } ${isFs ? 'text-sm' : 'text-xs sm:text-sm'}`}
     >
       <span className="font-mono">
-        {slide.sectionLabel} · {slide.timeRange}
+        {slide.sectionLabel}
       </span>
       <span className="font-display tabular-nums">
         Slide {slide.number} / {CRAFT_SLIDES.length} · CRAFT — DESAIN KE UI/UX
@@ -391,7 +391,7 @@ export function PresentationOverlay() {
 
   const renderSlideBody = () => {
     switch (slide.id) {
-      /* ---------------- BAGIAN 01: PEMBUKAAN (12:30–12:40) ---------------- */
+      /* ---------------- BAGIAN 01: PEMBUKAAN ---------------- */
       case 'slide-01':
         return wrapFullSlide(
           <>
@@ -403,7 +403,7 @@ export function PresentationOverlay() {
                 </span>
               </div>
               <span className={`font-mono font-semibold text-brand-orange ${chipText}`}>
-                12:30 – 17:00 · 4,5 Jam
+                Materi &amp; Praktik Interaktif
               </span>
             </div>
 
@@ -514,7 +514,7 @@ export function PresentationOverlay() {
                     { id: '01 · Pahami', desc: 'Desain sebagai komunikasi & pemecah masalah' },
                     { id: '02 · Susun', desc: 'Fondasi Grid, Tipografi & Warna' },
                     { id: '03 · Terjemahkan', desc: 'Dari prinsip visual ke UI/UX & Figma' },
-                    { id: '04 · Buat & Review', desc: 'Praktik Hero Website 70 menit + evaluasi' },
+                    { id: '04 · Buat & Review', desc: 'Praktik membuat Hero Website + evaluasi karya' },
                   ].map((st) => (
                     <li key={st.id} className="py-3 first:pt-0 last:pb-0">
                       <strong className={`block font-display font-extrabold text-ink ${subHeadingText}`}>
@@ -558,7 +558,7 @@ export function PresentationOverlay() {
           </>
         );
 
-      /* -------------- BAGIAN 02: MEMAHAMI DESAIN (12:40–13:00) -------------- */
+      /* -------------- BAGIAN 02: MEMAHAMI DESAIN -------------- */
       case 'slide-04':
         return wrapFullSlide(
           <>
@@ -646,7 +646,7 @@ export function PresentationOverlay() {
           </>
         );
 
-      /* ---------- BAGIAN 03: PONDASI DESAIN VISUAL (13:00–14:10) ---------- */
+      /* ---------- BAGIAN 03: PONDASI DESAIN VISUAL ---------- */
       case 'slide-07':
         return wrapFullSlide(
           <>
@@ -1092,7 +1092,7 @@ export function PresentationOverlay() {
           </>
         );
 
-      /* -------------- BAGIAN 04: DARI DESAIN KE UI/UX (14:20–14:40) -------------- */
+      /* -------------- BAGIAN 04: DARI DESAIN KE UI/UX -------------- */
       case 'slide-18':
         return wrapFullSlide(
           <>
@@ -1494,7 +1494,7 @@ export function PresentationOverlay() {
           { compact: true }
         );
 
-      /* -------------- BAGIAN 06: TANTANGAN PRAKTIK (15:10–16:20) -------------- */
+      /* -------------- BAGIAN 06: TANTANGAN PRAKTIK -------------- */
       case 'slide-29':
         return wrapFullSlide(
           <>
@@ -1545,10 +1545,10 @@ export function PresentationOverlay() {
                   </div>
                   <div className="border-t border-[#2A2928] pt-4">
                     <span className={`block font-mono font-semibold text-brand-orange ${chipText}`}>
-                      WAKTU KERJA
+                      ALAT &amp; TARGET
                     </span>
-                    <strong className={`font-display font-extrabold tabular-nums text-white ${isFs ? 'text-3xl lg:text-4xl' : 'text-2xl lg:text-3xl'}`}>
-                      70 Menit
+                    <strong className={`font-display font-extrabold text-white ${isFs ? 'text-3xl lg:text-4xl' : 'text-2xl lg:text-3xl'}`}>
+                      Figma &middot; 1 Hero
                     </strong>
                   </div>
                 </div>
@@ -1681,29 +1681,29 @@ export function PresentationOverlay() {
         return wrapFullSlide(
           <>
             {renderSlideHeader(
-              'Bagian 06 · Pembagian Waktu',
+              'Bagian 06 · Alur Pengerjaan',
               'Dari kerangka kasar hingga sentuhan akhir.',
-              'Ikuti alur waktu 70 menit ini supaya hasil desainmu selesai tepat waktu tanpa terburu-buru.'
+              'Ikuti enam urutan kerja ini supaya hasil desainmu rapi, jelas dibaca, dan terstruktur.'
             )}
 
             <div className="my-auto w-full space-y-5 pb-2">
-              <div className={`flex h-10 overflow-hidden rounded-xl border border-border-subtle font-mono font-bold ${chipText}`}>
-                <div className="flex w-[14%] items-center justify-center bg-surface text-ink">10m</div>
-                <div className="flex w-[14%] items-center justify-center bg-elevated text-ink">10m</div>
-                <div className="flex w-[22%] items-center justify-center bg-dark text-white">15m</div>
-                <div className="flex w-[22%] items-center justify-center bg-brand-magenta text-white">15m</div>
-                <div className="flex w-[21%] items-center justify-center bg-brand-red text-white">15m</div>
-                <div className="flex w-[7%] items-center justify-center bg-brand-orange text-ink">5m</div>
+              <div className={`grid grid-cols-6 overflow-hidden rounded-xl border border-border-subtle font-mono font-bold ${chipText}`}>
+                <div className="flex h-10 items-center justify-center bg-surface text-ink">01</div>
+                <div className="flex h-10 items-center justify-center bg-elevated text-ink">02</div>
+                <div className="flex h-10 items-center justify-center bg-dark text-white">03</div>
+                <div className="flex h-10 items-center justify-center bg-brand-magenta text-white">04</div>
+                <div className="flex h-10 items-center justify-center bg-brand-red text-white">05</div>
+                <div className="flex h-10 items-center justify-center bg-brand-orange text-ink">06</div>
               </div>
 
               <div className="grid grid-cols-1 divide-y divide-border-subtle overflow-hidden rounded-2xl border border-border-subtle bg-elevated sm:grid-cols-3 sm:divide-x sm:divide-y-0">
                 {[
-                  { n: '01 · 10 Menit', task: 'Pahami brief & tentukan arah pesan' },
-                  { n: '02 · 10 Menit', task: 'Susun frame 1440×900 & grid' },
-                  { n: '03 · 15 Menit', task: 'Atur judul, teks & urutan baca' },
-                  { n: '04 · 15 Menit', task: 'Pasang warna, kontras & visual' },
-                  { n: '05 · 15 Menit', task: 'Cek ulang jarak & rapikan tombol' },
-                  { n: '06 · 5 Menit', task: 'Siap presentasikan karya di kelas' },
+                  { n: 'Tahap 01 · Brief', task: 'Pahami brief & tentukan arah pesan' },
+                  { n: 'Tahap 02 · Struktur', task: 'Susun frame 1440×900 & kolom grid' },
+                  { n: 'Tahap 03 · Tipografi', task: 'Atur judul, teks & urutan baca' },
+                  { n: 'Tahap 04 · Visual', task: 'Pasang warna, kontras & visual' },
+                  { n: 'Tahap 05 · Detail', task: 'Cek ulang jarak & rapikan tombol' },
+                  { n: 'Tahap 06 · Final', task: 'Siap presentasikan karya di kelas' },
                 ].map((s) => (
                   <div
                     key={s.n}
@@ -1741,7 +1741,7 @@ export function PresentationOverlay() {
           </>
         );
 
-      /* -------------- BAGIAN 07: REVIEW & MASUKAN (16:20–16:45) -------------- */
+      /* -------------- BAGIAN 07: REVIEW & MASUKAN -------------- */
       case 'slide-34':
         return wrapFullSlide(
           <>
@@ -1850,7 +1850,7 @@ export function PresentationOverlay() {
           </>
         );
 
-      /* -------------- BAGIAN 08: REFLEKSI & PENUTUP (16:45–17:00) -------------- */
+      /* -------------- BAGIAN 08: REFLEKSI & PENUTUP -------------- */
       case 'slide-36':
         return wrapFullSlide(
           <>

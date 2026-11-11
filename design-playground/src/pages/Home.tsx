@@ -4,7 +4,6 @@ import {
   Compass,
   FolderDown,
   Layers,
-  Presentation,
   Sparkles,
 } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -18,7 +17,6 @@ import { useLearningStore } from '../stores/learningStore';
 export function Home() {
   const completedCount = useLearningStore((s) => s.completedChapters.length);
   const completedChallenges = useLearningStore((s) => s.completedChallenges.length);
-  const setPresentationMode = useLearningStore((s) => s.setPresentationMode);
 
   return (
     <PageContainer>
@@ -62,14 +60,6 @@ export function Home() {
                 <Layers size={17} aria-hidden="true" />
                 <span>Figma Guide</span>
               </Button>
-              <button
-                type="button"
-                onClick={() => setPresentationMode(true)}
-                className="inline-flex min-h-[48px] items-center gap-2 rounded-lg border border-border-strong bg-surface px-5 py-3 font-display text-sm font-semibold text-ink transition-colors hover:border-brand-magenta hover:bg-elevated cursor-pointer"
-              >
-                <Presentation size={16} aria-hidden="true" className="text-brand-magenta" />
-                <span>Present Slides</span>
-              </button>
             </div>
 
             {(completedCount > 0 || completedChallenges > 0) && (

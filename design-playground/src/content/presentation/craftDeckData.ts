@@ -9,7 +9,6 @@ export interface CraftSlideMeta {
   number: string;
   label: string;
   sectionLabel: string;
-  timeRange: string;
   stageTag: CraftStageTag;
   sessionId: string;
   hasLiveDemo?: boolean;
@@ -17,13 +16,12 @@ export interface CraftSlideMeta {
 }
 
 export const CRAFT_SLIDES: CraftSlideMeta[] = [
-  /* BAGIAN 01 — PEMBUKAAN & PENGENALAN (12:30–12:40) */
+  /* BAGIAN 01 — PEMBUKAAN & PENGENALAN */
   {
     id: 'slide-01',
     number: '01',
     label: '01 · Sampul: CRAFT — DESAIN KE UI/UX',
     sectionLabel: 'Bagian 01 · Pembukaan & Pengenalan',
-    timeRange: '12:30 – 12:40',
     stageTag: '01 Pahami',
     sessionId: 'session-opening',
   },
@@ -32,7 +30,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '02',
     label: '02 · Selamat Datang di Proses Kreatif',
     sectionLabel: 'Bagian 01 · Pembukaan & Pengenalan',
-    timeRange: '12:30 – 12:40',
     stageTag: '01 Pahami',
     sessionId: 'session-opening',
   },
@@ -41,20 +38,18 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '03',
     label: '03 · Apa yang Membuat Desain Bagus?',
     sectionLabel: 'Bagian 01 · Pembukaan & Pengenalan',
-    timeRange: '12:30 – 12:40',
     stageTag: '01 Pahami',
     sessionId: 'session-opening',
     hasLiveDemo: true,
     demoLabel: 'Voting Kelas Langsung',
   },
 
-  /* BAGIAN 02 — MEMAHAMI DESAIN (12:40–13:00) */
+  /* BAGIAN 02 — MEMAHAMI DESAIN */
   {
     id: 'slide-04',
     number: '04',
     label: '04 · Apa Itu Desain? (Bandingkan Langsung)',
     sectionLabel: 'Bagian 02 · Memahami Desain',
-    timeRange: '12:40 – 13:00',
     stageTag: '01 Pahami',
     sessionId: 'session-m01',
     hasLiveDemo: true,
@@ -65,7 +60,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '05',
     label: '05 · Desain sebagai Komunikasi Visual',
     sectionLabel: 'Bagian 02 · Memahami Desain',
-    timeRange: '12:40 – 13:00',
     stageTag: '01 Pahami',
     sessionId: 'session-m01',
     hasLiveDemo: true,
@@ -76,20 +70,18 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '06',
     label: '06 · Dari Masalah ke Solusi (Sebelum & Sesudah)',
     sectionLabel: 'Bagian 02 · Memahami Desain',
-    timeRange: '12:40 – 13:00',
     stageTag: '01 Pahami',
     sessionId: 'session-m01',
     hasLiveDemo: true,
     demoLabel: 'Masalah vs Solusi',
   },
 
-  /* BAGIAN 03 — PONDASI DESAIN VISUAL (13:00–14:10) */
+  /* BAGIAN 03 — PONDASI DESAIN VISUAL */
   {
     id: 'slide-07',
     number: '07',
     label: '07 · Tiga Pondasi Utama Desain Visual',
     sectionLabel: 'Bagian 03 · Pondasi Desain Visual',
-    timeRange: '13:00 – 14:10',
     stageTag: '02 Susun',
     sessionId: 'session-m02',
   },
@@ -98,7 +90,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '08',
     label: '08 · Bagian A: Memahami Grid (Demo Garis)',
     sectionLabel: 'Bagian 03 · Bagian A — Grid & Tata Letak',
-    timeRange: '13:00 – 14:10',
     stageTag: '02 Susun',
     sessionId: 'session-m05',
     hasLiveDemo: true,
@@ -109,7 +100,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '09',
     label: '09 · Bagian A: Bagian-Bagian Tata Letak',
     sectionLabel: 'Bagian 03 · Bagian A — Grid & Tata Letak',
-    timeRange: '13:00 – 14:10',
     stageTag: '02 Susun',
     sessionId: 'session-m05',
     hasLiveDemo: true,
@@ -120,7 +110,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '10',
     label: '10 · Bagian A: Tata Letak Sebelum & Sesudah',
     sectionLabel: 'Bagian 03 · Bagian A — Grid & Tata Letak',
-    timeRange: '13:00 – 14:10',
     stageTag: '02 Susun',
     sessionId: 'session-m05',
     hasLiveDemo: true,
@@ -131,7 +120,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '11',
     label: '11 · Bagian B: Mengenal Tipografi',
     sectionLabel: 'Bagian 03 · Bagian B — Tipografi',
-    timeRange: '13:00 – 14:10',
     stageTag: '02 Susun',
     sessionId: 'session-m04',
   },
@@ -140,7 +128,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '12',
     label: '12 · Bagian B: Urutan Baca Tipografi',
     sectionLabel: 'Bagian 03 · Bagian B — Tipografi',
-    timeRange: '13:00 – 14:10',
     stageTag: '02 Susun',
     sessionId: 'session-m04',
   },
@@ -149,7 +136,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '13',
     label: '13 · Bagian B: Praktik Tipografi (Demo Langsung)',
     sectionLabel: 'Bagian 03 · Bagian B — Tipografi',
-    timeRange: '13:00 – 14:10',
     stageTag: '02 Susun',
     sessionId: 'session-m04',
     hasLiveDemo: true,
@@ -160,7 +146,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '14',
     label: '14 · Bagian C: Mengenal Warna (Roda Warna)',
     sectionLabel: 'Bagian 03 · Bagian C — Warna',
-    timeRange: '13:00 – 14:10',
     stageTag: '02 Susun',
     sessionId: 'session-m04',
     hasLiveDemo: true,
@@ -171,7 +156,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '15',
     label: '15 · Bagian C: Menyusun Palet Warna Seimbang',
     sectionLabel: 'Bagian 03 · Bagian C — Warna',
-    timeRange: '13:00 – 14:10',
     stageTag: '02 Susun',
     sessionId: 'session-m04',
   },
@@ -180,7 +164,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '16',
     label: '16 · Bagian C: Kontras & Kemudahan Baca',
     sectionLabel: 'Bagian 03 · Bagian C — Warna',
-    timeRange: '13:00 – 14:10',
     stageTag: '02 Susun',
     sessionId: 'session-m04',
     hasLiveDemo: true,
@@ -191,18 +174,16 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '17',
     label: '17 · Menggabungkan Grid, Tipe & Warna',
     sectionLabel: 'Bagian 03 · Rangkuman Pondasi',
-    timeRange: '13:00 – 14:10',
     stageTag: '02 Susun',
     sessionId: 'session-m05',
   },
 
-  /* BAGIAN 04 — DARI DESAIN KE UI/UX (14:20–14:40) */
+  /* BAGIAN 04 — DARI DESAIN KE UI/UX */
   {
     id: 'slide-18',
     number: '18',
     label: '18 · Dari Desain Visual ke Antarmuka Digital',
     sectionLabel: 'Bagian 04 · Dari Desain ke UI/UX',
-    timeRange: '14:20 – 14:40',
     stageTag: '03 Terjemahkan',
     sessionId: 'session-m07',
   },
@@ -211,7 +192,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '19',
     label: '19 · Bedanya UI dan UX dengan Sederhana',
     sectionLabel: 'Bagian 04 · Dari Desain ke UI/UX',
-    timeRange: '14:20 – 14:40',
     stageTag: '03 Terjemahkan',
     sessionId: 'session-m07',
   },
@@ -220,7 +200,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '20',
     label: '20 · Anatomi Hero Website (FORM / STUDIO)',
     sectionLabel: 'Bagian 04 · Dari Desain ke UI/UX',
-    timeRange: '14:20 – 14:40',
     stageTag: '03 Terjemahkan',
     sessionId: 'session-m07',
     hasLiveDemo: true,
@@ -231,20 +210,18 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '21',
     label: '21 · Keputusan Desain Mengubah Pengalaman',
     sectionLabel: 'Bagian 04 · Dari Desain ke UI/UX',
-    timeRange: '14:20 – 14:40',
     stageTag: '03 Terjemahkan',
     sessionId: 'session-m03',
     hasLiveDemo: true,
     demoLabel: 'Simulasi UI/UX',
   },
 
-  /* BAGIAN 05 — PANDUAN FIGMA & ALUR KERJA (14:40–15:10) */
+  /* BAGIAN 05 — PANDUAN FIGMA & ALUR KERJA */
   {
     id: 'slide-22',
     number: '22',
     label: '22 · Figma 01: Mengenal Figma',
     sectionLabel: 'Bagian 05 · Panduan Figma',
-    timeRange: '14:40 – 15:10',
     stageTag: '03 Terjemahkan',
     sessionId: 'session-m06',
     hasLiveDemo: true,
@@ -255,7 +232,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '23',
     label: '23 · Figma 02: Mengenal Ruang Kerja',
     sectionLabel: 'Bagian 05 · Panduan Figma',
-    timeRange: '14:40 – 15:10',
     stageTag: '03 Terjemahkan',
     sessionId: 'session-m06',
     hasLiveDemo: true,
@@ -266,7 +242,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '24',
     label: '24 · Figma 03: Alat Dasar yang Perlu Dikuasai',
     sectionLabel: 'Bagian 05 · Panduan Figma',
-    timeRange: '14:40 – 15:10',
     stageTag: '03 Terjemahkan',
     sessionId: 'session-m06',
     hasLiveDemo: true,
@@ -277,7 +252,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '25',
     label: '25 · Figma 04: Mengatur Properti Desain',
     sectionLabel: 'Bagian 05 · Panduan Figma',
-    timeRange: '14:40 – 15:10',
     stageTag: '03 Terjemahkan',
     sessionId: 'session-m06',
     hasLiveDemo: true,
@@ -288,7 +262,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '26',
     label: '26 · Figma 05: Merapikan dengan Auto Layout',
     sectionLabel: 'Bagian 05 · Panduan Figma',
-    timeRange: '14:40 – 15:10',
     stageTag: '03 Terjemahkan',
     sessionId: 'session-m07',
     hasLiveDemo: true,
@@ -299,7 +272,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '27',
     label: '27 · Figma 06: Membangun Antarmuka Sederhana',
     sectionLabel: 'Bagian 05 · Panduan Figma',
-    timeRange: '14:40 – 15:10',
     stageTag: '03 Terjemahkan',
     sessionId: 'session-m07',
     hasLiveDemo: true,
@@ -310,18 +282,16 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '28',
     label: '28 · Figma 07: Ringkasan Cepat Figma',
     sectionLabel: 'Bagian 05 · Panduan Figma',
-    timeRange: '14:40 – 15:10',
     stageTag: '03 Terjemahkan',
     sessionId: 'session-m07',
   },
 
-  /* BAGIAN 06 — TANTANGAN PRAKTIK LANGSUNG (15:10–16:20) */
+  /* BAGIAN 06 — TANTANGAN PRAKTIK LANGSUNG */
   {
     id: 'slide-29',
     number: '29',
     label: '29 · Tantangan Dimulai: Kesan Pertama Digital',
     sectionLabel: 'Bagian 06 · Tantangan Praktik',
-    timeRange: '15:10 – 16:20',
     stageTag: '04 Buat & Review',
     sessionId: 'session-c02',
   },
@@ -330,7 +300,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '30',
     label: '30 · Brief Kreatif Kamu (FORM / STUDIO)',
     sectionLabel: 'Bagian 06 · Tantangan Praktik',
-    timeRange: '15:10 – 16:20',
     stageTag: '04 Buat & Review',
     sessionId: 'session-c02',
   },
@@ -339,16 +308,14 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '31',
     label: '31 · Lima Syarat Desain Utama',
     sectionLabel: 'Bagian 06 · Tantangan Praktik',
-    timeRange: '15:10 – 16:20',
     stageTag: '04 Buat & Review',
     sessionId: 'session-c02',
   },
   {
     id: 'slide-32',
     number: '32',
-    label: '32 · Pembagian Waktu Kerja 70 Menit',
+    label: '32 · Alur Pengerjaan Proyek Hero',
     sectionLabel: 'Bagian 06 · Tantangan Praktik',
-    timeRange: '15:10 – 16:20',
     stageTag: '04 Buat & Review',
     sessionId: 'session-c02',
   },
@@ -357,20 +324,18 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '33',
     label: '33 · Checklist Berpikir Saat Mendesain',
     sectionLabel: 'Bagian 06 · Tantangan Praktik',
-    timeRange: '15:10 – 16:20',
     stageTag: '04 Buat & Review',
     sessionId: 'session-c02',
     hasLiveDemo: true,
     demoLabel: 'Cek Mandiri Interaktif',
   },
 
-  /* BAGIAN 07 — REVIEW & MASUKAN (16:20–16:45) */
+  /* BAGIAN 07 — REVIEW & MASUKAN */
   {
     id: 'slide-34',
     number: '34',
     label: '34 · Mari Review Karya Bersama',
     sectionLabel: 'Bagian 07 · Review & Masukan',
-    timeRange: '16:20 – 16:45',
     stageTag: '04 Buat & Review',
     sessionId: 'session-closing',
   },
@@ -379,18 +344,16 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '35',
     label: '35 · Kriteria Penilaian Antarmuka',
     sectionLabel: 'Bagian 07 · Review & Masukan',
-    timeRange: '16:20 – 16:45',
     stageTag: '04 Buat & Review',
     sessionId: 'session-closing',
   },
 
-  /* BAGIAN 08 — REFLEKSI & PENUTUP (16:45–17:00) */
+  /* BAGIAN 08 — REFLEKSI & PENUTUP */
   {
     id: 'slide-36',
     number: '36',
     label: '36 · Apa yang Sudah Kita Pelajari?',
     sectionLabel: 'Bagian 08 · Refleksi & Penutup',
-    timeRange: '16:45 – 17:00',
     stageTag: '04 Buat & Review',
     sessionId: 'session-closing',
   },
@@ -399,7 +362,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '37',
     label: '37 · Pemikiran Penutup',
     sectionLabel: 'Bagian 08 · Refleksi & Penutup',
-    timeRange: '16:45 – 17:00',
     stageTag: '04 Buat & Review',
     sessionId: 'session-closing',
   },
@@ -408,7 +370,6 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     number: '38',
     label: '38 · Terima Kasih — Berkarya dengan Tujuan',
     sectionLabel: 'Bagian 08 · Refleksi & Penutup',
-    timeRange: '16:45 – 17:00',
     stageTag: '04 Buat & Review',
     sessionId: 'session-closing',
   },

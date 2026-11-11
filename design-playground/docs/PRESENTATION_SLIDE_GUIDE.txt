@@ -8,7 +8,7 @@ CRAFT — DESAIN KE UI/UX.
 
 Referensi file kode sumber:
 - Isi & layout tiap slide : src/components/mentor/PresentationOverlay.tsx
-- Urutan, jam & tag tahap : src/content/presentation/craftDeckData.ts
+- Urutan & tag tahap     : src/content/presentation/craftDeckData.ts
 - Demo interaktif slide   : src/components/mentor/CraftSlideDemos.tsx
 - Sandbox Mini Hero       : src/components/interactive/MiniFigmaExercise.tsx
 
@@ -19,19 +19,13 @@ Referensi file kode sumber:
 
 - Total Slide    : 38 Slide (terbagi ke dalam Bagian 01 s/d Bagian 08)
 - 4 Tahap Belajar: 01 Pahami -> 02 Susun -> 03 Terjemahkan -> 04 Buat & Review
-- Durasi Deck    : 12:30 – 17:00 (4,5 Jam)
 - Gaya Tampilan  : Penuh satu layar (edge-to-edge), dominan Latar Terang
                    (#F2F2F2) dengan aksen Slide Gelap (#171717) pada momen
                    kunci (Slide 01, 11, 29, dan 37).
 
 Cara Membuka & Auto-Lompat Sesi:
-- Tombol "Present" di Navbar membuka slide sesuai sesi terakhir.
-- Tombol "Present Slides" di halaman Modul (/learn/chapter-01 s/d 07)
-  otomatis melompat ke slide pembuka modul tersebut.
-- Tombol "Present Slides" di halaman Figma Guide (/figma) otomatis melompat
-  ke Slide 22 (session-m06).
-- Tombol "Present Brief Fullscreen" di /challenges otomatis melompat ke
-  Slide 29 (session-c02).
+- Tombol "Present" di Navbar membuka slide sesuai sesi terakhir yang aktif
+  di halaman mana pun kamu berada.
 
 Shortcut Keyboard & Tombol Bar:
 - Panah Kanan / PageDown / Space : Pindah ke slide berikutnya
@@ -49,17 +43,17 @@ Shortcut Keyboard & Tombol Bar:
 2. PETA RINGKAS SLIDE 01 – 38
 ================================================================================
 
-BAGIAN 01 · Pembukaan & Pengenalan (12:30 – 12:40 | 01 Pahami | Rute: /)
+BAGIAN 01 · Pembukaan & Pengenalan (01 Pahami | Rute: /)
 - Slide 01 : Sampul: CRAFT — DESAIN KE UI/UX [Gelap + Gradient]
 - Slide 02 : Selamat Datang di Proses Kreatif
 - Slide 03 : Apa yang Membuat Desain Bagus? [Demo: Voting Kelas Langsung]
 
-BAGIAN 02 · Memahami Desain (12:40 – 13:00 | 01 Pahami | Rute: /learn/chapter-01)
+BAGIAN 02 · Memahami Desain (01 Pahami | Rute: /learn/chapter-01)
 - Slide 04 : Apa Itu Desain? [Demo: Hiasan vs Desain]
 - Slide 05 : Desain sebagai Komunikasi Visual [Demo: Sorot Peran Elemen]
 - Slide 06 : Dari Masalah ke Solusi [Demo: Masalah vs Solusi]
 
-BAGIAN 03 · Pondasi Desain Visual (13:00 – 14:10 | 02 Susun)
+BAGIAN 03 · Pondasi Desain Visual (02 Susun)
 - Slide 07 : Tiga Pondasi Utama Desain Visual [Rute: /learn/chapter-02]
 - Slide 08 : A · Memahami Grid [Demo: Garis Grid Nyala/Mati | Rute: chapter-05]
 - Slide 09 : A · Bagian-Bagian Tata Letak [Demo: Peta Ruang Interaktif | chapter-05]
@@ -72,13 +66,13 @@ BAGIAN 03 · Pondasi Desain Visual (13:00 – 14:10 | 02 Susun)
 - Slide 16 : C · Kontras & Kemudahan Baca [Demo: Simulasi Kontras WCAG | chapter-04]
 - Slide 17 : Rangkuman · Menggabungkan Grid, Tipe & Warna [Rute: chapter-05]
 
-BAGIAN 04 · Dari Desain ke UI/UX (14:20 – 14:40 | 03 Terjemahkan)
+BAGIAN 04 · Dari Desain ke UI/UX (03 Terjemahkan)
 - Slide 18 : Dari Desain Visual ke Antarmuka Digital [Rute: /learn/chapter-07]
 - Slide 19 : Bedanya UI dan UX dengan Sederhana [Rute: /learn/chapter-07]
 - Slide 20 : Anatomi Hero Website FORM / STUDIO [Demo: Inspektor 7 Bagian | chapter-07]
 - Slide 21 : Keputusan Desain Mengubah Pengalaman [Demo: Simulasi UI/UX | chapter-03]
 
-BAGIAN 05 · Panduan Figma & Alur Kerja (14:40 – 15:10 | 03 Terjemahkan)
+BAGIAN 05 · Panduan Figma & Alur Kerja (03 Terjemahkan)
 - Slide 22 : Figma 01 · Mengenal Figma [Demo: Koneksi Materi & Editor | chapter-06]
 - Slide 23 : Figma 02 · Mengenal Ruang Kerja [Demo: Eksplorasi 4 Area | chapter-06]
 - Slide 24 : Figma 03 · 6 Alat Dasar Wajib [Demo: 6 Alat Wajib | chapter-06]
@@ -87,18 +81,18 @@ BAGIAN 05 · Panduan Figma & Alur Kerja (14:40 – 15:10 | 03 Terjemahkan)
 - Slide 27 : Figma 06 · Membangun Antarmuka [Demo: Alur 6 Langkah / Sandbox Hero | chapter-07]
 - Slide 28 : Figma 07 · Ringkasan Cepat Figma (Cheat Sheet 3 Kolom) [chapter-07]
 
-BAGIAN 06 · Tantangan Praktik Langsung (15:10 – 16:20 | 04 Buat & Review | Rute: /challenges/personal-portfolio-hero)
+BAGIAN 06 · Tantangan Praktik Langsung (04 Buat & Review | Rute: /challenges/personal-portfolio-hero)
 - Slide 29 : Tantangan Dimulai: Kesan Pertama Digital [Gelap + Gradient]
 - Slide 30 : Brief Kreatif Kamu (FORM / STUDIO + 7 Bagian Wajib)
 - Slide 31 : Lima Syarat Desain Utama
-- Slide 32 : Pembagian Waktu Kerja 70 Menit
+- Slide 32 : Alur Pengerjaan Proyek Hero
 - Slide 33 : Checklist Berpikir Saat Mendesain [Demo: Cek Mandiri Interaktif]
 
-BAGIAN 07 · Review & Masukan (16:20 – 16:45 | 04 Buat & Review | Rute: /quiz)
+BAGIAN 07 · Review & Masukan (04 Buat & Review | Rute: /quiz)
 - Slide 34 : Mari Review Karya Bersama (4 Langkah Evaluasi)
 - Slide 35 : Kriteria Penilaian Antarmuka (Rubrik Bobot 100%)
 
-BAGIAN 08 · Refleksi & Penutup (16:45 – 17:00 | 04 Buat & Review | Rute: /quiz)
+BAGIAN 08 · Refleksi & Penutup (04 Buat & Review | Rute: /quiz)
 - Slide 36 : Apa yang Sudah Kita Pelajari? (6 Poin Kilas Balik)
 - Slide 37 : Pemikiran Penutup [Gelap]
 - Slide 38 : Terima Kasih — Berkarya dengan Tujuan [Terang + Gradient + CTA]
@@ -110,7 +104,7 @@ BAGIAN 08 · Refleksi & Penutup (16:45 – 17:00 | 04 Buat & Review | Rute: /qui
 
 
 --------------------------------------------------------------------------------
-BAGIAN 01 · PEMBUKAAN & PENGENALAN (12:30 – 12:40 | Tahap: 01 Pahami)
+BAGIAN 01 · PEMBUKAAN & PENGENALAN (Tahap: 01 Pahami)
 --------------------------------------------------------------------------------
 
 SLIDE 01 — Sampul: CRAFT — DESAIN KE UI/UX
@@ -119,11 +113,11 @@ SLIDE 01 — Sampul: CRAFT — DESAIN KE UI/UX
 
 Fungsi Slide:
 Menjadi sampul pembuka saat peserta memasuki sesi workshop untuk memperkenalkan
-tema besar, durasi acara, serta empat tahapan belajar hari ini.
+tema besar serta empat tahapan belajar hari ini.
 
 Poin yang Dijelaskan:
 1. Judul utama: CRAFT — DESAIN KE UI/UX (Workshop Desain Kreatif · Jalur Pemula,
-   12:30 – 17:00 · 4,5 Jam).
+   Materi & Praktik Interaktif).
 2. Pengantar tema: "Dari Grid, Tipografi, dan Warna menjadi desain layar digital
    yang rapi dan fungsional."
 3. Strip alur 4 tahap belajar di bawah: 01 Pahami, 02 Susun, 03 Terjemahkan,
@@ -152,7 +146,7 @@ Kolom Kanan (Alur Belajar Hari Ini):
 1. 01 · Pahami      : Desain sebagai komunikasi & pemecah masalah
 2. 02 · Susun       : Fondasi Grid, Tipografi & Warna
 3. 03 · Terjemahkan : Dari prinsip visual ke UI/UX & Figma
-4. 04 · Buat & Review: Praktik Hero Website 70 menit + evaluasi
+4. 04 · Buat & Review: Praktik membuat Hero Website + evaluasi karya
 
 
 SLIDE 03 — Apa yang membuat sebuah desain bagus?
@@ -179,7 +173,7 @@ dengan jelas."
 
 
 --------------------------------------------------------------------------------
-BAGIAN 02 · MEMAHAMI DESAIN (12:40 – 13:00 | Tahap: 01 Pahami)
+BAGIAN 02 · MEMAHAMI DESAIN (Tahap: 01 Pahami)
 --------------------------------------------------------------------------------
 
 SLIDE 04 — Desain bukan sekadar hiasan.
@@ -200,7 +194,7 @@ Demo Interaktif (Kolom Kanan):
 Tombol perbandingan langsung antara:
 - "Sekadar Hiasan (Bingung)": teks miring berantakan, informasi acara tidak
   jelas, ajakan aksi cuma tulisan garis bawah "klik di sini mungkin".
-- "Desain Terarah (Jelas)": badge WORKSHOP CRAFT, jadwal SABTU · 12:30, judul
+- "Desain Terarah (Jelas)": badge WORKSHOP CRAFT, label EDISI PEMULA, judul
   tegas DESAIN KE UI/UX, penjelasan singkat, dan tombol "Daftar Kursi ->".
 
 
@@ -250,7 +244,7 @@ Studi kasus studio kreatif yang tawaran jasanya sulit dipahami:
 
 
 --------------------------------------------------------------------------------
-BAGIAN 03 · PONDASI DESAIN VISUAL (13:00 – 14:10 | Tahap: 02 Susun)
+BAGIAN 03 · PONDASI DESAIN VISUAL (Tahap: 02 Susun)
 --------------------------------------------------------------------------------
 
 SLIDE 07 — Tiga pondasi, satu bahasa visual.
@@ -478,7 +472,7 @@ fokus warna.
 
 
 --------------------------------------------------------------------------------
-BAGIAN 04 · DARI DESAIN KE UI/UX (14:20 – 14:40 | Tahap: 03 Terjemahkan)
+BAGIAN 04 · DARI DESAIN KE UI/UX (Tahap: 03 Terjemahkan)
 --------------------------------------------------------------------------------
 
 SLIDE 18 — Prinsip visual membentuk antarmuka digital.
@@ -566,7 +560,7 @@ pada tampilan kartu "Luncurkan Ide Digital dengan Percaya Diri":
 
 
 --------------------------------------------------------------------------------
-BAGIAN 05 · PANDUAN FIGMA & ALUR KERJA (14:40 – 15:10 | Tahap: 03 Terjemahkan)
+BAGIAN 05 · PANDUAN FIGMA & ALUR KERJA (Tahap: 03 Terjemahkan)
 --------------------------------------------------------------------------------
 
 SLIDE 22 — Figma 01: Dari ide menjadi antarmuka digital.
@@ -747,7 +741,7 @@ untuk setiap keputusan desain."
 
 
 --------------------------------------------------------------------------------
-BAGIAN 06 · TANTANGAN PRAKTIK LANGSUNG (15:10 – 16:20 | Tahap: 04 Buat & Review)
+BAGIAN 06 · TANTANGAN PRAKTIK LANGSUNG (Tahap: 04 Buat & Review)
 --------------------------------------------------------------------------------
 
 SLIDE 29 — Tantangan Dimulai: Kesan pertama digital.
@@ -764,8 +758,8 @@ Poin yang Dijelaskan:
    Terapkan grid yang lurus, ukuran huruf yang berurutan, kombinasi warna
    seimbang, serta tombol utama yang jelas diklik."
 2. Kartu Kanan (Bingkai Gradien Spesifikasi Wajib):
-   - UKURAN FRAME : 1440 × 900 px
-   - WAKTU KERJA  : 70 Menit
+   - UKURAN FRAME  : 1440 × 900 px
+   - ALAT & TARGET : Figma · 1 Hero
 
 
 SLIDE 30 — Brief Kreatif Kamu (FORM / STUDIO).
@@ -816,21 +810,21 @@ Kanan (5 Syarat Desain Utama):
 5. 05 · Hirarki Pesan Jelas   : Pesan terpenting mencuri perhatian duluan.
 
 
-SLIDE 32 — Pembagian Waktu Kerja 70 Menit.
-- Kicker   : Bagian 06 · Pembagian Waktu
+SLIDE 32 — Alur Pengerjaan Proyek Hero.
+- Kicker   : Bagian 06 · Alur Pengerjaan
 - Tampilan : Terang (#F2F2F2) | Rute Link: /challenges/personal-portfolio-hero
 
 Fungsi Slide:
-Mengatur ritme kerja peserta selama 70 menit supaya tidak kehabisan waktu dan
-karya selesai tepat waktu.
+Mengatur urutan kerja peserta secara bertahap supaya hasil desain rapi,
+jelas dibaca, dan terstruktur.
 
-Poin yang Dijelaskan (Timeline Bar + Grid 6 Tahap):
-1. 01 · 10 Menit : Pahami brief & tentukan arah pesan
-2. 02 · 10 Menit : Susun frame 1440×900 & grid
-3. 03 · 15 Menit : Atur judul, teks & urutan baca
-4. 04 · 15 Menit : Pasang warna, kontras & visual
-5. 05 · 15 Menit : Cek ulang jarak & rapikan tombol
-6. 06 · 5 Menit  : Siap presentasikan karya di kelas
+Poin yang Dijelaskan (Progress Bar 01–06 + Grid 6 Tahap):
+1. Tahap 01 · Brief     : Pahami brief & tentukan arah pesan
+2. Tahap 02 · Struktur  : Susun frame 1440×900 & kolom grid
+3. Tahap 03 · Tipografi : Atur judul, teks & urutan baca
+4. Tahap 04 · Visual    : Pasang warna, kontras & visual
+5. Tahap 05 · Detail    : Cek ulang jarak & rapikan tombol
+6. Tahap 06 · Final     : Siap presentasikan karya di kelas
 
 
 SLIDE 33 — Checklist Berpikir Saat Mendesain.
@@ -852,7 +846,7 @@ Poin & Interaksi Demo (6 Pertanyaan Klik-Centang):
 
 
 --------------------------------------------------------------------------------
-BAGIAN 07 · REVIEW & MASUKAN (16:20 – 16:45 | Tahap: 04 Buat & Review)
+BAGIAN 07 · REVIEW & MASUKAN (Tahap: 04 Buat & Review)
 --------------------------------------------------------------------------------
 
 SLIDE 34 — Mari Review Karya Bersama.
@@ -896,7 +890,7 @@ Poin yang Dijelaskan (5 Poin Rubrik Total 100%):
 
 
 --------------------------------------------------------------------------------
-BAGIAN 08 · REFLEKSI & PENUTUP (16:45 – 17:00 | Tahap: 04 Buat & Review)
+BAGIAN 08 · REFLEKSI & PENUTUP (Tahap: 04 Buat & Review)
 --------------------------------------------------------------------------------
 
 SLIDE 36 — Apa yang Sudah Kita Pelajari? (Kilas Balik).

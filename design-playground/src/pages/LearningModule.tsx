@@ -40,7 +40,6 @@ export function LearningModule() {
   const completedChapters = useLearningStore((s) => s.completedChapters);
   const setCurrentChapter = useLearningStore((s) => s.setCurrentChapter);
   const setCurrentSession = useLearningStore((s) => s.setCurrentSession);
-  const setPresentationMode = useLearningStore((s) => s.setPresentationMode);
   const toggleChapterComplete = useLearningStore((s) => s.toggleChapterComplete);
   const chapterMiniChecks = useLearningStore((s) => s.chapterMiniChecks);
   const recordMiniCheckAnswer = useLearningStore((s) => s.recordMiniCheckAnswer);
@@ -97,12 +96,6 @@ export function LearningModule() {
   const isFirstTopic = safeTopicIdx === 0;
   const isLastTopic = safeTopicIdx >= chapter.topics.length - 1;
 
-  const handlePresentModule = () => {
-    const matchingSession = TEACHABLE_SESSIONS.find((s) => s.moduleId === chapter.id);
-    if (matchingSession) setCurrentSession(matchingSession.id);
-    setPresentationMode(true);
-  };
-
   const renderInteractiveDemo = () => {
     switch (chapter.interactiveDemo) {
       case 'communication-compare':
@@ -138,7 +131,6 @@ export function LearningModule() {
         chapter={chapter}
         isCompleted={isCompleted}
         onToggleComplete={() => toggleChapterComplete(chapter.id)}
-        onPresentModule={handlePresentModule}
       />
 
       <div className="mx-auto max-w-6xl space-y-10 px-4 py-10 sm:px-6 lg:px-8">

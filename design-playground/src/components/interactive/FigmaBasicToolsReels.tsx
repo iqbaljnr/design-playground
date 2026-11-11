@@ -16,15 +16,11 @@ import {
   Monitor,
   MousePointer,
   PanelLeft,
-  Pause,
   Pencil,
   PenTool,
   Play,
   Plus,
-  RotateCcw,
   Search,
-  SkipBack,
-  SkipForward,
   SlidersHorizontal,
   Smile,
   Sparkles,
@@ -266,12 +262,19 @@ function interpolateCursor(
   return waypoints[waypoints.length - 1];
 }
 
-export function FigmaBasicToolsReelsDemo() {
+interface FigmaBasicToolsReelsDemoProps {
+  badgeText?: string;
+  headingText?: string;
+}
+
+export function FigmaBasicToolsReelsDemo({
+  badgeText = 'Frame Motion · Reels Flow',
+  headingText = 'Watch How a Blank Figma Screen Turns Into Designs & Feedback',
+}: FigmaBasicToolsReelsDemoProps = {}) {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [sceneIdx, setSceneIdx] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [speed, setSpeed] = useState<0.75 | 1 | 1.5>(1);
 
   /* Initialize respecting OS reduced-motion preference */
   useEffect(() => {
@@ -287,7 +290,7 @@ export function FigmaBasicToolsReelsDemo() {
 
   const currentScene = REEL_SCENES[sceneIdx] ?? REEL_SCENES[0];
 
-  /* 30fps deterministic animation loop tied cleanly to durationMs & speed */
+  /* Smooth deterministic auto-play loop synced cleanly to durationMs */
   useEffect(() => {
     if (!isPlaying) return;
     let frameId = 0;
@@ -296,7 +299,7 @@ export function FigmaBasicToolsReelsDemo() {
     const tick = (now: number) => {
       const dt = Math.min(64, Math.max(0, now - lastTs));
       lastTs = now;
-      const step = (dt * speed) / currentScene.durationMs;
+      const step = dt / currentScene.durationMs;
 
       setProgress((prev) => {
         const next = prev + step;
@@ -312,7 +315,7 @@ export function FigmaBasicToolsReelsDemo() {
 
     frameId = window.requestAnimationFrame(tick);
     return () => window.cancelAnimationFrame(frameId);
-  }, [isPlaying, speed, currentScene.durationMs]);
+  }, [isPlaying, currentScene.durationMs]);
 
   const jumpToScene = (idx: number) => {
     const safeIdx = ((idx % REEL_SCENES.length) + REEL_SCENES.length) % REEL_SCENES.length;
@@ -430,83 +433,17 @@ export function FigmaBasicToolsReelsDemo() {
 
   return (
     <div className="overflow-hidden rounded-2xl border border-border-subtle bg-elevated">
-      {/* Editorial Top Control Header */}
-      <div className="flex flex-col justify-between gap-3 border-b border-border-subtle bg-surface px-4 py-3.5 sm:flex-row sm:items-center sm:px-5">
-        <div className="min-w-0">
-          <div className="flex flex-wrap items-center gap-2">
-            <Badge tone="orange">Frame Motion · Reels Flow</Badge>
-            <span className="font-mono text-[11px] font-bold text-muted">
-              REEL {currentScene.num} / 0{REEL_SCENES.length} · {currentScene.videoRange}
-            </span>
-          </div>
-          <h3 className="mt-1 font-display text-base font-extrabold text-ink sm:text-lg">
-            Watch the 6 Basic Tools Work Live Inside Dark Figma UI3
-          </h3>
+      {/* Editorial Headline Header */}
+      <div className="border-b border-border-subtle bg-surface px-4 py-3.5 sm:px-5">
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge tone="orange">{badgeText}</Badge>
+          <span className="font-mono text-[11px] font-bold text-muted">
+            REEL {currentScene.num} / 0{REEL_SCENES.length} · {currentScene.videoRange}
+          </span>
         </div>
-
-        {/* Reels Playback Controls */}
-        <div className="flex flex-wrap items-center gap-1.5">
-          <button
-            type="button"
-            onClick={() => jumpToScene(sceneIdx - 1)}
-            aria-label="Previous tool reel"
-            className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-border-strong bg-elevated text-ink hover:border-brand-magenta cursor-pointer"
-          >
-            <SkipBack size={14} aria-hidden="true" />
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setIsPlaying((p) => !p)}
-            aria-label={isPlaying ? 'Pause reels playback' : 'Play reels playback'}
-            className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-brand-magenta px-3 font-display text-xs font-bold text-white hover:bg-brand-magenta-hover cursor-pointer"
-          >
-            {isPlaying ? (
-              <>
-                <Pause size={13} aria-hidden="true" />
-                <span>Pause</span>
-              </>
-            ) : (
-              <>
-                <Play size={13} aria-hidden="true" />
-                <span>Play Reel</span>
-              </>
-            )}
-          </button>
-
-          <button
-            type="button"
-            onClick={() => jumpToScene(sceneIdx + 1)}
-            aria-label="Next tool reel"
-            className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-border-strong bg-elevated text-ink hover:border-brand-magenta cursor-pointer"
-          >
-            <SkipForward size={14} aria-hidden="true" />
-          </button>
-
-          <button
-            type="button"
-            onClick={() => {
-              setProgress(0);
-              setIsPlaying(true);
-            }}
-            aria-label="Replay current tool"
-            title="Replay current step"
-            className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-border-strong bg-elevated text-ink hover:border-brand-magenta cursor-pointer"
-          >
-            <RotateCcw size={13} aria-hidden="true" />
-          </button>
-
-          <button
-            type="button"
-            onClick={() =>
-              setSpeed((s) => (s === 1 ? 1.5 : s === 1.5 ? 0.75 : 1))
-            }
-            aria-label="Cycle playback speed"
-            className="inline-flex h-8 items-center rounded-lg border border-border-strong bg-elevated px-2.5 font-mono text-xs font-bold text-ink hover:border-brand-magenta cursor-pointer"
-          >
-            {speed}x
-          </button>
-        </div>
+        <h2 className="mt-1 font-display text-base font-extrabold text-ink sm:text-lg">
+          {headingText}
+        </h2>
       </div>
 
       {/* Reels Story Segmented Progress Bar + Quick Step Jump Pills */}
@@ -1536,43 +1473,20 @@ export function FigmaBasicToolsReelsDemo() {
           </div>
         </div>
 
-        {/* Scrubber + Beginner Flow Explainer Strip */}
+        {/* Beginner Flow Explainer Strip */}
         <div className="mt-3 rounded-xl border border-[#2D2D2D] bg-[#222222] px-4 py-3 text-white">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <div className="min-w-0">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="font-mono text-xs font-bold text-[#68B8FF]">
-                  STEP {currentScene.num} · {currentScene.title.toUpperCase()}
-                </span>
-                <span className="font-mono text-[11px] text-[#A3A3A3]">
-                  Right Panel: {currentScene.inspectorSummary}
-                </span>
-              </div>
-              <p className="mt-1 text-xs leading-relaxed text-[#E5E5E5]">
-                <strong className="text-brand-orange">Action: </strong>
-                {currentScene.actionSummary} — {currentScene.beginnerTip}
-              </p>
-            </div>
-
-            {/* Interactive Step Scrubber for Precision Mentoring */}
-            <div className="flex shrink-0 items-center gap-2 sm:w-44">
-              <span className="font-mono text-[10px] text-[#9E9E9E] tabular-nums">
-                {Math.round(progress * 100)}%
-              </span>
-              <input
-                type="range"
-                min={0}
-                max={100}
-                value={Math.round(progress * 100)}
-                onChange={(e) => {
-                  setIsPlaying(false);
-                  setProgress(Number(e.target.value) / 100);
-                }}
-                aria-label="Scrub current tool motion timeline"
-                className="h-1.5 w-full cursor-pointer"
-              />
-            </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="font-mono text-xs font-bold text-[#68B8FF]">
+              STEP {currentScene.num} · {currentScene.title.toUpperCase()}
+            </span>
+            <span className="font-mono text-[11px] text-[#A3A3A3]">
+              Right Panel: {currentScene.inspectorSummary}
+            </span>
           </div>
+          <p className="mt-1 text-xs leading-relaxed text-[#E5E5E5]">
+            <strong className="text-brand-orange">Action: </strong>
+            {currentScene.actionSummary} — {currentScene.beginnerTip}
+          </p>
         </div>
       </div>
     </div>

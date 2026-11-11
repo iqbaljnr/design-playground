@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { CheckCircle2, Clock, ChevronRight, Presentation } from 'lucide-react';
+import { CheckCircle2, Clock, ChevronRight } from 'lucide-react';
 import type { Chapter } from '../../types/curriculum';
 import { Badge } from '../ui/Badge';
 
@@ -7,14 +7,12 @@ interface ChapterHeaderProps {
   chapter: Chapter;
   isCompleted: boolean;
   onToggleComplete: () => void;
-  onPresentModule?: () => void;
 }
 
 export function ChapterHeader({
   chapter,
   isCompleted,
   onToggleComplete,
-  onPresentModule,
 }: ChapterHeaderProps) {
   return (
     <section className="border-b border-border-subtle bg-surface">
@@ -53,7 +51,7 @@ export function ChapterHeader({
             </p>
           </div>
 
-          <div className="flex flex-col items-stretch gap-2.5 sm:flex-row lg:flex-col lg:items-end">
+          <div className="flex shrink-0 items-center">
             <button
               type="button"
               onClick={onToggleComplete}
@@ -68,19 +66,6 @@ export function ChapterHeader({
                 {isCompleted ? 'Completed (Click to Undo)' : 'Mark Module Complete'}
               </span>
             </button>
-
-            {onPresentModule && (
-              <div className="flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  onClick={onPresentModule}
-                  className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg border border-border-strong bg-elevated px-3.5 py-1.5 font-display text-xs font-semibold text-ink hover:border-brand-magenta cursor-pointer transition-colors"
-                >
-                  <Presentation size={14} aria-hidden="true" className="text-brand-magenta" />
-                  <span>Present Module</span>
-                </button>
-              </div>
-            )}
           </div>
         </div>
 

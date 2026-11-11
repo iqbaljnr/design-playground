@@ -20,6 +20,10 @@ import {
   type PresentationLang,
   type PresentationScale,
 } from '../interactive/MiniFigmaExercise';
+import {
+  FigmaEssentialToolReelStage,
+  type EssentialToolKey,
+} from '../interactive/FigmaEssentialToolReel';
 import { getContrastRatio } from '../../utils/color';
 
 /* -------------------------------------------------------------------------- */
@@ -230,7 +234,7 @@ export function CraftSlide03VotingShowcase({
             {isId ? 'WORKSHOP DESAIN' : 'STUDIO WORKSHOP'}
           </span>
           <span className={`mt-0.5 text-muted ${t.badge}`}>
-            {isId ? 'Sabtu · 12:30 · Untuk Pemula' : 'Saturday · 12:30 PM · Free Entry'}
+            {isId ? 'Studio Kreatif · Untuk Pemula' : 'Creative Studio · Beginner Track'}
           </span>
         </div>
       ),
@@ -370,7 +374,7 @@ export function CraftSlide04CompareDemo({
         <div className="flex min-h-[210px] flex-col justify-between rounded-xl border border-border-subtle bg-canvas p-5">
           <div className={`flex items-center justify-between font-semibold text-brand-magenta ${t.badge}`}>
             <span>WORKSHOP CRAFT</span>
-            <span className="font-mono text-muted">{isId ? 'SABTU · 12:30' : 'SAT · 12:30'}</span>
+            <span className="font-mono text-muted">{isId ? 'EDISI PEMULA' : 'BEGINNER TRACK'}</span>
           </div>
           <div>
             <h4 className={`font-display font-extrabold text-ink ${t.specimenHeadline}`}>
@@ -378,8 +382,8 @@ export function CraftSlide04CompareDemo({
             </h4>
             <p className={`mt-1 text-muted ${t.body}`}>
               {isId
-                ? 'Pelajari Grid, Tipografi & Warna lalu buat Hero Website dalam 4,5 jam.'
-                : 'Learn Grid, Typography & Color and build a website hero in 4.5 hours.'}
+                ? 'Pelajari Grid, Tipografi & Warna lalu buat Hero Website pertamamu.'
+                : 'Learn Grid, Typography & Color and build your first website hero.'}
             </p>
           </div>
           <div className="flex items-center justify-between border-t border-border-subtle pt-3">
@@ -2298,69 +2302,27 @@ export function CraftSlide24EssentialToolsDemo({
         })}
       </div>
 
-      {/* Live Visual Tool Demonstration Card */}
+      {/* Live Frame Motion Reels Visual Tool Demonstration Card */}
       <div className="rounded-2xl bg-dark p-5 text-white lg:col-span-5">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2">
           <span className={`font-mono font-bold text-brand-orange ${t.badge}`}>
-            {isId ? 'CONTOH VISUAL' : 'VISUAL DEMONSTRATION'}
+            REELS · FRAME MOTION
           </span>
           <span className={`rounded-full bg-brand-magenta px-2.5 py-0.5 font-mono font-bold text-white ${t.badge}`}>
             {isId ? `Tekan ${active.key}` : `Press ${active.key}`}
           </span>
         </div>
 
-        <div className="my-3.5 flex h-32 items-center justify-center rounded-xl border border-[#2A2928] bg-[#20201F] p-4">
-          {active.key === 'V' && (
-            <div className={`relative rounded-lg border-2 border-brand-orange bg-dark px-5 py-2.5 font-bold text-white ${t.rowTitle}`}>
-              {isId ? 'Objek Terpilih' : 'Selected Object'}
-              <span className="absolute -left-1 -top-1 h-2 w-2 bg-white" />
-              <span className="absolute -right-1 -top-1 h-2 w-2 bg-white" />
-              <span className="absolute -bottom-1 -left-1 h-2 w-2 bg-white" />
-              <span className="absolute -bottom-1 -right-1 h-2 w-2 bg-white" />
-            </div>
-          )}
-          {active.key === 'F' && (
-            <div className="w-52 rounded-lg border border-dashed border-brand-orange bg-dark p-3">
-              <span className={`block font-mono text-brand-orange ${t.badge}`}>
-                # Desktop_Hero · 1440×900
-              </span>
-              <div className="mt-2 h-10 rounded border border-[#383634] bg-[#262524]" />
-            </div>
-          )}
-          {active.key === 'R' && (
-            <div className={`flex h-14 w-40 items-center justify-center rounded-lg bg-brand-magenta font-mono font-bold text-white ${t.badge}`}>
-              W 144 × H 56
-            </div>
-          )}
-          {active.key === 'O' && (
-            <div className={`flex h-20 w-20 items-center justify-center rounded-full border-4 border-brand-orange bg-[#C2185B] font-mono font-bold text-white ${t.badge}`}>
-              {isId ? '1:1 Bulat' : '1:1 Circle'}
-            </div>
-          )}
-          {active.key === 'T' && (
-            <div className="text-left">
-              <span className={`block font-display font-extrabold text-white ${t.specimenHeadline}`}>
-                {isId ? 'Judul Utama' : 'Headline'}
-                <span className="text-brand-magenta">|</span>
-              </span>
-              <span className={`font-mono text-on-dark-muted ${t.badge}`}>
-                Montserrat · Bold
-              </span>
-            </div>
-          )}
-          {active.key === 'Shift + A' && (
-            <div className={`inline-flex items-center gap-3 rounded-xl border border-brand-orange bg-brand-magenta px-4 py-2.5 font-display font-bold text-white ${t.rowTitle}`}>
-              <span>{isId ? 'Lihat Karya' : 'Explore Work'}</span>
-              <span className={`rounded bg-dark/30 px-1.5 py-0.5 font-mono ${t.badge}`}>
-                Pad 16px
-              </span>
-            </div>
-          )}
-        </div>
+        <FigmaEssentialToolReelStage
+          activeToolKey={active.key as EssentialToolKey}
+          onSelectToolIdx={setToolIdx}
+          scale={scale}
+          lang={lang}
+        />
 
-        <h4 className={`font-display font-extrabold ${t.cardHeading}`}>
+        <h3 className={`font-display font-extrabold ${t.cardHeading}`}>
           {active.name} ({active.key})
-        </h4>
+        </h3>
         <p className={`mt-1 leading-relaxed text-on-dark-muted ${t.compactNote}`}>
           {active.demoNote}
         </p>

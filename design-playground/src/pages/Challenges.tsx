@@ -6,7 +6,6 @@ import {
   FileText,
   FolderDown,
   Layers,
-  Presentation,
 } from 'lucide-react';
 import { PageContainer } from '../components/layout/PageContainer';
 import { MiddleFidelityReference } from '../components/interactive/MiddleFidelityReference';
@@ -39,7 +38,6 @@ export function Challenges() {
   const criteriaChecked = useLearningStore((s) => s.challengeCriteriaChecked);
   const challengeNotes = useLearningStore((s) => s.challengeNotes);
   const setCurrentSession = useLearningStore((s) => s.setCurrentSession);
-  const setPresentationMode = useLearningStore((s) => s.setPresentationMode);
   const toggleCriterion = useLearningStore((s) => s.toggleChallengeCriterion);
   const toggleChallengeComplete = useLearningStore((s) => s.toggleChallengeComplete);
   const setChallengeNote = useLearningStore((s) => s.setChallengeNote);
@@ -47,7 +45,9 @@ export function Challenges() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
-  }, [resolved.id]);
+    const match = TEACHABLE_SESSIONS.find((s) => s.challengeId === resolved.id);
+    if (match) setCurrentSession(match.id);
+  }, [resolved.id, setCurrentSession]);
 
   const checkedForActive = criteriaChecked[resolved.id] ?? [];
   const isCompleted = completedChallenges.includes(resolved.id);
@@ -81,12 +81,6 @@ export function Challenges() {
       setDownloadNote(`Downloaded ${item.fileBaseName}.png`);
     }
     recordAssetDownload(item.id);
-  };
-
-  const handlePresentChallenge = () => {
-    const match = TEACHABLE_SESSIONS.find((s) => s.challengeId === resolved.id);
-    if (match) setCurrentSession(match.id);
-    setPresentationMode(true);
   };
 
   return (
@@ -198,23 +192,6 @@ export function Challenges() {
                 </button>
               );
             })}
-
-            {/* Presentation Controls Card */}
-            <div className="space-y-2.5 rounded-2xl border border-border-subtle bg-elevated p-4">
-              <span className="block font-display text-xs font-semibold text-muted">
-                Slide Presentation
-              </span>
-              <div className="flex flex-col gap-2">
-                <button
-                  type="button"
-                  onClick={handlePresentChallenge}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-brand-magenta px-3 py-2 font-display text-xs font-semibold text-white transition-colors hover:bg-brand-magenta-hover cursor-pointer"
-                >
-                  <Presentation size={14} aria-hidden="true" />
-                  <span>Present Brief Fullscreen</span>
-                </button>
-              </div>
-            </div>
           </aside>
 
           {/* Main Active Challenge Details */}
