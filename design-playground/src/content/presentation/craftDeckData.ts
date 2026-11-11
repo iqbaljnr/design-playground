@@ -20,7 +20,7 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
   {
     id: 'slide-01',
     number: '01',
-    label: '01 · Sampul: CRAFT — DESAIN KE UI/UX',
+    label: '01 · Sampul: Creative Workshop',
     sectionLabel: 'Bagian 01 · Pembukaan & Pengenalan',
     stageTag: '01 Pahami',
     sessionId: 'session-opening',
@@ -41,7 +41,7 @@ export const CRAFT_SLIDES: CraftSlideMeta[] = [
     stageTag: '01 Pahami',
     sessionId: 'session-opening',
     hasLiveDemo: true,
-    demoLabel: 'Voting Kelas Langsung',
+    demoLabel: 'Diskusi Terbuka',
   },
 
   /* BAGIAN 02 — MEMAHAMI DESAIN */

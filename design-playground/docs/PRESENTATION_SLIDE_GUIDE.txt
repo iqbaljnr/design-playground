@@ -1,10 +1,10 @@
 ================================================================================
-PANDUAN LENGKAP SLIDE PRESENTASI CRAFT (PRESENT PAGE)
+PANDUAN LENGKAP SLIDE PRESENTASI CREATIVE WORKSHOP (PRESENT PAGE)
 ================================================================================
 
 Dokumen ini menjabarkan fungsi serta isi poin per poin dari seluruh 38 slide
 pada fitur Mode Presentasi (Present) di aplikasi Design Playground:
-CRAFT — DESAIN KE UI/UX.
+Creative Workshop.
 
 Referensi file kode sumber:
 - Isi & layout tiap slide : src/components/mentor/PresentationOverlay.tsx
@@ -19,9 +19,11 @@ Referensi file kode sumber:
 
 - Total Slide    : 38 Slide (terbagi ke dalam Bagian 01 s/d Bagian 08)
 - 4 Tahap Belajar: 01 Pahami -> 02 Susun -> 03 Terjemahkan -> 04 Buat & Review
-- Gaya Tampilan  : Penuh satu layar (edge-to-edge), dominan Latar Terang
-                   (#F2F2F2) dengan aksen Slide Gelap (#171717) pada momen
-                   kunci (Slide 01, 11, 29, dan 37).
+- Gaya Tampilan  : Penuh satu layar (edge-to-edge), konsisten Latar Putih
+                   (#FFFFFF) di seluruh 38 slide maupun bar kontrol atas/bawah,
+                   dilengkapi panel aksen lembut (#FAFAFA / #FCECF1) dan
+                   sentimen visual (ikon, thumbnail UI, wireframe mini) di
+                   setiap slide penjelasan.
 
 Cara Membuka & Auto-Lompat Sesi:
 - Tombol "Present" di Navbar membuka slide sesuai sesi terakhir yang aktif
@@ -44,9 +46,9 @@ Shortcut Keyboard & Tombol Bar:
 ================================================================================
 
 BAGIAN 01 · Pembukaan & Pengenalan (01 Pahami | Rute: /)
-- Slide 01 : Sampul: CRAFT — DESAIN KE UI/UX [Gelap + Gradient]
+- Slide 01 : Sampul: Creative Workshop [Putih]
 - Slide 02 : Selamat Datang di Proses Kreatif
-- Slide 03 : Apa yang Membuat Desain Bagus? [Demo: Voting Kelas Langsung]
+- Slide 03 : Apa yang Membuat Desain Bagus? [Demo: Diskusi Terbuka]
 
 BAGIAN 02 · Memahami Desain (01 Pahami | Rute: /learn/chapter-01)
 - Slide 04 : Apa Itu Desain? [Demo: Hiasan vs Desain]
@@ -58,7 +60,7 @@ BAGIAN 03 · Pondasi Desain Visual (02 Susun)
 - Slide 08 : A · Memahami Grid [Demo: Garis Grid Nyala/Mati | Rute: chapter-05]
 - Slide 09 : A · Bagian-Bagian Tata Letak [Demo: Peta Ruang Interaktif | chapter-05]
 - Slide 10 : A · Tata Letak Sebelum & Sesudah [Demo: Simulasi Grid & Jarak | chapter-05]
-- Slide 11 : B · Mengenal Tipografi [Gelap | Rute: /learn/chapter-04]
+- Slide 11 : B · Mengenal Tipografi [Putih + Ikon Huruf | Rute: /learn/chapter-04]
 - Slide 12 : B · Urutan Baca Tipografi [Specimen H1-Label | chapter-04]
 - Slide 13 : B · Praktik Tipografi [Demo: Simulasi Tipografi | chapter-04]
 - Slide 14 : C · Mengenal Warna [Demo: Roda Warna Interaktif | chapter-04]
@@ -82,8 +84,8 @@ BAGIAN 05 · Panduan Figma & Alur Kerja (03 Terjemahkan)
 - Slide 28 : Figma 07 · Ringkasan Cepat Figma (Cheat Sheet 3 Kolom) [chapter-07]
 
 BAGIAN 06 · Tantangan Praktik Langsung (04 Buat & Review | Rute: /challenges/personal-portfolio-hero)
-- Slide 29 : Tantangan Dimulai: Kesan Pertama Digital [Gelap + Gradient]
-- Slide 30 : Brief Kreatif Kamu (FORM / STUDIO + 7 Bagian Wajib)
+- Slide 29 : Tantangan Dimulai: Kesan Pertama Digital [Putih + Blueprint Hero]
+- Slide 30 : Brief Kreatif Kamu (FORM / STUDIO + Peta 7 Bagian Wajib)
 - Slide 31 : Lima Syarat Desain Utama
 - Slide 32 : Alur Pengerjaan Proyek Hero
 - Slide 33 : Checklist Berpikir Saat Mendesain [Demo: Cek Mandiri Interaktif]
@@ -94,8 +96,8 @@ BAGIAN 07 · Review & Masukan (04 Buat & Review | Rute: /quiz)
 
 BAGIAN 08 · Refleksi & Penutup (04 Buat & Review | Rute: /quiz)
 - Slide 36 : Apa yang Sudah Kita Pelajari? (6 Poin Kilas Balik)
-- Slide 37 : Pemikiran Penutup [Gelap]
-- Slide 38 : Terima Kasih — Berkarya dengan Tujuan [Terang + Gradient + CTA]
+- Slide 37 : Pemikiran Penutup [Putih + 3 Pilar Aksi]
+- Slide 38 : Terima Kasih — Creative Workshop [Putih + CTA]
 
 
 ================================================================================
@@ -107,8 +109,8 @@ BAGIAN 08 · Refleksi & Penutup (04 Buat & Review | Rute: /quiz)
 BAGIAN 01 · PEMBUKAAN & PENGENALAN (Tahap: 01 Pahami)
 --------------------------------------------------------------------------------
 
-SLIDE 01 — Sampul: CRAFT — DESAIN KE UI/UX
-- Tampilan : Gelap (#171717) dengan garis gradien atas (Magenta-Merah-Oranye)
+SLIDE 01 — Sampul: Creative Workshop
+- Tampilan : Putih (#FFFFFF)
 - Rute Link: /
 
 Fungsi Slide:
@@ -116,13 +118,13 @@ Menjadi sampul pembuka saat peserta memasuki sesi workshop untuk memperkenalkan
 tema besar serta empat tahapan belajar hari ini.
 
 Poin yang Dijelaskan:
-1. Judul utama: CRAFT — DESAIN KE UI/UX (Workshop Desain Kreatif · Jalur Pemula,
+1. Judul utama: Creative Workshop (Sesi Pembelajaran Visual & UI/UX · Jalur Pemula,
    Materi & Praktik Interaktif).
 2. Pengantar tema: "Dari Grid, Tipografi, dan Warna menjadi desain layar digital
    yang rapi dan fungsional."
-3. Strip alur 4 tahap belajar di bawah: 01 Pahami, 02 Susun, 03 Terjemahkan,
+3. Strip alur 4 tahap belajar dengan ikon: 01 Pahami, 02 Susun, 03 Terjemahkan,
    04 Buat & Review.
-4. Sisi kanan menampilkan ilustrasi geometris CraftFlyerArtwork.
+4. Sisi kanan menampilkan ilustrasi geometris CraftFlyerArtwork bertema putih.
 
 
 SLIDE 02 — Selamat datang di proses kreatif.
@@ -150,26 +152,27 @@ Kolom Kanan (Alur Belajar Hari Ini):
 
 
 SLIDE 03 — Apa yang membuat sebuah desain bagus?
-- Kicker   : Bagian 01 · Pemanasan
+- Kicker   : Bagian 01 · Diskusi Terbuka
 - Tampilan : Terang (#F2F2F2) | Rute Link: /
-- Demo     : Voting Kelas Langsung (CraftSlide03VotingShowcase)
+- Demo     : Diskusi Terbuka (CraftSlide03VotingShowcase)
 
 Fungsi Slide:
-Mencairkan suasana (ice breaking) sekaligus memancing pendapat awal peserta
-sebelum masuk ke pengertian desain yang benar.
+Memantik diskusi kelas secara terbuka (bukan tes benar atau salah) mengenai
+tiga kualitas desain yang saling melengkapi.
 
 Poin & Interaksi Demo:
-Ada 3 kartu perspektif yang bisa diklik langsung saat tanya-jawab kelas:
-1. 01 — "Tampilannya menarik." (Warna yang tepat dan huruf rapi langsung
-   mencuri perhatian).
-2. 02 — "Pesannya cepat dimengerti." [default terpilih] (Orang langsung paham
-   inti pesannya dalam 2 detik tanpa menebak).
-3. 03 — "Membantu orang mencapai tujuan." (Mengarahkan pengguna dengan nyaman
-   sampai menekan tombol aksi).
+Peserta diajak berdiskusi lewat 3 kartu perspektif multi-pilih (dapat disorot
+satu per satu maupun ketiganya bersama lewat tombol "Sorot Ketiganya Bersama"):
+1. 01 · Daya Tarik — "Tampilannya menarik." (Warna yang tepat dan huruf rapi
+   langsung mencuri perhatian + membuat orang mau berhenti melihat).
+2. 02 · Kejelasan — "Pesannya cepat dimengerti." (Orang langsung paham inti
+   pesannya dalam 2 detik tanpa menebak).
+3. 03 · Kegunaan — "Membantu orang mencapai tujuan." (Mengarahkan pengguna
+   dengan nyaman sampai menekan tombol aksi).
 
-Pesan Penutup Bawah (Banner Gelap):
-"Inti Penting: Desain yang baik bukan cuma enak dilihat — tapi juga bekerja
-dengan jelas."
+Pesan Penutup Bawah (Banner Rose Lembut):
+"Inti Diskusi: Desain yang menarik, mudah dipahami, dan membantu pengguna
+mencapai tujuan bukan pilihan tunggal — ketiganya saling melengkapi."
 
 
 --------------------------------------------------------------------------------
@@ -177,39 +180,42 @@ BAGIAN 02 · MEMAHAMI DESAIN (Tahap: 01 Pahami)
 --------------------------------------------------------------------------------
 
 SLIDE 04 — Desain bukan sekadar hiasan.
-- Kicker   : Bagian 02 · Mengenal Desain
+- Kicker   : Bagian 02 · Alur 1/3: Desain Punya Tujuan
 - Tampilan : Terang (#F2F2F2) | Rute Link: /learn/chapter-01
 - Demo     : Hiasan vs Desain (CraftSlide04CompareDemo)
 
+Alur Progresif Bagian 02 (Banner 3 Langkah di Slide 04–06):
+01 · Desain punya tujuan -> 02 · Setiap elemen punya tugas -> 03 · Keputusan menjawab masalah
+
 Fungsi Slide:
 Meluruskan perbedaan antara dekorasi/seni bebas dengan desain visual yang
-dibuat atas dasar keputusan yang disadari dan terukur.
+dibuat atas dasar keputusan yang disadari dan memiliki tujuan nyata.
 
 Poin yang Dijelaskan (Kolom Kiri):
-1. 01 Tujuan : Untuk apa desain ini dibuat?
-2. 02 Pesan  : Apa yang langsung terbaca dalam 2 detik?
-3. 03 Fungsi : Bagaimana desain membantu orang mengambil tindakan?
+1. 01 Tujuan : Untuk apa desain ini dibuat dan siapa yang melihatnya?
+2. 02 Pesan  : Apa yang langsung terbaca dalam 2 detik pertama?
+3. 03 Fungsi : Tindakan nyata apa yang ingin dibantu setelah membaca?
 
 Demo Interaktif (Kolom Kanan):
 Tombol perbandingan langsung antara:
 - "Sekadar Hiasan (Bingung)": teks miring berantakan, informasi acara tidak
   jelas, ajakan aksi cuma tulisan garis bawah "klik di sini mungkin".
-- "Desain Terarah (Jelas)": badge WORKSHOP CRAFT, label EDISI PEMULA, judul
+- "Desain Terarah (Jelas)": badge CREATIVE WORKSHOP, label EDISI PEMULA, judul
   tegas DESAIN KE UI/UX, penjelasan singkat, dan tombol "Daftar Kursi ->".
 
 
 SLIDE 05 — Setiap elemen membawa pesan.
-- Kicker   : Bagian 02 · Komunikasi Visual
-- Tampilan : Terang (#F2F2F2) | Rute Link: /learn/chapter-01
+- Kicker   : Bagian 02 · Alur 2/3: Elemen Punya Tugas
+- Tampilan : Putih (#FFFFFF) | Rute Link: /learn/chapter-01
 - Demo     : Sorot Peran Elemen (CraftSlide05AnnotatedPoster)
 
 Fungsi Slide:
-Menunjukkan bahwa setiap bagian pada layar punya tugas komunikasi tertentu,
-bukan sekadar tempelan visual.
+Melanjutkan alur ke langkah 2/3: setelah tujuannya jelas, setiap bagian pada
+layar menjalankan tugas komunikasi tertentu — bukan tempelan kosong.
 
 Poin & Interaksi Demo:
-Peserta atau pemateri mengklik 4 peran di sisi kiri untuk menyalakan sorotan
-pada contoh kartu poster "CRAFT STUDIO NIGHT" di sebelah kanan:
+Peserta atau pemateri mengklik 4 peran berikon di sisi kiri untuk menyalakan
+sorotan pada contoh kartu poster "CREATIVE STUDIO NIGHT" di sebelah kanan:
 1. Tipografi       : Menentukan pesan mana yang dibaca duluan (menyorot judul).
 2. Warna           : Membangun suasana dan membedakan tombol aksi (mengubah
                      tombol "Ikut Workshop" menjadi sorotan oranye).
@@ -220,21 +226,21 @@ pada contoh kartu poster "CRAFT STUDIO NIGHT" di sebelah kanan:
 
 
 SLIDE 06 — Desain selalu dimulai dari sebuah masalah.
-- Kicker   : Bagian 02 · Cara Berpikir
+- Kicker   : Bagian 02 · Alur 3/3: Menjawab Masalah
 - Tampilan : Terang (#F2F2F2) | Rute Link: /learn/chapter-01
 - Demo     : Masalah vs Solusi (CraftSlide06ProblemSolutionDemo)
 
 Fungsi Slide:
-Membentuk cara berpikir problem-solving agar peserta memahami masalah pesan
-sebelum mulai menggambar di Figma.
+Menutup progresi langkah 3/3: tujuan desain dan tugas tiap elemen dipakai untuk
+menyelesaikan masalah nyata agar pembaca tidak bingung.
 
 Poin yang Dijelaskan (3 Kolom Atas):
 1. Langkah 01 · Temukan masalahnya    : Amati bagian mana yang membuat pembaca
-                                        bingung.
-2. Langkah 02 · Perjelas pesan utama  : Tentukan satu hal pertama yang wajib
-                                        dipahami orang.
-3. Langkah 03 · Susun solusi visual   : Gunakan tata letak, teks tegas, dan
-                                        tombol yang jelas.
+                                        bingung atau salah fokus.
+2. Langkah 02 · Perjelas pesan utama  : Tentukan satu informasi paling penting
+                                        yang harus ditangkap dulu.
+3. Langkah 03 · Susun solusi visual   : Pakai ukuran huruf, warna, dan ruang
+                                        yang menjawab masalah tadi.
 
 Demo Interaktif (Bawah):
 Studi kasus studio kreatif yang tawaran jasanya sulit dipahami:
@@ -258,8 +264,8 @@ bertahap (Bagian A, Bagian B, dan Bagian C).
 Poin yang Dijelaskan (3 Kartu Sejajar):
 1. BAGIAN A · Grid & Tata Letak : Garis bantu tak terlihat yang menjaga margin,
    kolom, dan ruang napas tetap lurus (disertai preview 4 kolom).
-2. BAGIAN B · Tipografi [Kartu Gelap]: Mengatur mana yang dibaca duluan lewat
-   perbedaan ukuran, ketebalan, dan jarak baris ("Aa · Judul · Isi · Tombol").
+2. BAGIAN B · Tipografi [Kartu Rose Lembut]: Mengatur mana yang dibaca duluan
+   lewat perbedaan ukuran, ketebalan, dan jarak baris ("Aa · skala garis").
 3. BAGIAN C · Warna & Kontras   : Membangun suasana desain, menyorot tombol
    utama, dan menjaga teks tetap nyaman dibaca (strip proporsi 60% / 30% / 10%).
 
@@ -270,12 +276,12 @@ SLIDE 08 — Bagian A: Grid memberi struktur pada desain.
 - Demo     : Garis Grid Nyala / Mati (CraftSlide08GridDemo)
 
 Fungsi Slide:
-Memperkenalkan grid kolom sebagai kerangka bantu yang menyusun elemen website
-agar konsisten dan rapi.
+Memperkenalkan grid kolom dengan analogi sehari-hari (garis kotak buku tulis
+atau sekat rak buku) sebagai kerangka bantu menyusun elemen website.
 
 Poin yang Dijelaskan:
-- 5 komponen penting grid pada strip atas: Kolom, Baris, Margin Tepi, Jarak
-  Antar Kolom, dan Kelurusan.
+- 4 konsep ringkas di strip atas: Margin (Jarak aman tepi), Kolom (Jalur
+  berbaris), Gutter (Sela dua kolom), dan Alignment (Kelurusan).
 
 Demo Interaktif:
 Mockup tata letak website dalam wadah 6 kolom (Brand Logo kolom 1–2, Menu
@@ -284,24 +290,28 @@ dapat menekan tombol "Garis Grid: NYALA / MATI" untuk memperlihatkan garis
 kolom bantu merah muda di balik elemen.
 
 
-SLIDE 09 — Bagian A: Setiap ruang punya fungsi.
-- Kicker   : Bagian 03 · A — Grid & Tata Letak
+SLIDE 09 — Bagian A: Setiap ruang punya analogi sederhana.
+- Kicker   : Bagian 03 · A — Istilah Tata Letak
 - Tampilan : Terang (#F2F2F2) | Rute Link: /learn/chapter-05
 - Demo     : Peta Ruang Interaktif (CraftSlide09AnatomyDemo)
 
 Fungsi Slide:
-Menjelaskan istilah jarak & ruang tata letak yang sering tertukar oleh pemula.
+Menjelaskan istilah jarak & ruang tata letak dengan analogi sehari-hari yang
+langsung dikenal peserta pemula (tanpa menghafal definisi kaku).
 
 Poin & Interaksi Demo:
 Klik salah satu istilah di kiri untuk menyalakan area aslinya pada bingkai
 kartu di sebelah kanan:
-1. Margin                : Jarak aman di tepi luar layar (contoh: 24px Edge).
-2. Padding               : Ruang di dalam kotak atau tombol (jarak napas di
-                           dalam Kartu A).
-3. Gutter (Sela Kolom)   : Jarak konsisten antar kolom sebelah (memisahkan
-                           Kartu A dan Kartu B).
-4. Alignment (Kelurusan) : Garis bantu agar elemen sejajar rapi pada rel kiri.
-5. Whitespace (Ruang Napas): Area kosong agar mata nyaman membaca.
+1. Margin                : Seperti jarak aman di tepi buku tulis agar tulisan
+                           tidak menempel pinggir kertas.
+2. Padding               : Seperti ruang atau bantalan di dalam kotak agar
+                           isinya tidak mepet ke dinding.
+3. Gutter (Sela Kolom)   : Jarak antara dua kolom supaya konten kiri dan kanan
+                           tidak bertabrakan.
+4. Alignment (Kelurusan) : Seperti barisan elemen mengikuti satu garis lurus
+                           supaya rapi dan tenang dilihat.
+5. Whitespace (Ruang Napas): Ruang kosong yang disisakan agar desain terasa lega
+                           dan tidak sesak.
 
 
 SLIDE 10 — Bagian A: Struktur yang rapi mengubah segalanya.
@@ -316,24 +326,26 @@ mengubah tampilan berantakan menjadi profesional.
 Poin & Interaksi Demo:
 Dilengkapi tombol cepat "Berantakan (Sebelum)" vs "Grid Rapi (Sesudah)" serta
 4 saklar individual yang bisa dinyalakan satu per satu:
-1. Margin Tepi Luar     : Memberi jarak agar teks tidak menempel tepi kotak.
-2. Luruskan Garis Kolom : Menyamakan tepi kiri judul dan 3 kartu di bawahnya.
-3. Jarak Antar Kartu Sama: Menyeragamkan sela antar kartu ("Sistem Grid",
-                           "Tipografi", "Tata Warna").
-4. Tambah Ruang Kosong  : Memberi ruang napas di bawah judul agar mudah
-                          dipindai.
+1. Margin Tepi Luar     : Seperti tepi aman kertas agar tulisan tidak menempel
+                          pinggir.
+2. Luruskan Garis Kolom : Bariskan tepi kiri judul dan kartu pada satu garis
+                          lurus.
+3. Jarak Antar Dua Kolom: Beri sela seragam di antara kartu supaya tidak saling
+                          dempet.
+4. Ruang Kosong Napas   : Sisakan ruang kosong di bawah judul agar tidak terasa
+                          sesak.
 
 
 SLIDE 11 — Bagian B: Huruf lebih dari sekadar teks.
 - Kicker   : Bagian 03 · B — Tipografi
-- Tampilan : Gelap (#171717) | Rute Link: /learn/chapter-04
+- Tampilan : Putih (#FFFFFF) | Rute Link: /learn/chapter-04
 
 Fungsi Slide:
 Memperkenalkan 5 pengatur dasar tipografi agar tulisan terasa teratur, nyaman
 dibaca, dan berkarakter.
 
 Poin yang Dijelaskan:
-Kolom Kiri (5 Pengatur Tipografi):
+Kolom Kiri (5 Pengatur Tipografi dengan Thumbnail Visual):
 1. 01 · Jenis Huruf (Typeface) : Karakter huruf utama yang mewakili nuansa
                                  desain.
 2. 02 · Ketebalan (Weight)     : Tebal untuk judul, ringan untuk paragraf.
@@ -345,7 +357,7 @@ Kolom Kiri (5 Pengatur Tipografi):
 
 Kolom Kanan (Specimen Contoh):
 Menunjukkan pasangan nyata "Judul Tegas" (sans tebal), "Kontras yang Ekspresif"
-(serif miring oranye), dan paragraf bernapas lega.
+(serif miring magenta), dan paragraf bernapas lega.
 
 
 SLIDE 12 — Bagian B: Tidak semua teks sama penting.
@@ -411,43 +423,47 @@ warna/swatch):
 
 
 SLIDE 15 — Bagian C: Palet warna butuh keseimbangan.
-- Kicker   : Bagian 03 · C — Sistem Palet Warna
+- Kicker   : Bagian 03 · C — Pedoman Distribusi Warna
 - Tampilan : Terang (#F2F2F2) | Rute Link: /learn/chapter-04
 
 Fungsi Slide:
-Memberikan panduan praktis proporsi warna 60 / 30 / 10 agar pemula tidak
-memenuhi layar dengan terlalu banyak warna mencolok.
+Memperkenalkan 60 / 30 / 10 sebagai panduan distribusi area warna (color
+distribution guideline) — bukan aturan mutlak yang kaku.
 
 Poin yang Dijelaskan:
-1. Bar Proporsi Visual 60 / 30 / 10:
-   - 60% Latar Netral (#F2F2F2 / #FFFFFF)
-   - 30% Struktur Teks (#171717)
-   - 10% Aksen Aksi (Magenta, Merah, Oranye)
+1. Bar Pedoman Distribusi 60 / 30 / 10:
+   - 60% Latar Dominan (#F2F2F2 / #FFFFFF)
+   - 30% Area Pendukung / Kartu (#E5E3E0)
+   - 10% Aksen Fokus & CTA (Magenta, Merah, Oranye)
 2. 5 Kartu Peran Warna:
-   - Utama (#C2185B)     : Identitas inti & CTA
-   - Pendukung (#F04438) : Energi visual hangat
-   - Aksen (#FF8A3D)     : Penanda poin penting
-   - Kanvas (#F2F2F2)    : Latar tenang 60%
-   - Teks Utama (#171717): Huruf jelas terbaca
+   - Aksen CTA (#C2185B)  : Sorotan tombol utama (~10%)
+   - Pendukung (#F04438)  : Energi visual hangat
+   - Highlight (#FF8A3D)  : Penanda poin penting
+   - Kanvas (#F2F2F2)     : Latar dominan tenang (~60%)
+   - Teks Utama (#171717) : Ikut keterbacaan, bukan kuota 30%
+3. Catatan Penting: 60/30/10 hanya panduan porsi area warna; warna teks selalu
+   mengikuti kebutuhan keterbacaan.
 
 
-SLIDE 16 — Bagian C: Warna indah tetap harus terbaca jelas.
-- Kicker   : Bagian 03 · C — Demo Langsung
+SLIDE 16 — Bagian C: Warna yang bagus belum tentu mudah dibaca.
+- Kicker   : Bagian 03 · C — Warna, Rasio Kontras & Evaluasi
 - Tampilan : Terang Compact (#F2F2F2) | Rute Link: /learn/chapter-04
-- Demo     : Simulasi Kontras (CraftSlide16ContrastSwitchboard)
+- Demo     : Simulasi Rasio Kontras & Evaluasi (CraftSlide16ContrastSwitchboard)
 
 Fungsi Slide:
-Membuktikan secara visual dan matematis (rasio kontras WCAG) bahwa warna yang
-bagus tetap wajib mengutamakan keterbacaan teks dan tombol.
+Menunjukkan secara visual dan angka nyata bahwa warna yang terlihat bagus tetap
+bisa menghasilkan tulisan yang sulit dibaca jika perbedaan terang-gelapnya
+rendah, sekaligus menjelaskan mengapa target minimal 4,5:1 itu penting (agar
+tetap terbaca di layar HP di luar ruangan, laptop, hingga proyektor kelas).
 
 Poin & Interaksi Demo:
 Kartu contoh berlatar tetap #F2F2F2 dengan preset "Kontras Rendah" vs "Nyaman
-Dibaca" serta 2 saklar yang menghitung rasio kontras secara live:
-1. Teks Gelap Jelas (#171717)        : Membandingkan teks pudar (#C7C2BE) vs
-                                       hitam arang (#171717).
-2. Tombol Tegas (#C2185B + Putih)    : Membandingkan tombol abu redup vs
-                                       tombol magenta solid yang langsung
-                                       terlihat.
+Dibaca", 2 saklar uji, plus panel Evaluasi Rasio Kontras (LULUS / GAGAL vs
+batas aman minimal 4,5:1):
+1. Teks Gelap Jelas (#171717)     : Membandingkan 1.58:1 GAGAL (#C7C2BE) vs
+                                    15.72:1 LULUS (#171717).
+2. Tombol Tegas (#C2185B + Putih) : Membandingkan 1.18:1 GAGAL (abu lembut) vs
+                                    5.57:1 LULUS (magenta solid).
 
 
 SLIDE 17 — Rangkuman Pondasi: Grid. Tipografi. Warna.
@@ -465,7 +481,7 @@ Kolom Kiri (3 Cara Kerja Bersama):
 3. 03 Warna     -> Menunjukkan fokus (mengarahkan mata ke tombol utama di atas
                    latar netral).
 
-Kolom Kanan (Specimen Terpadu "CRAFT STUDIO"):
+Kolom Kanan (Specimen Terpadu "CREATIVE STUDIO"):
 Menandai langsung letak [1] Grid 12-Kolom Lurus, [2] Urutan Baca H1 > Paragraf
 ("DESAIN YANG BEKERJA NYATA."), dan [3] Tombol "Lihat Proyek" dengan aksen
 fokus warna.
@@ -496,27 +512,27 @@ Poin yang Dijelaskan (Tabel 5 Baris Terjemahan):
                                         supaya tidak sempit atau salah klik.
 
 
-SLIDE 19 — UI adalah tampilannya. UX adalah rasa saat memakainya.
-- Kicker   : Bagian 04 · Bedanya UI & UX
-- Tampilan : Terang vs Gelap (2 Kartu) | Rute Link: /learn/chapter-07
+SLIDE 19 — UI bukan terpisah — UI adalah bagian dari UX.
+- Kicker   : Bagian 04 · Hubungan UI & UX
+- Tampilan : Putih (#FFFFFF) dengan Diagram Bersarang UI-di-dalam-UX | Rute Link: /learn/chapter-07
 
 Fungsi Slide:
-Menjelaskan perbedaan antara UI (User Interface) dan UX (User Experience)
-dengan bahasa pemula yang sederhana dan bebas teori berat.
+Meluruskan pemahaman pemula bahwa UI dan UX bukan dua dunia terpisah — UI
+adalah salah satu bagian di dalam UX — sekaligus memperluas makna UX agar tidak
+dianggap sebatas "perasaan".
 
 Poin yang Dijelaskan:
-Kartu Kiri (Terang) — UI · Antarmuka Pengguna:
-- Penjelasan: Segala elemen visual yang dilihat dan disentuh pengguna (tombol,
-  huruf, warna, ikon, tata letak).
-- Contoh visual di bawahnya: [UI] Navbar + Cari + [UI] Judul + Paragraf +
-  [UI] Tombol Utama.
-
-Kartu Kanan (Gelap) — UX · Pengalaman Pengguna:
-- Penjelasan: Bagaimana alur, kejelasan, dan kenyamanan yang dirasakan orang
-  saat menggunakan produk dari awal sampai tujuan selesai.
-- Diagram 4 langkah alur:
-  01 Masuk layar -> 02 Paham isi cepat -> 03 Klik tombol tepat -> 04 Tujuan
-  tercapai.
+1. Kartu Kiri (Putih) — UI · Bagian Tampilan di Dalam UX:
+   - Segala elemen visual yang dilihat dan disentuh pengguna (tombol, huruf,
+     warna, ikon, tata letak) untuk membuat pengalaman terasa jelas sejak awal.
+2. Kartu Kanan (Netral Terang) — UX · Keseluruhan Perjalanan Pengguna:
+   - Lebih dari sekadar rasa saat memakai produk: mencakup kemudahan, efisiensi
+     langkah, aksesibilitas bagi semua orang, serta keseluruhan perjalanan dari
+     masuk hingga tujuan tuntas (4 pilar berikon: 01 Mudah, 02 Efisien,
+     03 Aksesibel, 04 Utuh + diagram alur Pengguna -> [UI] -> Tujuan).
+3. Banner Analogi Kedai Kopi (Rose Lembut): Buku menu & papan pesan adalah UI —
+   kelancaran mengantre, mudah memesan, nyaman membaca, hingga minuman diterima
+   dengan cepat adalah UX (dan UI termasuk di dalamnya).
 
 
 SLIDE 20 — Setiap bagian punya tugas jelas. (Anatomi Hero Website)
@@ -582,54 +598,61 @@ Kiri (4 Kegunaan Utama + Jembatan Materi):
   merapikan bacaan · Warna menegaskan tombol.
 
 Kanan (2 Mode Tampilan Referensi):
-1. "Tampilan Layar Figma": Miniatur layar Figma dark UI3 ("iCraft", Pages
-   Graphic Design / Instagram / UI/UX, Layers # Hero Section, kanvas #313030,
-   dock alat bawah, panel Design/Page/Export di kanan).
+1. "Tampilan Layar Figma": Miniatur layar Figma light UI3 ("Creative Lab",
+   Pages Graphic Design / Instagram / UI/UX, Layers # Hero Section, kanvas
+   abu terang #F3F3F2, dock alat bawah terang, panel Design/Page/Export kanan).
 2. "Kaitan dengan Materi": Kartu pemetaan Teori Grid -> Layout Grid & Margin,
    Tipografi -> Skala & Gaya Huruf, Warna & Kontras -> Fill & Warna Aksi.
 
 
 SLIDE 23 — Figma 02: Kenali 4 area kerja Figma.
 - Kicker   : Bagian 05 · Panduan Figma 02
-- Tampilan : Terang Compact (#F2F2F2) | Rute Link: /learn/chapter-06
+- Tampilan : Putih Compact (#FFFFFF) | Rute Link: /learn/chapter-06
 - Demo     : Eksplorasi 4 Area (CraftSlide23WorkspaceDemo)
 
 Fungsi Slide:
 Membantu pemula memahami tata letak layar kerja Figma UI3 agar tidak bingung
 mencari menu saat mulai mendesain.
 
-Poin & Interaksi Demo (4 Kartu Kiri & Peta Layar Gelap Kanan yang Saling Sinkron):
+Poin & Interaksi Demo (4 Kartu Kiri & Peta Layar Terang Kanan yang Saling Sinkron):
 1. AREA 01 · Toolbar (Alat)   : Dock bawah mengambang untuk alat harian
                                 (V, F, R, P, T). Ibarat kotak perkakas meja.
 2. AREA 02 · Panel Layer      : Panel kiri berisi daftar Pages dan urutan semua
                                 elemen (# Hero Section). Ibarat daftar isi rapi.
-3. AREA 03 · Kanvas Kerja     : Meja gambar luas di tengah (#313030) tempat
+3. AREA 03 · Kanvas Kerja     : Meja gambar luas di tengah (#F2F2F2) tempat
                                 meletakkan frame dan menyusun desain.
 4. AREA 04 · Panel Properti   : Panel kanan (Design · Share · Page · Export)
                                 untuk mengatur ukuran, warna, sudut, dan huruf.
 
 
-SLIDE 24 — Figma 03: 6 alat dasar untuk mulai berkarya.
+SLIDE 24 — Figma 03: 6 alat dasar — pahami kapan dan mengapa dipakai.
 - Kicker   : Bagian 05 · Panduan Figma 03
-- Tampilan : Terang Compact (#F2F2F2) | Rute Link: /learn/chapter-06
-- Demo     : 6 Alat Wajib (CraftSlide24EssentialToolsDemo)
+- Tampilan : Putih Compact (#FFFFFF) | Rute Link: /learn/chapter-06
+- Demo     : 6 Alat Wajib + Reels Kapan & Mengapa (CraftSlide24EssentialToolsDemo)
 
 Fungsi Slide:
-Meringkas ratusan menu di Figma menjadi 6 shortcut inti yang benar-benar cukup
-untuk mengerjakan tantangan hari ini.
+Menekankan bahwa shortcut (V, F, R, O, T, Shift+A) hanyalah alat bantu agar cepat
+(semua ikon bisa diklik langsung di Toolbar). Yang paling penting adalah paham
+kapan dan mengapa setiap alat digunakan.
 
 Poin & Interaksi Demo:
-Klik salah satu dari 6 tombol alat di kiri untuk melihat contoh visual & tipsnya
-di kartu gelap kanan:
-1. V         — Move (Pilih & Geser)   : Menggeser objek aman tanpa gambar ulang.
-2. F         — Frame (Kanvas Layar)    : Memulai layar/poster (mis. 1440×900).
-3. R         — Rectangle (Kotak)       : Membuat kartu, tombol, foto, pemisah.
-4. O         — Ellipse (Lingkaran)     : Avatar/ikon (tahan Shift agar 1:1).
-5. T         — Text (Teks)             : Klik untuk label pendek atau drag box.
-6. Shift + A — Auto Layout             : Jaga jarak & padding tombol otomatis.
+Klik salah satu dari 6 kartu di kiri untuk melihat penjelasan Kapan & Mengapa +
+preview Frame Motion Reels bertema putih di kartu kanan:
+1. V         — Move (Pilih & Geser)   : Aktifkan sebelum menggeser objek agar
+                                         aman tidak menggambar bentuk baru.
+2. F         — Frame (Bingkai Layar)   : Selalu mulai di awal sebagai wadah
+                                         ukuran layar dan dukungan grid.
+3. R         — Rectangle (Kotak)       : Dipakai membuat dasar kartu, area
+                                         foto, pembatas, dan latar tombol.
+4. O         — Ellipse (Lingkaran)     : Untuk foto profil bulat, titik status,
+                                         & ornamen (Shift agar 1:1).
+5. T         — Text (Teks)             : Klik sekali untuk label singkat atau
+                                         tarik kotak untuk paragraf multi-baris.
+6. Shift + A — Auto Layout             : Membungkus elemen agar kartu, navbar, &
+                                         tombol otomatis beradaptasi sesuai isi.
 
 
-SLIDE 25 — Figma 04: Kendalikan detail setiap elemen.
+SLIDE 25 — Figma 04: Kendalikan detail sesuai kebutuhan desain.
 - Kicker   : Bagian 05 · Panduan Figma 04
 - Tampilan : Terang Compact (#F2F2F2) | Rute Link: /learn/chapter-06
 - Demo     : Inspektor Properti (CraftSlide25PropertiesDemo)
@@ -654,29 +677,29 @@ Garis" (Fill #FFFFFF, Stroke 2px #171717, Radius 8px) dengan pembaca nilai
 properti otomatis.
 
 
-SLIDE 26 — Figma 05: Mendesain lebih rapi dengan Auto Layout.
+SLIDE 26 — Figma 05: Buat elemen adaptif dengan Auto Layout.
 - Kicker   : Bagian 05 · Panduan Figma 05
 - Tampilan : Terang Compact (#F2F2F2) | Rute Link: /learn/chapter-07
-- Demo     : Tanpa vs Dengan Auto Layout (CraftSlide26AutoLayoutDemo)
+- Demo     : Tanpa vs Dengan Auto Layout Adaptif (CraftSlide26AutoLayoutDemo)
 
 Fungsi Slide:
-Memahamkan kegunaan Auto Layout (Shift + A) melalui demo visual sederhana agar
-pemula melihat kenapa tombol manual sering rusak saat teks berubah.
+Menunjukkan Auto Layout (Shift + A) sebagai cara membuat komponen dan wadah UI
+lebih adaptif terhadap perubahan isi (kartu artikel, navbar, notifikasi, badge,
+hingga tombol) — bukan sekadar fitur untuk merapikan tombol.
 
 Poin & Interaksi Demo:
 1. 4 Konsep Dasar di Bar Atas:
-   - 01 Arah (Direction) : Susun mendatar atau menurun.
-   - 02 Jarak (Gap)      : Atur jarak seragam antar item.
-   - 03 Padding          : Atur ruang di dalam pinggiran kotak.
-   - 04 Perataan (Align) : Jaga teks rata tengah atau kiri.
-2. Cocok dipakai untuk: Tombol responsif, Menu navbar, Kartu artikel, Daftar
-   vertikal.
-3. Tombol "Uji Teks Panjang ->": Mengubah label "LIHAT KARYA" menjadi
-   "JELAJAHI SEMUA KARYA STUDIO KAMI".
-   - Kiri (TANPA AUTO LAYOUT): Kotak manual diam saja sehingga teks panjang
-     meluber keluar bingkai tombol.
-   - Kanan (DENGAN AUTO LAYOUT Shift + A): Padding terkunci otomatis dan
-     ukuran tombol melebar rapi mengikuti panjang teks.
+   - 01 Arah (Direction) : Susun elemen mendatar atau menurun.
+   - 02 Jarak (Gap)      : Jaga sela seragam antar baris dan tag.
+   - 03 Padding          : Beri ruang aman di dalam bingkai wadah.
+   - 04 Ukuran Adaptif   : Kotak ikut membesar/mengecil sesuai isi.
+2. Elemen adaptif: Kartu konten, Menu navbar, Daftar notifikasi, Badge & tombol.
+3. Tombol "Uji Konten Bertambah ->": Menambah badge baru (+ BARU), memanjangkan
+   judul kartu "Rancang Kartu Produk...", serta memanjangkan label tombol:
+   - Kiri (TANPA AUTO LAYOUT): Wadah kaku diam di tempat sehingga judul menabrak
+     tombol dan teks tombol meluber keluar bingkai.
+   - Kanan (DENGAN AUTO LAYOUT Shift + A): Kartu, baris tag, jarak ke tombol,
+     serta lebar tombol otomatis beradaptasi tanpa saling bertabrakan.
 
 
 SLIDE 27 — Figma 06: Dari kanvas kosong ke tampilan Hero.
@@ -714,13 +737,13 @@ Lembar Ringkasan Cepat (Cheat Sheet) satu layar sebelum peserta beralih ke
 praktik mandiri di aplikasi Figma.
 
 Poin yang Dijelaskan (3 Kolom + Pesan Kunci):
-1. Kolom 1 — ALAT DASAR (6 Shortcut):
-   - V (Move · Pilih & geser)
-   - F (Frame · Bingkai layar)
-   - R (Kotak · Kartu & tombol)
-   - O (Lingkaran · Avatar & ikon)
-   - T (Teks · Judul & isi)
-   - Shift + A (Auto Layout · Jarak otomatis)
+1. Kolom 1 — ALAT DASAR (6 Fungsi Inti):
+   - V (Move · Pilih & geser aman)
+   - F (Frame · Bingkai ukuran layar)
+   - R (Kotak · Wadah kartu & tombol)
+   - O (Lingkaran · Avatar & ikon bulat)
+   - T (Teks · Judul & isi bacaan)
+   - Shift + A (Auto Layout · Wadah adaptif otomatis)
 2. Kolom 2 — PANEL PROPERTI (Panel Kanan):
    - 01 Posisi (Letak X / Y)
    - 02 Ukuran (Lebar W & Tinggi H)
@@ -735,7 +758,7 @@ Poin yang Dijelaskan (3 Kolom + Pesan Kunci):
    - 04 · Konsistensi : Samakan jarak, sudut, dan pilihan warna.
    - 05 · Ruang Napas : Sisakan ruang kosong supaya tidak sesak.
 
-Pesan Kunci (Banner Gelap Bawah):
+Pesan Kunci (Banner Rose Lembut Bawah):
 "Kamu tidak harus menghafal semua tombol — cukup tahu alat dasar apa yang tepat
 untuk setiap keputusan desain."
 
@@ -746,18 +769,18 @@ BAGIAN 06 · TANTANGAN PRAKTIK LANGSUNG (Tahap: 04 Buat & Review)
 
 SLIDE 29 — Tantangan Dimulai: Kesan pertama digital.
 - Kicker   : Bagian 06 · Tantangan Dimulai
-- Tampilan : Gelap (#171717) dengan Top Gradient | Rute: /challenges/personal-portfolio-hero
+- Tampilan : Putih (#FFFFFF) dengan Blueprint Hero | Rute: /challenges/personal-portfolio-hero
 
 Fungsi Slide:
-Kick-off resmi sesi praktik utama di Figma dengan menjelaskan target akhir
-dan spesifikasi wajib.
+Kick-off resmi sesi praktik utama di Figma dengan menjelaskan target akhir,
+blueprint visual mini, dan spesifikasi wajib.
 
 Poin yang Dijelaskan:
-1. Kartu Kiri (TUGAS PRAKTIK KAMU):
+1. Kartu Kiri (TUGAS PRAKTIK KAMU + Gambaran Hasil Blueprint Mini):
    "Buat bagian Hero Website untuk satu studio kreatif fiktif di Figma.
    Terapkan grid yang lurus, ukuran huruf yang berurutan, kombinasi warna
    seimbang, serta tombol utama yang jelas diklik."
-2. Kartu Kanan (Bingkai Gradien Spesifikasi Wajib):
+2. Kartu Kanan (Bingkai Gradien Putih Spesifikasi Wajib):
    - UKURAN FRAME  : 1440 × 900 px
    - ALAT & TARGET : Figma · 1 Hero
 
@@ -912,7 +935,7 @@ Poin yang Dijelaskan (Grid 6 Poin):
 
 SLIDE 37 — Pemikiran Penutup.
 - Kicker   : Bagian 08 · Pemikiran Akhir
-- Tampilan : Gelap (#171717) | Rute Link: /quiz
+- Tampilan : Putih (#FFFFFF) dengan 3 Kartu Pilar | Rute Link: /quiz
 
 Fungsi Slide:
 Memberikan kalimat penutup inspirasional untuk membangun mentalitas belajar
@@ -922,12 +945,13 @@ Poin yang Dijelaskan:
 - Pernyataan besar : "Desain yang baik bukan hasil kebetulan."
 - Lanjutan kalimat : "Ia lahir dari rasa ingin tahu, keberanian mencoba,
                      keputusan yang disadari, dan latihan yang terus berlanjut."
-- Mantra oranye    : "Terus amati. Terus berkarya. Terus bertanya."
+- Mantra magenta   : "Terus amati. Terus berkarya. Terus bertanya."
+- 3 Kartu Pilar    : 01 Terus Amati, 02 Terus Berkarya, 03 Terus Bertanya.
 
 
-SLIDE 38 — Terima Kasih — Berkarya dengan Tujuan.
-- Header   : CRAFT — DESAIN KE UI/UX · TERUS BERKARYA & BEREKSPERIMEN
-- Tampilan : Terang (#F2F2F2) + Top Gradient + CraftFlyerArtwork
+SLIDE 38 — Terima Kasih — Creative Workshop.
+- Header   : Creative Workshop · TERUS BERKARYA & BEREKSPERIMEN
+- Tampilan : Putih (#FFFFFF) + CraftFlyerArtwork
 
 Fungsi Slide:
 Slide ucapan terima kasih resmi sekaligus akses tombol cepat menuju kuis akhir
@@ -935,7 +959,7 @@ Slide ucapan terima kasih resmi sekaligus akses tombol cepat menuju kuis akhir
 
 Poin & Tombol Aksi:
 1. Ucapan utama: "Terima kasih sudah menjadi bagian dari proses kreatif ini."
-2. Kotak Manifesto (Bingkai Gradien):
+2. Kotak Manifesto Putih (Bingkai Gradien):
    Desain dengan tujuan.
    Berkarya dengan niat.
    Jangan pernah berhenti mencoba.

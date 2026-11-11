@@ -35,14 +35,14 @@ const THEME_CONFIG: Record<
     subInk: 'text-muted',
     shapeOneBg: 'bg-brand-orange',
     shapeTwoBg: 'bg-brand-magenta',
-    btnBg: 'bg-dark',
+    btnBg: 'bg-brand-magenta',
     btnInk: 'text-white',
     svgBg: '#F2F2F2',
     svgInk: '#171717',
     svgSubInk: '#746C68',
     svgShapeOne: '#FF8A3D',
     svgShapeTwo: '#C2185B',
-    svgBtnBg: '#171717',
+    svgBtnBg: '#C2185B',
     svgBtnInk: '#FFFFFF',
   },
   'magenta-bold': {
@@ -201,7 +201,7 @@ export function MiniFigmaExercise({
             onClick={() => setShowAutoLayoutGuides((v) => !v)}
             className={`rounded-lg border px-3 py-1.5 font-mono text-xs font-semibold cursor-pointer ${
               showAutoLayoutGuides
-                ? 'border-dark bg-dark text-white'
+                ? 'border-brand-magenta bg-brand-magenta text-white'
                 : 'border-border-strong bg-elevated text-ink'
             }`}
           >

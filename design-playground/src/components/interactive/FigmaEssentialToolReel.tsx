@@ -70,6 +70,7 @@ interface FigmaEssentialToolReelProps {
   onSelectToolIdx?: (idx: number) => void;
   scale?: PresentationScale;
   lang?: PresentationLang;
+  theme?: 'dark' | 'light';
 }
 
 export function FigmaEssentialToolReelStage({
@@ -77,12 +78,14 @@ export function FigmaEssentialToolReelStage({
   onSelectToolIdx,
   scale = 'default',
   lang = 'en',
+  theme = 'dark',
 }: FigmaEssentialToolReelProps) {
   const [progress, setProgress] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
   const dotPatternId = useId();
 
   const isId = lang === 'id';
+  const isLight = theme === 'light';
   const isPres = scale === 'presentation';
   const isFs = scale === 'fullscreen';
 
@@ -344,9 +347,17 @@ export function FigmaEssentialToolReelStage({
   ];
 
   return (
-    <div className="my-3.5 overflow-hidden rounded-xl border border-[#2E2D2B] bg-[#181818]">
+    <div
+      className={`my-3.5 overflow-hidden rounded-xl border ${
+        isLight ? 'border-border-subtle bg-elevated' : 'border-[#2E2D2B] bg-[#181818]'
+      }`}
+    >
       {/* Segmented Reels Story Progress Bars + Live Motion Telemetry Strip */}
-      <div className="border-b border-[#2A2928] bg-[#20201F] px-3 pt-2.5 pb-2">
+      <div
+        className={`border-b px-3 pt-2.5 pb-2 ${
+          isLight ? 'border-border-subtle bg-canvas' : 'border-[#2A2928] bg-[#20201F]'
+        }`}
+      >
         <div
           className="grid grid-cols-6 gap-1"
           role="tablist"
@@ -365,7 +376,11 @@ export function FigmaEssentialToolReelStage({
                 onClick={() => onSelectToolIdx?.(idx)}
                 className="group py-0.5 text-left cursor-pointer"
               >
-                <span className="block h-1 w-full overflow-hidden rounded-full bg-[#383634]">
+                <span
+                  className={`block h-1 w-full overflow-hidden rounded-full ${
+                    isLight ? 'bg-border-subtle' : 'bg-[#383634]'
+                  }`}
+                >
                   <span
                     className={`block h-full rounded-full ${
                       isCurrent ? 'bg-[#0D99FF]' : 'bg-transparent'
@@ -381,22 +396,36 @@ export function FigmaEssentialToolReelStage({
         <div className="mt-1.5 flex items-center justify-between gap-2">
           <div className="flex min-w-0 items-center gap-1.5">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#0D99FF]" />
-            <span className="truncate font-mono text-[10px] font-semibold text-[#D6D4D0]">
+            <span
+              className={`truncate font-mono text-[10px] font-semibold ${
+                isLight ? 'text-ink' : 'text-[#D6D4D0]'
+              }`}
+            >
               {statusText}
             </span>
           </div>
-          <span className="shrink-0 rounded bg-[#2C2C2C] px-1.5 py-0.5 font-mono text-[9px] font-bold text-[#8EC8FF]">
+          <span
+            className={`shrink-0 rounded px-1.5 py-0.5 font-mono text-[9px] font-bold ${
+              isLight ? 'bg-elevated text-[#0D74CC] border border-border-subtle' : 'bg-[#2C2C2C] text-[#8EC8FF]'
+            }`}
+          >
             MOTION · REEL 0{activeIdx + 1}/06
           </span>
         </div>
       </div>
 
-      {/* Dark Figma UI3 Animated Viewport */}
-      <div className={`relative w-full overflow-hidden bg-[#1E1E1E] ${stageHeightClass}`}>
+      {/* Figma UI3 Animated Viewport */}
+      <div
+        className={`relative w-full overflow-hidden ${stageHeightClass} ${
+          isLight ? 'bg-[#F8F8F7]' : 'bg-[#1E1E1E]'
+        }`}
+      >
         {/* Subtle Dot Matrix Backdrop */}
         <svg
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full opacity-25"
+          className={`pointer-events-none absolute inset-0 h-full w-full ${
+            isLight ? 'opacity-45' : 'opacity-25'
+          }`}
         >
           <defs>
             <pattern
@@ -405,7 +434,7 @@ export function FigmaEssentialToolReelStage({
               height="16"
               patternUnits="userSpaceOnUse"
             >
-              <circle cx="1.5" cy="1.5" r="0.9" fill="#505050" />
+              <circle cx="1.5" cy="1.5" r="0.9" fill={isLight ? '#C9C5C2' : '#505050'} />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill={`url(#${dotPatternId})`} />
@@ -424,12 +453,20 @@ export function FigmaEssentialToolReelStage({
             {/* Reference starting ghost outline */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute left-[14%] top-[28%] h-12 w-32 rounded-lg border border-dashed border-[#3E3D3B]"
+              className={`pointer-events-none absolute left-[14%] top-[28%] h-12 w-32 rounded-lg border border-dashed ${
+                isLight ? 'border-border-strong' : 'border-[#3E3D3B]'
+              }`}
             />
             {/* Interactive Movable Card */}
             <div
-              className={`absolute flex h-12 w-32 items-center justify-center rounded-lg bg-[#2C2C2C] px-3 font-display text-xs font-bold text-white ${
-                moveSelected ? 'ring-2 ring-[#0D99FF]' : 'border border-[#444240]'
+              className={`absolute flex h-12 w-32 items-center justify-center rounded-lg px-3 font-display text-xs font-bold ${
+                isLight ? 'bg-elevated text-ink' : 'bg-[#2C2C2C] text-white'
+              } ${
+                moveSelected
+                  ? 'ring-2 ring-[#0D99FF]'
+                  : isLight
+                    ? 'border border-border-subtle'
+                    : 'border border-[#444240]'
               }`}
               style={{ left: `${moveObjLeftPct}%`, top: `${moveObjTopPct}%` }}
             >
@@ -467,7 +504,11 @@ export function FigmaEssentialToolReelStage({
               outline: '1.5px solid #0D99FF',
             }}
           >
-            <span className="absolute -top-4 left-0 whitespace-nowrap font-mono text-[9px] font-bold text-[#8EC8FF]">
+            <span
+              className={`absolute -top-4 left-0 whitespace-nowrap font-mono text-[9px] font-bold ${
+                isLight ? 'text-[#0D74CC]' : 'text-[#8EC8FF]'
+              }`}
+            >
               # Desktop_Hero
             </span>
 
@@ -532,8 +573,12 @@ export function FigmaEssentialToolReelStage({
             <div
               className={`pointer-events-none absolute top-2.5 left-2.5 inline-flex items-center gap-1 rounded border px-1.5 py-0.5 font-mono text-[9px] font-bold transition-colors ${
                 shiftHeld
-                  ? 'border-[#FF8A3D] bg-[#3A271B] text-[#FF8A3D]'
-                  : 'border-[#3B3936] bg-[#262524] text-[#9E9B97]'
+                  ? isLight
+                    ? 'border-[#FF8A3D] bg-[#FFF2E6] text-[#B45309]'
+                    : 'border-[#FF8A3D] bg-[#3A271B] text-[#FF8A3D]'
+                  : isLight
+                    ? 'border-border-subtle bg-elevated text-muted'
+                    : 'border-[#3B3936] bg-[#262524] text-[#9E9B97]'
               }`}
             >
               <span>Shift</span>
@@ -568,8 +613,16 @@ export function FigmaEssentialToolReelStage({
         {activeToolKey === 'T' && (
           <div className="flex h-full w-full items-center justify-center pb-7">
             {textBoxVisible ? (
-              <div className="relative border border-[#0D99FF] bg-[#262524]/70 px-3 py-1.5">
-                <div className="flex items-center font-display text-lg font-extrabold tracking-tight text-white sm:text-xl">
+              <div
+                className={`relative border border-[#0D99FF] px-3 py-1.5 ${
+                  isLight ? 'bg-elevated' : 'bg-[#262524]/70'
+                }`}
+              >
+                <div
+                  className={`flex items-center font-display text-lg font-extrabold tracking-tight sm:text-xl ${
+                    isLight ? 'text-ink' : 'text-white'
+                  }`}
+                >
                   <span>{visibleChars || '\u00A0'}</span>
                   {caretVisible && (
                     <span className="ml-0.5 inline-block h-5 w-0.5 bg-[#0D99FF]" />
@@ -584,7 +637,7 @@ export function FigmaEssentialToolReelStage({
                 </span>
               </div>
             ) : (
-              <span className="font-mono text-[10px] text-[#8A8885]">
+              <span className={`font-mono text-[10px] ${isLight ? 'text-muted' : 'text-[#8A8885]'}`}>
                 {isId ? 'Klik area kanvas...' : 'Click anywhere on canvas...'}
               </span>
             )}
@@ -599,7 +652,9 @@ export function FigmaEssentialToolReelStage({
               className={`mb-2 rounded border px-2 py-0.5 font-mono text-[9px] font-bold transition-colors ${
                 autoShortcutFlash
                   ? 'border-[#0D99FF] bg-[#0D99FF] text-white'
-                  : 'border-[#383634] bg-[#262524] text-[#9E9B97]'
+                  : isLight
+                    ? 'border-border-subtle bg-elevated text-muted'
+                    : 'border-[#383634] bg-[#262524] text-[#9E9B97]'
               }`}
             >
               Shift + A · Auto Layout {autoWrapped ? 'ON' : '...'}
@@ -691,7 +746,13 @@ export function FigmaEssentialToolReelStage({
         </div>
 
         {/* Mini Floating Figma UI3 Bottom Toolbar Dock */}
-        <div className="pointer-events-auto absolute bottom-2 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1 rounded-lg border border-[#3C3B38] bg-[#2C2C2C] p-1">
+        <div
+          className={`pointer-events-auto absolute bottom-2 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1 rounded-lg border p-1 ${
+            isLight
+              ? 'border-border-strong bg-elevated text-ink'
+              : 'border-[#3C3B38] bg-[#2C2C2C]'
+          }`}
+        >
           {dockItems.map(({ key, label, Icon }, idx) => {
             const active = key === activeToolKey;
             return (
@@ -704,7 +765,9 @@ export function FigmaEssentialToolReelStage({
                 className={`inline-flex h-6 w-6 items-center justify-center rounded transition-colors cursor-pointer ${
                   active
                     ? 'bg-[#0D99FF] text-white'
-                    : 'text-[#A6A4A0] hover:bg-[#3A3936] hover:text-white'
+                    : isLight
+                      ? 'text-muted hover:bg-canvas hover:text-ink'
+                      : 'text-[#A6A4A0] hover:bg-[#3A3936] hover:text-white'
                 }`}
               >
                 <Icon size={12} aria-hidden="true" />

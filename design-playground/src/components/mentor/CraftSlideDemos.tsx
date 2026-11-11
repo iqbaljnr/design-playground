@@ -161,7 +161,16 @@ export function CraftFlyerArtwork({
         strokeWidth="2"
       />
       <circle cx="212" cy="148" r="106" fill="url(#craftWarmGrad)" />
-      <rect x="44" y="168" width="144" height="144" rx="22" fill="#171717" />
+      <rect
+        x="44"
+        y="168"
+        width="144"
+        height="144"
+        rx="22"
+        fill="#F2F2F2"
+        stroke="#171717"
+        strokeWidth="2.5"
+      />
       <circle cx="116" cy="240" r="46" fill="url(#craftGlowGrad)" />
       <path
         d="M52 84 H158 M52 104 H126"
@@ -184,7 +193,7 @@ export function CraftFlyerArtwork({
 }
 
 /* -------------------------------------------------------------------------- */
-/* SLIDE 03 — Voting Perspective Cards                                        */
+/* SLIDE 03 — Open Discussion Perspective Cards (Complementary Qualities)     */
 /* -------------------------------------------------------------------------- */
 export function CraftSlide03VotingShowcase({
   scale = 'default',
@@ -193,24 +202,41 @@ export function CraftSlide03VotingShowcase({
   scale?: PresentationScale;
   lang?: PresentationLang;
 } = {}) {
-  const [selected, setSelected] = useState<'looks' | 'clear' | 'helps'>('clear');
+  const [focused, setFocused] = useState<Array<'looks' | 'clear' | 'helps'>>([]);
   const t = getScaleTokens(scale);
   const isId = lang === 'id';
 
+  type PerspectiveKey = 'looks' | 'clear' | 'helps';
+
+  const toggleFocus = (id: PerspectiveKey) =>
+    setFocused((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+
+  const allKeys: PerspectiveKey[] = ['looks', 'clear', 'helps'];
+  const allActive = focused.length === allKeys.length;
+  const toggleAll = () => setFocused(allActive ? [] : allKeys);
+
   const items: Array<{
-    id: 'looks' | 'clear' | 'helps';
+    id: PerspectiveKey;
     num: string;
+    role: string;
     title: string;
     desc: string;
+    prompt: string;
     preview: ReactNode;
   }> = [
     {
       id: 'looks',
       num: isId ? '01' : 'Perspective 01',
-      title: isId ? 'Tampilannya menarik.' : 'It looks beautiful.',
+      role: isId ? 'Daya Tarik' : 'Appeal',
+      title: isId ? 'Tampilannya menarik.' : 'It looks appealing.',
       desc: isId
         ? 'Warna yang tepat dan huruf rapi langsung mencuri perhatian.'
-        : 'Expressive colors and sleek typography catch attention immediately.',
+        : 'Thoughtful color and crisp type catch attention right away.',
+      prompt: isId
+        ? 'Membuat orang mau berhenti melihat dan percaya sejak awal.'
+        : 'Earns attention and builds first-glance trust.',
       preview: (
         <div className="flex h-20 items-center justify-center rounded-xl bg-canvas p-3">
           <div className="flex items-center gap-2.5">
@@ -224,10 +250,14 @@ export function CraftSlide03VotingShowcase({
     {
       id: 'clear',
       num: isId ? '02' : 'Perspective 02',
+      role: isId ? 'Kejelasan' : 'Clarity',
       title: isId ? 'Pesannya cepat dimengerti.' : 'It communicates clearly.',
       desc: isId
         ? 'Orang langsung paham inti pesannya dalam 2 detik tanpa menebak.'
         : 'Visitors understand the core message in 2 seconds without guessing.',
+      prompt: isId
+        ? 'Menghilangkan rasa bingung supaya informasi cepat tertangkap.'
+        : 'Removes guesswork so information lands right away.',
       preview: (
         <div className="flex h-20 flex-col justify-center rounded-xl bg-canvas px-4">
           <span className={`font-display font-extrabold text-ink ${t.rowTitle}`}>
@@ -242,21 +272,25 @@ export function CraftSlide03VotingShowcase({
     {
       id: 'helps',
       num: isId ? '03' : 'Perspective 03',
+      role: isId ? 'Kegunaan' : 'Action',
       title: isId ? 'Membantu orang mencapai tujuan.' : 'It helps people achieve something.',
       desc: isId
         ? 'Mengarahkan pengguna dengan nyaman sampai menekan tombol aksi.'
         : 'Guides real users smoothly to take an intended action.',
+      prompt: isId
+        ? 'Menjadikan visual benar-benar berguna untuk langkah selanjutnya.'
+        : 'Turns visuals into a helpful next step for users.',
       preview: (
-        <div className="flex h-20 items-center justify-between rounded-xl bg-dark px-4">
+        <div className="flex h-20 items-center justify-between rounded-xl border border-[#F2B8CD] bg-[#FCECF1] px-4">
           <div>
-            <span className={`block font-display font-bold text-white ${t.rowTitle}`}>
+            <span className={`block font-display font-bold text-ink ${t.rowTitle}`}>
               {isId ? 'Siap Gabung?' : 'Ready to Join?'}
             </span>
-            <span className={`text-on-dark-muted ${t.badge}`}>
+            <span className={`text-[#9E1148] ${t.badge}`}>
               {isId ? 'Daftar 2 langkah' : '2-step seat signup'}
             </span>
           </div>
-          <span className={`rounded-lg bg-brand-orange px-3 py-1 font-display font-bold text-ink ${t.badge}`}>
+          <span className={`rounded-lg bg-brand-magenta px-3 py-1 font-display font-bold text-white ${t.badge}`}>
             {isId ? 'Daftar' : 'Reserve'}
           </span>
         </div>
@@ -265,40 +299,72 @@ export function CraftSlide03VotingShowcase({
   ];
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-      {items.map((item) => {
-        const active = selected === item.id;
-        return (
-          <button
-            key={item.id}
-            type="button"
-            onClick={() => setSelected(item.id)}
-            className={`flex flex-col justify-between rounded-2xl border p-5 text-left transition-colors cursor-pointer ${
-              active
-                ? 'border-brand-magenta bg-elevated'
-                : 'border-border-subtle bg-elevated/60 hover:border-border-strong'
-            }`}
-          >
-            <div>
-              <div className="flex items-center justify-between gap-2">
-                <span className={`font-mono font-bold text-brand-magenta ${t.badge}`}>
-                  {item.num}
-                </span>
-                {active && (
-                  <span className={`rounded-full bg-brand-magenta px-2.5 py-0.5 font-display font-semibold text-white ${t.badge}`}>
-                    {isId ? 'Dipilih' : 'Picked'}
+    <div className="space-y-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 px-0.5">
+        <span className={`font-mono font-semibold text-muted ${t.badge}`}>
+          {isId
+            ? 'Klik kartu mana saja untuk fokus diskusi · Semua poin saling melengkapi'
+            : 'Click any card to spotlight in discussion · All three complement each other'}
+        </span>
+        <button
+          type="button"
+          aria-pressed={allActive}
+          onClick={toggleAll}
+          className={`rounded-full border px-3 py-1 font-display font-bold transition-colors cursor-pointer ${t.badge} ${
+            allActive
+              ? 'border-brand-magenta bg-brand-magenta text-white'
+              : 'border-border-strong bg-elevated text-ink hover:border-brand-magenta'
+          }`}
+        >
+          {isId
+            ? allActive
+              ? '3/3 Saling Melengkapi'
+              : 'Sorot Ketiganya Bersama'
+            : allActive
+              ? 'All 3 Work Together'
+              : 'Highlight All 3 Together'}
+        </button>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        {items.map((item) => {
+          const active = focused.includes(item.id);
+          return (
+            <button
+              key={item.id}
+              type="button"
+              aria-pressed={active}
+              onClick={() => toggleFocus(item.id)}
+              className={`flex flex-col justify-between rounded-2xl border p-5 text-left transition-colors cursor-pointer ${
+                active
+                  ? 'border-brand-magenta bg-elevated'
+                  : 'border-border-subtle bg-elevated hover:border-border-strong'
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className={`font-mono font-bold text-brand-magenta ${t.badge}`}>
+                    {item.num} · {item.role}
                   </span>
-                )}
+                  {active && (
+                    <span className={`rounded-full bg-[#FCECF1] px-2.5 py-0.5 font-display font-bold text-[#9E1148] ${t.badge}`}>
+                      {isId ? 'Dibahas' : 'In Discussion'}
+                    </span>
+                  )}
+                </div>
+                <div className="mt-3">{item.preview}</div>
+                <h3 className={`mt-3.5 font-display font-extrabold text-ink ${t.cardHeading}`}>
+                  {item.title}
+                </h3>
+                <p className={`mt-1.5 leading-relaxed text-muted ${t.body}`}>{item.desc}</p>
               </div>
-              <div className="mt-3">{item.preview}</div>
-              <h3 className={`mt-3.5 font-display font-extrabold text-ink ${t.cardHeading}`}>
-                {item.title}
-              </h3>
-              <p className={`mt-1.5 leading-relaxed text-muted ${t.body}`}>{item.desc}</p>
-            </div>
-          </button>
-        );
-      })}
+              <p className={`mt-3 border-t border-border-subtle pt-2.5 font-medium text-ink/85 ${t.compactNote}`}>
+                + {item.prompt}
+              </p>
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -329,7 +395,7 @@ export function CraftSlide04CompareDemo({
             onClick={() => setMode('confusing')}
             className={`rounded-lg border px-3 py-1 font-display font-semibold cursor-pointer ${t.badge} ${
               mode === 'confusing'
-                ? 'border-dark bg-dark text-white'
+                ? 'border-border-strong bg-surface text-ink'
                 : 'border-border-subtle bg-canvas text-muted'
             }`}
           >
@@ -373,7 +439,7 @@ export function CraftSlide04CompareDemo({
       ) : (
         <div className="flex min-h-[210px] flex-col justify-between rounded-xl border border-border-subtle bg-canvas p-5">
           <div className={`flex items-center justify-between font-semibold text-brand-magenta ${t.badge}`}>
-            <span>WORKSHOP CRAFT</span>
+            <span>CREATIVE WORKSHOP</span>
             <span className="font-mono text-muted">{isId ? 'EDISI PEMULA' : 'BEGINNER TRACK'}</span>
           </div>
           <div>
@@ -391,7 +457,7 @@ export function CraftSlide04CompareDemo({
               {isId ? 'Kelas Pemula' : 'Beginner Track'}
             </span>
             <span className={`rounded-lg bg-brand-magenta px-4 py-1.5 font-display font-bold text-white ${t.badge}`}>
-              {isId ? 'Daftar Kursi ->' : 'Register Seat ->'}
+              {isId ? 'Daftar Kursi →' : 'Register Seat →'}
             </span>
           </div>
         </div>
@@ -421,6 +487,7 @@ export function CraftSlide05AnnotatedPoster({
       desc: isId
         ? 'Menentukan pesan mana yang dibaca duluan.'
         : 'Delivers clear message & reading order.',
+      Icon: Type,
     },
     {
       id: 'color' as const,
@@ -428,6 +495,7 @@ export function CraftSlide05AnnotatedPoster({
       desc: isId
         ? 'Membangun suasana dan membedakan tombol aksi.'
         : 'Creates mood and distinguishes key actions.',
+      Icon: Sparkles,
     },
     {
       id: 'layout' as const,
@@ -435,6 +503,7 @@ export function CraftSlide05AnnotatedPoster({
       desc: isId
         ? 'Mengatur ruang kosong, jarak, dan keseimbangan.'
         : 'Organizes space, margins & columns.',
+      Icon: GridIcon,
     },
     {
       id: 'images' as const,
@@ -442,6 +511,7 @@ export function CraftSlide05AnnotatedPoster({
       desc: isId
         ? 'Memberi konteks cepat dan memperkuat nuansa.'
         : 'Builds context and emotional meaning.',
+      Icon: ImageIcon,
     },
   ];
 
@@ -450,6 +520,7 @@ export function CraftSlide05AnnotatedPoster({
       <div className="divide-y divide-border-subtle rounded-2xl border border-border-subtle bg-elevated lg:col-span-5">
         {roles.map((r) => {
           const active = focusRole === r.id;
+          const IconComp = r.Icon;
           return (
             <button
               key={r.id}
@@ -459,11 +530,22 @@ export function CraftSlide05AnnotatedPoster({
                 active ? 'bg-[#FCECF1]/65' : 'hover:bg-canvas/70'
               }`}
             >
-              <div>
-                <strong className={`block font-display font-bold text-ink ${t.cardHeading}`}>
-                  {r.label}
-                </strong>
-                <span className={`mt-0.5 block text-muted ${t.body}`}>{r.desc}</span>
+              <div className="flex items-start gap-3">
+                <span
+                  className={`mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border ${
+                    active
+                      ? 'border-brand-magenta bg-brand-magenta text-white'
+                      : 'border-border-subtle bg-canvas text-ink'
+                  }`}
+                >
+                  <IconComp size={15} aria-hidden="true" />
+                </span>
+                <div>
+                  <strong className={`block font-display font-bold text-ink ${t.cardHeading}`}>
+                    {r.label}
+                  </strong>
+                  <span className={`mt-0.5 block text-muted ${t.body}`}>{r.desc}</span>
+                </div>
               </div>
               <span
                 className={`shrink-0 rounded-full px-2.5 py-0.5 font-mono font-bold ${t.badge} ${
@@ -505,7 +587,7 @@ export function CraftSlide05AnnotatedPoster({
                   : 'text-ink'
               }`}
             >
-              CRAFT STUDIO NIGHT
+              CREATIVE STUDIO NIGHT
             </h4>
             <p className={`mt-2.5 leading-relaxed text-muted ${t.body}`}>
               {isId
@@ -516,8 +598,8 @@ export function CraftSlide05AnnotatedPoster({
               <span
                 className={`inline-block rounded-lg px-4 py-2 font-display font-bold ${t.badge} ${
                   focusRole === 'color'
-                    ? 'bg-brand-orange text-ink'
-                    : 'bg-dark text-white'
+                    ? 'bg-brand-orange text-ink ring-2 ring-brand-magenta/40'
+                    : 'bg-brand-magenta text-white'
                 }`}
               >
                 {isId ? 'Ikut Workshop' : 'Join Workshop'}
@@ -579,7 +661,7 @@ export function CraftSlide06ProblemSolutionDemo({
             onClick={() => setSolved(false)}
             className={`rounded-lg border px-3 py-1 font-display font-semibold cursor-pointer ${t.badge} ${
               !solved
-                ? 'border-dark bg-dark text-white'
+                ? 'border-border-strong bg-surface text-ink'
                 : 'border-border-subtle bg-canvas text-muted'
             }`}
           >
@@ -624,7 +706,7 @@ export function CraftSlide06ProblemSolutionDemo({
             </p>
           </div>
           <span className={`rounded-lg bg-brand-magenta px-4 py-2 font-display font-bold text-white ${t.badge}`}>
-            {isId ? 'Mulai Proyek ->' : 'Start a Project ->'}
+            {isId ? 'Mulai Proyek →' : 'Start a Project →'}
           </span>
         </div>
       )}
@@ -694,11 +776,11 @@ export function CraftSlide08GridDemo({
               {isId ? 'MENU NAVIGASI (Kolom 3–6)' : 'NAV LINKS (Cols 3–6)'}
             </span>
           </div>
-          <div className="col-span-4 rounded-lg bg-dark p-4 text-white">
-            <span className={`font-mono text-brand-orange ${t.badge}`}>
+          <div className="col-span-4 rounded-lg border border-[#F2B8CD] bg-[#FCECF1] p-4 text-ink">
+            <span className={`font-mono font-bold text-[#9E1148] ${t.badge}`}>
               {isId ? 'LEBAR 4 KOLOM' : '4 COLUMNS WIDE'}
             </span>
-            <h4 className={`mt-1 font-display font-extrabold ${t.cardHeading}`}>
+            <h4 className={`mt-1 font-display font-extrabold text-ink ${t.cardHeading}`}>
               {isId
                 ? 'Kolom Menjaga Setiap Judul Tetap Sejajar'
                 : 'Consistent Column Tracks Anchor Every Headline'}
@@ -738,27 +820,37 @@ export function CraftSlide09AnatomyDemo({
     {
       id: 'margin' as const,
       name: 'Margin',
-      def: isId ? 'Jarak aman di tepi luar layar.' : 'Space outside an element or frame perimeter.',
+      def: isId
+        ? 'Seperti jarak aman di tepi buku tulis agar tulisan tidak menempel pinggir kertas.'
+        : 'Like notebook page margins keeping words away from the outer paper edge.',
     },
     {
       id: 'padding' as const,
       name: 'Padding',
-      def: isId ? 'Ruang di dalam kotak atau tombol.' : 'Space inside a card or button around content.',
+      def: isId
+        ? 'Seperti ruang atau bantalan di dalam kotak agar isinya tidak mepet ke dinding.'
+        : 'Like cushioned space inside a box so content never presses against borders.',
     },
     {
       id: 'gutter' as const,
       name: isId ? 'Gutter (Sela Kolom)' : 'Gutter',
-      def: isId ? 'Jarak konsisten antar kolom sebelah.' : 'Consistent gap separating neighboring columns.',
+      def: isId
+        ? 'Jarak antara dua kolom supaya konten kiri dan kanan tidak bertabrakan.'
+        : 'The clear lane between two columns so side-by-side blocks never collide.',
     },
     {
       id: 'alignment' as const,
       name: isId ? 'Alignment (Kelurusan)' : 'Alignment',
-      def: isId ? 'Garis bantu agar elemen sejajar rapi.' : 'Shared visual rail aligning elements cleanly.',
+      def: isId
+        ? 'Seperti barisan elemen mengikuti satu garis lurus supaya rapi dan tenang dilihat.'
+        : 'Like neat rows snapped along one straight invisible edge for easy scanning.',
     },
     {
       id: 'whitespace' as const,
       name: isId ? 'Whitespace (Ruang Napas)' : 'Whitespace',
-      def: isId ? 'Area kosong agar mata nyaman membaca.' : 'Intentional empty area improving scan comfort.',
+      def: isId
+        ? 'Ruang kosong yang disisakan agar desain terasa lega dan tidak sesak.'
+        : 'Intentional empty room that keeps layouts open and never overcrowded.',
     },
   ];
 
@@ -772,14 +864,14 @@ export function CraftSlide09AnatomyDemo({
               key={d.id}
               type="button"
               onClick={() => setActiveZone(d.id)}
-              className={`block w-full px-4 py-3 text-left transition-colors cursor-pointer first:rounded-t-2xl last:rounded-b-2xl ${
+              className={`block w-full px-4 py-2.5 text-left transition-colors cursor-pointer first:rounded-t-2xl last:rounded-b-2xl ${
                 on ? 'bg-[#FCECF1]/75' : 'hover:bg-canvas/70'
               }`}
             >
-              <strong className={`font-display font-bold text-ink ${t.rowTitle}`}>
+              <strong className={`block font-display font-bold text-ink ${t.rowTitle}`}>
                 {d.name}
               </strong>
-              <span className={`ml-2 text-muted ${t.compactNote}`}>{d.def}</span>
+              <span className={`mt-0.5 block leading-snug text-muted ${t.compactNote}`}>{d.def}</span>
             </button>
           );
         })}
@@ -798,13 +890,13 @@ export function CraftSlide09AnatomyDemo({
             <span className="font-mono text-brand-magenta">
               {activeZone === 'margin'
                 ? isId
-                  ? 'DISOROT: MARGIN LUAR'
-                  : 'ACTIVE: OUTER MARGIN ZONE'
+                  ? 'DISOROT: MARGIN TEPI KERTAS'
+                  : 'ACTIVE: OUTER PAPER MARGIN'
                 : isId
-                  ? 'AREA MARGIN LUAR'
+                  ? 'AREA MARGIN TEPI'
                   : 'OUTER FRAME MARGIN'}
             </span>
-            <span className="font-mono text-muted">{isId ? 'Tepi 24px' : '24px Edge'}</span>
+            <span className="font-mono text-muted">{isId ? 'Pinggir aman 24px' : '24px Safe Edge'}</span>
           </div>
 
           <div
@@ -827,12 +919,12 @@ export function CraftSlide09AnatomyDemo({
               <span className={`mt-1 block text-muted ${t.compactNote}`}>
                 {activeZone === 'padding'
                   ? isId
-                    ? 'Lihat jarak napas di dalam kartu!'
-                    : 'Notice inner Padding buffer!'
+                    ? 'Seperti bantalan ruang di dalam kotak!'
+                    : 'Cushioned inner space inside the box!'
                   : activeZone === 'alignment'
                     ? isId
-                      ? 'Sisi kiri lurus pada satu rel!'
-                      : 'Aligned cleanly to left rail!'
+                      ? 'Barisan mengikuti satu garis lurus!'
+                      : 'Lined up straight on one shared rail!'
                     : isId
                       ? 'Blok konten utama'
                       : 'Inner card block'}
@@ -852,12 +944,12 @@ export function CraftSlide09AnatomyDemo({
               <span className={`mt-1 block text-muted ${t.compactNote}`}>
                 {activeZone === 'gutter'
                   ? isId
-                    ? 'Sela kolom memisahkan A & B'
-                    : 'Column Gutter gap between A & B'
+                    ? 'Jarak aman antara dua kolom'
+                    : 'Clear lane between Column A & B'
                   : activeZone === 'whitespace'
                     ? isId
-                      ? 'Ruang kosong bikin mata tenang'
-                      : 'Clean Whitespace lets eye rest'
+                      ? 'Ruang kosong agar tidak terasa sesak'
+                      : 'Empty breathing room stops crowding'
                     : isId
                       ? 'Blok pendamping'
                       : 'Companion block'}
@@ -914,7 +1006,7 @@ export function CraftSlide10LayoutSwitchboard({
             onClick={() => applyAll(false)}
             className={`rounded-lg border px-2.5 py-1 font-display font-semibold cursor-pointer ${t.badge} ${
               count === 0
-                ? 'border-dark bg-dark text-white'
+                ? 'border-border-strong bg-surface text-ink'
                 : 'border-border-subtle bg-elevated text-muted'
             }`}
           >
@@ -940,7 +1032,11 @@ export function CraftSlide10LayoutSwitchboard({
             scale={scale}
             lang={lang}
             label={isId ? 'Margin Tepi Luar' : 'Outer Frame Margins'}
-            hint={isId ? 'Beri jarak agar teks tidak menempel tepi kotak.' : 'Stop text and cards from touching box edges.'}
+            hint={
+              isId
+                ? 'Seperti tepi aman kertas agar tulisan tidak menempel pinggir.'
+                : 'Like paper margins keeping text away from box borders.'
+            }
             active={marginsOn}
             onToggle={() => setMarginsOn((v) => !v)}
           />
@@ -948,23 +1044,35 @@ export function CraftSlide10LayoutSwitchboard({
             scale={scale}
             lang={lang}
             label={isId ? 'Luruskan Garis Kolom' : 'Shared Column Alignment'}
-            hint={isId ? 'Samakan tepi kiri seluruh teks dan kartu.' : 'Anchor left edges neatly on straight invisible rails.'}
+            hint={
+              isId
+                ? 'Bariskan tepi kiri judul dan kartu pada satu garis lurus.'
+                : 'Line up titles and cards neatly along one straight rail.'
+            }
             active={alignOn}
             onToggle={() => setAlignOn((v) => !v)}
           />
           <SwitchRow
             scale={scale}
             lang={lang}
-            label={isId ? 'Jarak Antar Kartu Sama' : 'Consistent Gutters'}
-            hint={isId ? 'Buat jarak antar kartu seragam dan terukur.' : 'Use equal spacing tracks between side-by-side cards.'}
+            label={isId ? 'Jarak Antar Dua Kolom' : 'Gutter Between Columns'}
+            hint={
+              isId
+                ? 'Beri sela seragam di antara kartu supaya tidak saling dempet.'
+                : 'Keep equal lanes between side-by-side cards.'
+            }
             active={gutterOn}
             onToggle={() => setGutterOn((v) => !v)}
           />
           <SwitchRow
             scale={scale}
             lang={lang}
-            label={isId ? 'Tambah Ruang Kosong' : 'Intentional Whitespace'}
-            hint={isId ? 'Beri ruang napas di bawah judul agar mudah dipindai.' : 'Give titles breathing room so scanning feels natural.'}
+            label={isId ? 'Ruang Kosong Napas' : 'Intentional Whitespace'}
+            hint={
+              isId
+                ? 'Sisakan ruang kosong di bawah judul agar tidak terasa sesak.'
+                : 'Leave calm empty space below titles so layouts never crowd.'
+            }
             active={spaceOn}
             onToggle={() => setSpaceOn((v) => !v)}
           />
@@ -1069,7 +1177,7 @@ export function CraftSlide13TypographySwitchboard({
             onClick={() => setPreset(false)}
             className={`rounded-lg border px-2.5 py-1 font-display font-semibold cursor-pointer ${t.badge} ${
               count === 0
-                ? 'border-dark bg-dark text-white'
+                ? 'border-border-strong bg-surface text-ink'
                 : 'border-border-subtle bg-elevated text-muted'
             }`}
           >
@@ -1257,55 +1365,81 @@ export function CraftSlide14ColorWheelDemo({
   const active = specs[relation];
 
   return (
-    <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12">
-      <div className="flex flex-wrap gap-2 lg:col-span-5">
-        {(Object.keys(specs) as Array<keyof typeof specs>).map((k) => (
-          <button
-            key={k}
-            type="button"
-            onClick={() => setRelation(k)}
-            className={`rounded-xl border px-3.5 py-2 font-display font-bold transition-colors cursor-pointer ${t.rowTitle} ${
-              relation === k
-                ? 'border-brand-magenta bg-brand-magenta text-white'
-                : 'border-border-subtle bg-elevated text-ink hover:border-border-strong'
-            }`}
-          >
-            {specs[k].label}
-          </button>
-        ))}
+    <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-12">
+      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:col-span-5">
+        {(Object.keys(specs) as Array<keyof typeof specs>).map((k) => {
+          const item = specs[k];
+          const isSelected = relation === k;
+          return (
+            <button
+              key={k}
+              type="button"
+              onClick={() => setRelation(k)}
+              className={`flex flex-col justify-between gap-2 rounded-xl border p-3.5 text-left transition-colors cursor-pointer ${
+                isSelected
+                  ? 'border-brand-magenta bg-[#FCECF1]/65 text-ink'
+                  : 'border-border-subtle bg-elevated text-ink hover:border-border-strong'
+              }`}
+            >
+              <div className="flex items-center gap-1.5">
+                {item.swatches.map((dot) => (
+                  <span
+                    key={dot.hex + dot.name}
+                    className="h-3 w-3 rounded-full border border-border-strong"
+                    style={{ backgroundColor: dot.hex }}
+                  />
+                ))}
+              </div>
+              <strong className={`font-display font-bold ${isSelected ? 'text-[#9E1148]' : 'text-ink'} ${t.rowTitle}`}>
+                {item.label}
+              </strong>
+            </button>
+          );
+        })}
       </div>
 
-      <div className="flex flex-wrap items-center gap-6 rounded-2xl border border-border-subtle bg-elevated p-6 lg:col-span-7">
-        <svg width="112" height="112" viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="60" cy="60" r="46" fill="none" stroke="#E5E3E0" strokeWidth="14" />
-          <circle cx="60" cy="14" r="10" fill="#F04438" stroke="#171717" strokeWidth="2" />
-          <circle cx="99" cy="36" r="10" fill="#FF8A3D" stroke="#171717" strokeWidth="2" />
-          <circle cx="99" cy="84" r="10" fill="#F59E0B" stroke="#171717" strokeWidth="2" />
-          <circle cx="60" cy="106" r="10" fill="#0D9488" stroke="#171717" strokeWidth="2" />
-          <circle cx="21" cy="84" r="10" fill="#2952E3" stroke="#171717" strokeWidth="2" />
-          <circle cx="21" cy="36" r="10" fill="#C2185B" stroke="#171717" strokeWidth="2" />
-        </svg>
+      <div className="flex flex-col justify-center rounded-2xl border border-border-subtle bg-elevated p-6 sm:p-7 lg:col-span-7">
+        <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+          <svg
+            width="156"
+            height="156"
+            viewBox="0 0 120 120"
+            aria-hidden="true"
+            className="shrink-0"
+          >
+            <circle cx="60" cy="60" r="46" fill="none" stroke="#E5E3E0" strokeWidth="14" />
+            <circle cx="60" cy="14" r="10" fill="#F04438" stroke="#171717" strokeWidth="2" />
+            <circle cx="99" cy="36" r="10" fill="#FF8A3D" stroke="#171717" strokeWidth="2" />
+            <circle cx="99" cy="84" r="10" fill="#F59E0B" stroke="#171717" strokeWidth="2" />
+            <circle cx="60" cy="106" r="10" fill="#0D9488" stroke="#171717" strokeWidth="2" />
+            <circle cx="21" cy="84" r="10" fill="#2952E3" stroke="#171717" strokeWidth="2" />
+            <circle cx="21" cy="36" r="10" fill="#C2185B" stroke="#171717" strokeWidth="2" />
+          </svg>
 
-        <div className="min-w-0 flex-1">
-          <strong className={`font-display font-extrabold text-ink ${t.cardHeading}`}>
-            {active.label}
-          </strong>
-          <p className={`mt-1 leading-relaxed text-muted ${t.body}`}>{active.desc}</p>
-          <div className="mt-3.5 flex flex-wrap gap-2">
-            {active.swatches.map((sw) => (
-              <div
-                key={sw.hex + sw.name}
-                className="flex items-center gap-2 rounded-lg bg-canvas px-3 py-1.5"
-              >
-                <span
-                  className="h-4 w-4 rounded-full border border-dark/20"
-                  style={{ backgroundColor: sw.hex }}
-                />
-                <span className={`font-mono font-semibold text-ink ${t.badge}`}>
-                  {sw.name}
-                </span>
-              </div>
-            ))}
+          <div className="min-w-0 flex-1">
+            <span className={`font-mono font-bold text-brand-magenta ${t.badge}`}>
+              {isId ? 'KELOMPOK WARNA AKTIF' : 'ACTIVE COLOR GROUP'}
+            </span>
+            <strong className={`mt-1 block font-display font-extrabold text-ink ${t.specimenHeadline}`}>
+              {active.label}
+            </strong>
+            <p className={`mt-1.5 leading-relaxed text-ink/80 ${t.body}`}>{active.desc}</p>
+            <div className="mt-4 flex flex-wrap gap-2.5">
+              {active.swatches.map((sw) => (
+                <div
+                  key={sw.hex + sw.name}
+                  className="flex items-center gap-2 rounded-lg border border-border-subtle bg-canvas px-3 py-1.5"
+                >
+                  <span
+                    className="h-4 w-4 rounded-full border border-dark/20"
+                    style={{ backgroundColor: sw.hex }}
+                  />
+                  <span className={`font-mono font-bold text-ink ${t.badge}`}>
+                    {sw.name}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -1333,8 +1467,12 @@ export function CraftSlide16ContrastSwitchboard({
   const btnBg = solidCta ? '#C2185B' : '#E2DEDB';
   const btnText = solidCta ? '#FFFFFF' : '#F2F2F2';
 
-  const bodyRatio = getContrastRatio(textColor, cardBg).toFixed(2);
-  const btnRatio = getContrastRatio(btnText, btnBg).toFixed(2);
+  const bodyValue = getContrastRatio(textColor, cardBg);
+  const btnValue = getContrastRatio(btnText, btnBg);
+  const bodyRatio = bodyValue.toFixed(2);
+  const btnRatio = btnValue.toFixed(2);
+  const bodyPass = bodyValue >= 4.5;
+  const btnPass = btnValue >= 4.5;
 
   return (
     <div className="overflow-hidden rounded-2xl border border-border-subtle bg-elevated">
@@ -1345,8 +1483,8 @@ export function CraftSlide16ContrastSwitchboard({
           </span>
           <span className={`font-display font-bold text-ink ${t.barTitle}`}>
             {isId
-              ? 'Uji Keterbacaan: Latar Sama (#F2F2F2), Tingkat Kontras Berbeda'
-              : 'Test Readability: Same Soft Off-White Card (#F2F2F2), Different Contrast Ratios'}
+              ? 'Uji Rasio Kontras & Hasil Evaluasi (Target Aman Minimal 4,5:1)'
+              : 'Test Contrast Ratio & Live Evaluation (Safe Target 4.5:1+)'}
           </span>
         </div>
         <div className="flex gap-1.5">
@@ -1358,7 +1496,7 @@ export function CraftSlide16ContrastSwitchboard({
             }}
             className={`rounded-lg border px-2.5 py-1 font-display font-semibold cursor-pointer ${t.badge} ${
               !highInk && !solidCta
-                ? 'border-dark bg-dark text-white'
+                ? 'border-border-strong bg-surface text-ink'
                 : 'border-border-subtle bg-elevated text-muted'
             }`}
           >
@@ -1389,8 +1527,8 @@ export function CraftSlide16ContrastSwitchboard({
             label={isId ? 'Teks Gelap Jelas (#171717)' : 'Readable Body Ink (#171717)'}
             hint={
               isId
-                ? `Rasio teks: ${bodyRatio}:1 di atas latar #F2F2F2`
-                : `Text contrast: ${bodyRatio}:1 on Soft Off-White #F2F2F2`
+                ? `Rasio teks: ${bodyRatio}:1 — ${bodyPass ? 'LULUS (Aman dibaca)' : 'GAGAL (< 4,5:1 terlalu pudar)'}`
+                : `Text ratio: ${bodyRatio}:1 — ${bodyPass ? 'PASS (Clear to read)' : 'FAIL (< 4.5:1 too faint)'}`
             }
             active={highInk}
             onToggle={() => setHighInk((v) => !v)}
@@ -1401,41 +1539,104 @@ export function CraftSlide16ContrastSwitchboard({
             label={isId ? 'Tombol Tegas (#C2185B + Putih)' : 'High-Contrast CTA (#C2185B + White)'}
             hint={
               isId
-                ? `Rasio tombol: ${btnRatio}:1 agar langsung terlihat`
-                : `Button contrast: ${btnRatio}:1 for instant recognition`
+                ? `Rasio tombol: ${btnRatio}:1 — ${btnPass ? 'LULUS (Teks menonjol)' : 'GAGAL (< 4,5:1 hampir menyatu)'}`
+                : `Button ratio: ${btnRatio}:1 — ${btnPass ? 'PASS (Button label pops)' : 'FAIL (< 4.5:1 blends in)'}`
             }
             active={solidCta}
             onToggle={() => setSolidCta((v) => !v)}
           />
-          <p className={`px-1 pt-1 text-muted ${t.compactNote}`}>
-            {isId
-              ? 'Warna yang bagus tidak boleh membuat tulisan sulit dibaca.'
-              : 'Color should never compromise readability or usability on any screen.'}
-          </p>
+          <div className="rounded-xl bg-canvas px-3.5 py-2.5">
+            <strong className={`block font-display font-bold text-ink ${t.badge}`}>
+              {isId ? 'Kenapa angka 4,5:1 itu penting?' : 'Why does 4.5:1 matter?'}
+            </strong>
+            <p className={`mt-1 leading-snug text-muted ${t.compactNote}`}>
+              {isId
+                ? 'Warna lembut terlihat cantik di monitor ruang kerja, tapi langsung sulit dibaca saat dibuka di HP di luar ruangan atau lewat proyektor kelas.'
+                : 'Pastels can look aesthetic indoors, yet drop below 4.5:1 and wash out on sunny phones or dim projectors.'}
+            </p>
+          </div>
         </div>
 
-        <div className="flex items-center justify-center bg-surface p-5 lg:col-span-7">
+        <div className="flex flex-col items-center justify-center gap-3 bg-surface p-4 lg:col-span-7">
           <div
-            className="w-full max-w-lg rounded-xl border border-border-subtle p-6"
+            className="w-full max-w-lg rounded-xl border border-border-subtle p-5"
             style={{ backgroundColor: cardBg }}
           >
             <h4
               className={`font-display font-extrabold ${t.specimenHeadline}`}
               style={{ color: textColor }}
             >
-              {isId ? 'Warna + Keterbacaan' : 'Color + Readability'}
+              {isId ? 'Warna Bagus Belum Tentu Jelas' : 'Good Color Is Not Always Readable'}
             </h4>
-            <p className={`mt-2 leading-relaxed ${t.body}`} style={{ color: textColor }}>
+            <p className={`mt-1.5 leading-relaxed ${t.body}`} style={{ color: textColor }}>
               {isId
-                ? 'Selalu cek perbedaan terang-gelap antara warna tulisan dan latar belakangnya.'
-                : 'Check value difference between text and surface before locking your palette.'}
+                ? 'Perhatikan seberapa jauh perbedaan terang-gelap tulisan terhadap latarnya saat saklar digeser.'
+                : 'Watch how separating ink lightness from card lightness changes reading effort immediately.'}
             </p>
             <span
-              className={`mt-4 inline-block rounded-lg px-4 py-2 font-display font-bold ${t.badge}`}
+              className={`mt-3.5 inline-block rounded-lg px-4 py-2 font-display font-bold ${t.badge}`}
               style={{ backgroundColor: btnBg, color: btnText }}
             >
               {isId ? 'LIHAT KARYA KAMI' : 'EXPLORE OUR WORK'}
             </span>
+          </div>
+
+          <div className="grid w-full max-w-lg grid-cols-1 gap-2.5 sm:grid-cols-2">
+            {[
+              {
+                title: isId ? 'Evaluasi Teks Isi' : 'Body Copy Check',
+                ratio: bodyRatio,
+                pass: bodyPass,
+                verdict: bodyPass
+                  ? isId
+                    ? 'Teks tajam & nyaman dibaca sekilas.'
+                    : 'Sharp ink keeps reading comfortable at a glance.'
+                  : isId
+                    ? 'Pudar — mata cepat lelah membaca.'
+                    : 'Too faint — strains the eye.',
+              },
+              {
+                title: isId ? 'Evaluasi Tombol Aksi' : 'CTA Button Check',
+                ratio: btnRatio,
+                pass: btnPass,
+                verdict: btnPass
+                  ? isId
+                    ? 'Label tombol langsung terlihat jelas.'
+                    : 'Action label stands out clearly.'
+                  : isId
+                    ? 'Tombol manis tapi tulisannya hilang.'
+                    : 'Soft button color hides its label.',
+              },
+            ].map((ev) => (
+              <div
+                key={ev.title}
+                className={`rounded-xl border px-3.5 py-2.5 ${
+                  ev.pass
+                    ? 'border-[#C6DEC8] bg-[#EDF5ED]'
+                    : 'border-[#F2B8CD] bg-[#FCECF1]'
+                }`}
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <span className={`font-display font-bold text-ink ${t.badge}`}>{ev.title}</span>
+                  <span
+                    className={`rounded-full px-2 py-0.5 font-mono font-bold ${t.badge} ${
+                      ev.pass ? 'bg-[#1F4A24] text-white' : 'bg-[#9E1349] text-white'
+                    }`}
+                  >
+                    {ev.pass ? (isId ? 'LULUS' : 'PASS') : isId ? 'GAGAL' : 'FAIL'}
+                  </span>
+                </div>
+                <div className="mt-1 flex items-baseline gap-2">
+                  <strong className={`font-mono font-extrabold text-ink ${t.barTitle}`}>
+                    {ev.ratio}:1
+                  </strong>
+                  <span className={`font-mono text-muted ${t.badge}`}>
+                    {isId ? 'vs min 4,5:1' : 'vs 4.5:1 min'}
+                  </span>
+                </div>
+                <p className={`mt-0.5 leading-snug text-ink ${t.compactNote}`}>{ev.verdict}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -1535,8 +1736,8 @@ export function CraftSlide20HeroAnatomyDemo({
             </button>
           ))}
         </div>
-        <div className={`rounded-xl bg-dark px-4 py-2.5 text-white ${t.compactNote}`}>
-          <strong className="text-brand-orange">
+        <div className={`rounded-xl border border-[#F2B8CD] bg-[#FCECF1] px-4 py-2.5 text-ink ${t.compactNote}`}>
+          <strong className="font-display font-bold text-[#9E1148]">
             {isId ? `Peran 0${activePin.n}: ` : `Role 0${activePin.n}: `}
           </strong>
           {activePin.detail}
@@ -1591,7 +1792,9 @@ export function CraftSlide20HeroAnatomyDemo({
             <div className="mt-3.5 flex flex-wrap gap-2">
               <span
                 className={`rounded-lg px-3.5 py-1.5 font-display font-bold ${t.badge} ${
-                  pin === 5 ? 'bg-brand-magenta text-white' : 'bg-dark text-white'
+                  pin === 5
+                    ? 'bg-brand-magenta text-white ring-2 ring-brand-orange'
+                    : 'bg-[#FCECF1] text-[#9E1148] border border-[#F2B8CD]'
                 }`}
               >
                 {isId ? '[5] LIHAT KARYA KAMI' : '[5] EXPLORE OUR WORK'}
@@ -1675,7 +1878,7 @@ export function CraftSlide21UiUxDecisionDemo({
             onClick={() => setAll(false)}
             className={`rounded-lg border px-2.5 py-1 font-display font-semibold cursor-pointer ${t.badge} ${
               count === 0
-                ? 'border-dark bg-dark text-white'
+                ? 'border-border-strong bg-surface text-ink'
                 : 'border-border-subtle bg-elevated text-muted'
             }`}
           >
@@ -1797,13 +2000,13 @@ export function CraftSlide22FigmaIntroDemo({
       ];
 
   return (
-    <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-12">
-      <div className="space-y-3 lg:col-span-5">
+    <div className="grid grid-cols-1 items-stretch gap-5 lg:grid-cols-12">
+      <div className="flex flex-col justify-between gap-3 lg:col-span-5">
         <div className="divide-y divide-border-subtle rounded-2xl border border-border-subtle bg-elevated">
           {points.map((pt, idx) => (
             <div
               key={pt}
-              className={`flex items-center gap-3 px-4 py-2.5 font-semibold text-ink ${t.rowTitle}`}
+              className={`flex items-center gap-3 px-4 py-3 font-semibold text-ink ${t.rowTitle}`}
             >
               <span className={`font-mono font-bold text-brand-magenta ${t.badge}`}>
                 0{idx + 1}
@@ -1813,29 +2016,29 @@ export function CraftSlide22FigmaIntroDemo({
           ))}
         </div>
 
-        <div className={`rounded-xl bg-dark p-4 text-white ${t.compactNote}`}>
-          <span className="block font-mono font-bold text-brand-orange">
-            {isId ? 'DASAR DESAIN -> FIGMA' : 'DESIGN BASICS -> FIGMA'}
+        <div className={`rounded-xl border border-[#F2B8CD] bg-[#FCECF1] p-4 text-ink ${t.compactNote}`}>
+          <span className="block font-mono font-bold text-[#9E1148]">
+            {isId ? 'DASAR DESAIN → FIGMA' : 'DESIGN BASICS → FIGMA'}
           </span>
-          <p className="mt-1 leading-relaxed text-on-dark-muted">
+          <p className="mt-1 leading-relaxed text-ink/85">
             {isId ? (
               <>
-                <strong className="text-white">Grid</strong> meluruskan tata letak ·{' '}
-                <strong className="text-white">Tipografi</strong> merapikan bacaan ·{' '}
-                <strong className="text-white">Warna</strong> menegaskan tombol.
+                <strong className="text-ink">Grid</strong> meluruskan tata letak ·{' '}
+                <strong className="text-ink">Tipografi</strong> merapikan bacaan ·{' '}
+                <strong className="text-ink">Warna</strong> menegaskan tombol.
               </>
             ) : (
               <>
-                <strong className="text-white">Grid</strong> lines boxes up ·{' '}
-                <strong className="text-white">Type</strong> keeps words clear ·{' '}
-                <strong className="text-white">Color</strong> shows focus.
+                <strong className="text-ink">Grid</strong> lines boxes up ·{' '}
+                <strong className="text-ink">Type</strong> keeps words clear ·{' '}
+                <strong className="text-ink">Color</strong> shows focus.
               </>
             )}
           </p>
         </div>
       </div>
 
-      <div className="space-y-3 lg:col-span-7">
+      <div className="flex flex-col justify-between gap-3 lg:col-span-7">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <span className={`font-display font-bold text-muted ${t.badge}`}>
             {isId ? 'Mode Tampilan Referensi' : 'Visual Reference Mode'}
@@ -1846,7 +2049,7 @@ export function CraftSlide22FigmaIntroDemo({
               onClick={() => setView('placeholder')}
               className={`rounded-lg border px-3 py-1 font-display font-bold cursor-pointer ${t.badge} ${
                 view === 'placeholder'
-                  ? 'border-dark bg-dark text-white'
+                  ? 'border-border-strong bg-surface text-ink'
                   : 'border-border-subtle bg-elevated text-muted'
               }`}
             >
@@ -1867,41 +2070,48 @@ export function CraftSlide22FigmaIntroDemo({
         </div>
 
         {view === 'placeholder' ? (
-          <div className="overflow-hidden rounded-2xl border border-[#1E1E1E] bg-[#2C2C2C] text-white">
-            <div className="grid grid-cols-12">
-              {/* Mini Left Rail + Sidebar */}
-              <div className="col-span-4 border-r border-[#3B3B3B] bg-[#2C2C2C] p-2.5">
-                <div className="mb-2 flex items-center justify-between border-b border-[#3B3B3B] pb-1.5 font-display text-[11px] font-bold">
-                  <span>iCraft</span>
-                  <span className="text-[#9A9A9A]">Pages</span>
+          <div className="flex flex-1 flex-col justify-between overflow-hidden rounded-2xl border border-border-strong bg-elevated text-ink">
+            <div className="grid flex-1 grid-cols-12">
+              {/* Mini Light UI3 Left Rail + Sidebar */}
+              <div className="col-span-4 border-r border-border-subtle bg-elevated p-2.5">
+                <div className="mb-2 flex items-center justify-between border-b border-border-subtle pb-1.5 font-display text-[11px] font-bold">
+                  <span>Creative Lab</span>
+                  <span className="text-muted">Pages</span>
                 </div>
                 <div className="space-y-0.5 text-[10px]">
-                  <div className="px-1.5 py-0.5 text-[#A3A3A3]">Graphic Design</div>
-                  <div className="flex items-center justify-between px-1.5 py-0.5 text-[#A3A3A3]">
-                    <span>Instagram</span>
-                    <span className="font-mono text-[#4ADE80]">&lt;/&gt;</span>
+                  <div className="px-1.5 py-0.5 text-muted">Graphic Design</div>
+                  <div className="flex items-center justify-between px-1.5 py-0.5 text-muted">
+                    <span>Social Poster</span>
+                    <span className="font-mono text-[#15803D]">&lt;/&gt;</span>
                   </div>
-                  <div className="rounded bg-[#383838] px-1.5 py-0.5 font-semibold text-white">
+                  <div className="rounded bg-[#E6F4FF] px-1.5 py-0.5 font-semibold text-[#0D74CC]">
                     UI / UX
                   </div>
                 </div>
-                <div className="mt-2 border-t border-[#3B3B3B] pt-1.5 text-[10px] text-[#D4D4D4]">
-                  <span className="block font-bold text-white">Layers</span>
-                  <span className="mt-0.5 block font-mono text-[#B3B3B3]"># Hero Section</span>
+                <div className="mt-2 border-t border-border-subtle pt-1.5 text-[10px] text-muted">
+                  <span className="block font-bold text-ink">Layers</span>
+                  <span className="mt-0.5 block font-mono"># Hero Section</span>
                 </div>
               </div>
 
-              {/* Mini #313030 Canvas + Floating Dock */}
-              <div className="col-span-5 flex flex-col justify-between bg-[#313030] p-3">
+              {/* Mini Light Canvas + Floating Dock */}
+              <div className="col-span-5 flex flex-col justify-between bg-[#F3F3F2] p-3">
                 <div className="my-auto flex flex-col items-center">
                   <div className="w-full max-w-[140px]">
-                    <span className="mb-1 block text-[10px] text-[#9A9A9A]">
+                    <span className="mb-1 block text-[10px] font-semibold text-muted">
                       Hero Section
                     </span>
-                    <div className="aspect-[16/10] w-full bg-white" />
+                    <div className="flex aspect-[16/10] w-full flex-col justify-between rounded border border-border-subtle bg-white p-2">
+                      <div className="h-1.5 w-10 rounded bg-ink/80" />
+                      <div className="space-y-1">
+                        <div className="h-2 w-4/5 rounded bg-ink" />
+                        <div className="h-1.5 w-3/5 rounded bg-border-strong" />
+                      </div>
+                      <div className="h-2.5 w-9 rounded bg-brand-magenta" />
+                    </div>
                   </div>
                 </div>
-                <div className="mx-auto mt-2 inline-flex items-center gap-1 rounded-lg border border-[#424242] bg-[#2C2C2C] px-2 py-1 font-mono text-[10px] text-[#D4D4D4]">
+                <div className="mx-auto mt-2 inline-flex items-center gap-1 rounded-lg border border-border-strong bg-elevated px-2 py-1 font-mono text-[10px] text-ink">
                   <span className="rounded bg-[#0D99FF] px-1 text-white">V</span>
                   <span>#</span>
                   <span>□</span>
@@ -1910,38 +2120,38 @@ export function CraftSlide22FigmaIntroDemo({
                 </div>
               </div>
 
-              {/* Mini Right Properties */}
-              <div className="col-span-3 border-l border-[#3B3B3B] bg-[#2C2C2C] p-2.5 text-[10px]">
-                <div className="mb-2 flex items-center justify-between border-b border-[#3B3B3B] pb-1.5">
-                  <span className="rounded bg-[#383838] px-1.5 py-0.5 font-semibold text-white">
+              {/* Mini Light Right Properties */}
+              <div className="col-span-3 border-l border-border-subtle bg-elevated p-2.5 text-[10px]">
+                <div className="mb-2 flex items-center justify-between border-b border-border-subtle pb-1.5">
+                  <span className="rounded bg-canvas px-1.5 py-0.5 font-semibold text-ink">
                     Design
                   </span>
                   <span className="rounded bg-[#0D99FF] px-1.5 py-0.5 font-semibold text-white">
                     Share
                   </span>
                 </div>
-                <div className="space-y-1.5 text-[#D4D4D4]">
+                <div className="space-y-1.5 text-muted">
                   <div>
-                    <span className="block font-semibold text-white">Page</span>
-                    <div className="mt-0.5 flex items-center justify-between rounded bg-[#383838] px-1.5 py-0.5 font-mono">
-                      <span>313030</span>
-                      <span className="text-[#9A9A9A]">100%</span>
+                    <span className="block font-semibold text-ink">Page</span>
+                    <div className="mt-0.5 flex items-center justify-between rounded border border-border-subtle bg-canvas px-1.5 py-0.5 font-mono text-ink">
+                      <span>FFFFFF</span>
+                      <span className="text-muted">100%</span>
                     </div>
                   </div>
-                  <div className="border-t border-[#3B3B3B] pt-1">Styles</div>
-                  <div className="border-t border-[#3B3B3B] pt-1">Export</div>
-                  <div className="border-t border-[#3B3B3B] pt-1 text-[#A3A3A3]">
-                    MCP · 1 conn
+                  <div className="border-t border-border-subtle pt-1">Styles</div>
+                  <div className="border-t border-border-subtle pt-1">Export</div>
+                  <div className="border-t border-border-subtle pt-1 text-brand-magenta font-medium">
+                    Collab · Live
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 border-t border-[#3B3B3B] bg-[#242424] px-3 py-2 text-[11px]">
+            <div className="grid grid-cols-3 gap-2 border-t border-border-subtle bg-canvas px-3 py-2 text-[11px]">
               {(isId
                 ? [
                     { zone: 'Panel Kiri', note: 'Pages & Layers (# Hero Section)' },
-                    { zone: 'Kanvas #313030', note: 'Meja desain + Toolbar bawah' },
+                    { zone: 'Kanvas Putih', note: 'Meja desain + Toolbar bawah' },
                     { zone: 'Panel Kanan', note: 'Page, Styles & Export' },
                   ]
                 : [
@@ -1951,14 +2161,14 @@ export function CraftSlide22FigmaIntroDemo({
                   ]
               ).map((col) => (
                 <div key={col.zone}>
-                  <strong className="block text-white">{col.zone}</strong>
-                  <span className="text-[#A3A3A3]">{col.note}</span>
+                  <strong className="block text-ink">{col.zone}</strong>
+                  <span className="text-ink/75">{col.note}</span>
                 </div>
               ))}
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-3 rounded-2xl bg-dark p-5 text-white sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 rounded-2xl border border-border-subtle bg-canvas p-5 text-ink sm:grid-cols-3">
             {(isId
               ? [
                   { from: 'Teori Grid', to: 'Layout Grid & Margin', hint: 'Jalur 12 kolom di Frame (F)' },
@@ -1973,13 +2183,13 @@ export function CraftSlide22FigmaIntroDemo({
             ).map((b) => (
               <div
                 key={b.from}
-                className="rounded-xl border border-[#2A2928] bg-[#20201F] p-3.5"
+                className="rounded-xl border border-border-subtle bg-elevated p-3.5"
               >
-                <span className={`font-mono font-bold text-brand-orange ${t.badge}`}>{b.from}</span>
-                <strong className={`mt-1 block font-display font-bold text-white ${t.rowTitle}`}>
-                  -&gt; {b.to}
+                <span className={`font-mono font-bold text-brand-magenta ${t.badge}`}>{b.from}</span>
+                <strong className={`mt-1 block font-display font-bold text-ink ${t.rowTitle}`}>
+                  → {b.to}
                 </strong>
-                <span className={`mt-1 block text-on-dark-muted ${t.compactNote}`}>{b.hint}</span>
+                <span className={`mt-1 block text-ink/75 ${t.compactNote}`}>{b.hint}</span>
               </div>
             ))}
           </div>
@@ -2093,19 +2303,19 @@ export function CraftSlide23WorkspaceDemo({
         })}
       </div>
 
-      {/* Schematic 4-Region Spatial Map */}
-      <div className="rounded-2xl bg-dark p-4 text-white lg:col-span-6">
+      {/* Schematic 4-Region Light Spatial Map */}
+      <div className="rounded-2xl border border-border-subtle bg-[#FAFAFA] p-4 text-ink lg:col-span-6">
         <div className={`mb-2.5 flex items-center justify-between gap-2 ${t.badge}`}>
-          <span className="inline-flex items-center gap-1.5 font-mono font-bold text-brand-orange">
+          <span className="inline-flex items-center gap-1.5 font-mono font-bold text-brand-magenta">
             <ImageIcon size={13} aria-hidden="true" />
-            {isId ? 'PETA 4 AREA LAYAR FIGMA' : 'ANNOTATED WORKSPACE PLACEHOLDER'}
+            {isId ? 'PETA 4 AREA LAYAR FIGMA' : 'ANNOTATED WORKSPACE MAP'}
           </span>
-          <span className="text-on-dark-muted">
-            {isId ? 'Klik area untuk melihat fungsi' : 'Drop real Figma screenshot over zones'}
+          <span className="text-muted">
+            {isId ? 'Klik area untuk melihat fungsi' : 'Click any zone to inspect role'}
           </span>
         </div>
 
-        <div className="space-y-2 rounded-xl border border-[#2A2928] bg-[#20201F] p-2.5">
+        <div className="space-y-2 rounded-xl border border-border-subtle bg-surface p-2.5">
           <div className="grid grid-cols-12 gap-2">
             <button
               type="button"
@@ -2113,19 +2323,19 @@ export function CraftSlide23WorkspaceDemo({
               className={`col-span-3 flex min-h-[120px] flex-col justify-between rounded-lg border p-2 text-left font-mono cursor-pointer ${t.badge} ${
                 zone === 'layers'
                   ? 'border-brand-magenta bg-brand-magenta text-white font-bold'
-                  : 'border-[#333130] bg-dark text-on-dark-muted'
+                  : 'border-border-subtle bg-elevated text-ink'
               }`}
             >
               <div>
                 <span className="block">[2] LAYERS</span>
                 <span className="mt-1 block text-[10px] opacity-85">
-                  iCraft · UI/UX
+                  Pages · UI/UX
                 </span>
                 <span className="mt-0.5 block text-[10px] opacity-75">
                   # Hero Section
                 </span>
               </div>
-              <span className="opacity-80">{isId ? 'Panel Kiri' : 'Left Panel'}</span>
+              <span className="opacity-85">{isId ? 'Panel Kiri' : 'Left Panel'}</span>
             </button>
 
             <button
@@ -2133,14 +2343,17 @@ export function CraftSlide23WorkspaceDemo({
               onClick={() => setZone('canvas')}
               className={`col-span-6 flex min-h-[120px] flex-col items-center justify-center rounded-lg border p-3 text-center cursor-pointer ${
                 zone === 'canvas'
-                  ? 'border-brand-orange bg-[#313030] text-white'
-                  : 'border-[#444240] bg-[#313030] text-on-dark-muted'
+                  ? 'border-brand-magenta bg-[#FCECF1] text-ink'
+                  : 'border-border-strong bg-canvas text-ink'
               }`}
             >
-              <span className="mb-1 text-[10px] text-[#B3B3B3]">Hero Section</span>
-              <div className="h-14 w-28 rounded-sm bg-white" />
+              <span className="mb-1 text-[10px] font-medium text-muted">Hero Section</span>
+              <div className="flex h-14 w-28 flex-col justify-between rounded border border-border-subtle bg-white p-1.5">
+                <div className="h-1.5 w-12 rounded bg-ink/80" />
+                <div className="h-2.5 w-10 rounded bg-brand-magenta" />
+              </div>
               <span className={`mt-2 font-mono font-bold ${t.badge}`}>
-                {isId ? '[3] KANVAS (#313030)' : '[3] CANVAS (#313030)'}
+                {isId ? '[3] KANVAS KERJA' : '[3] CANVAS DESK'}
               </span>
             </button>
 
@@ -2150,7 +2363,7 @@ export function CraftSlide23WorkspaceDemo({
               className={`col-span-3 flex min-h-[120px] flex-col justify-between rounded-lg border p-2 text-left font-mono cursor-pointer ${t.badge} ${
                 zone === 'properties'
                   ? 'border-brand-magenta bg-brand-magenta text-white font-bold'
-                  : 'border-[#333130] bg-dark text-on-dark-muted'
+                  : 'border-border-subtle bg-elevated text-ink'
               }`}
             >
               <div>
@@ -2162,7 +2375,7 @@ export function CraftSlide23WorkspaceDemo({
                   Page · Export
                 </span>
               </div>
-              <span className="opacity-80">{isId ? 'Panel Kanan' : 'Right Panel'}</span>
+              <span className="opacity-85">{isId ? 'Panel Kanan' : 'Right Panel'}</span>
             </button>
           </div>
 
@@ -2172,7 +2385,7 @@ export function CraftSlide23WorkspaceDemo({
             className={`flex w-full items-center justify-between rounded-lg border px-3 py-1.5 font-mono cursor-pointer ${t.badge} ${
               zone === 'toolbar'
                 ? 'border-brand-magenta bg-brand-magenta text-white font-bold'
-                : 'border-[#333130] bg-dark text-on-dark-muted'
+                : 'border-border-subtle bg-elevated text-ink'
             }`}
           >
             <span>[1] TOOLBAR (V · F · R · P · T)</span>
@@ -2180,8 +2393,8 @@ export function CraftSlide23WorkspaceDemo({
           </button>
         </div>
 
-        <div className={`mt-2.5 rounded-lg border border-[#2A2928] bg-[#20201F] px-3 py-2 text-on-dark-muted ${t.compactNote}`}>
-          <strong className="text-white">{active.num} · {active.title}: </strong>
+        <div className={`mt-2.5 rounded-lg border border-border-subtle bg-elevated px-3 py-2 text-muted ${t.compactNote}`}>
+          <strong className="text-ink">{active.num} · {active.title}: </strong>
           {active.analogy}
         </div>
       </div>
@@ -2195,68 +2408,71 @@ export function CraftSlide23WorkspaceDemo({
 export function CraftSlide24EssentialToolsDemo({
   scale = 'default',
   lang = 'en',
+  theme = 'dark',
 }: {
   scale?: PresentationScale;
   lang?: PresentationLang;
+  theme?: 'dark' | 'light';
 } = {}) {
   const [toolIdx, setToolIdx] = useState(1);
   const t = getScaleTokens(scale);
   const isId = lang === 'id';
+  const isLight = theme === 'light';
 
   const tools = [
     {
       key: 'V',
       name: isId ? 'Move (Pilih & Geser)' : 'Move',
-      fn: isId ? 'Klik dan pindahkan elemen' : 'Pick up and move things',
+      fn: isId ? 'Pakai saat ingin pilih & geser aman' : 'Use anytime to pick & move safely',
       Icon: MousePointer,
       demoNote: isId
-        ? 'Alat paling aman untuk menggeser objek tanpa sengaja menggambar bentuk baru.'
-        : 'Click and drag anything safely without drawing extra boxes.',
+        ? 'Kapan & Mengapa: Aktifkan dulu sebelum menggeser objek agar kamu tidak sengaja menggambar bentuk baru di kanvas.'
+        : 'When & Why: Switch here before dragging items so you never accidentally draw extra shapes on canvas.',
     },
     {
       key: 'F',
-      name: isId ? 'Frame (Kanvas Layar)' : 'Frame',
-      fn: isId ? 'Buat ukuran layar atau poster' : 'Make a screen or paper box',
+      name: isId ? 'Frame (Bingkai Layar)' : 'Frame',
+      fn: isId ? 'Pakai di awal sebagai wadah desain' : 'Start here for real screen bounds',
       Icon: Frame,
       demoNote: isId
-        ? 'Selalu mulai desain website dengan Frame berukuran 1440 × 900.'
-        : 'Start every poster or webpage with a real container (like 1440×900).',
+        ? 'Kapan & Mengapa: Selalu mulai dari Frame (mis. Desktop 1440×900) supaya desain punya ukuran layar dan kolom grid yang jelas.'
+        : 'When & Why: Always start with a Frame (like 1440×900) so elements live inside real screen bounds and grids.',
     },
     {
       key: 'R',
       name: isId ? 'Rectangle (Kotak)' : 'Rectangle',
-      fn: isId ? 'Buat kotak kartu & latar tombol' : 'Draw boxes and cards',
+      fn: isId ? 'Untuk wadah kartu, latar, & tombol' : 'Use for cards, boxes, & buttons',
       Icon: Square,
       demoNote: isId
-        ? 'Dipakai untuk kartu konten, tombol, tempat foto, hingga garis pemisah.'
-        : 'Great for card backgrounds, buttons, photo frames, and dividers.',
+        ? 'Kapan & Mengapa: Dipakai membuat elemen dasar antarmuka — latar kartu, area foto, pembatas, dan dasar tombol.'
+        : 'When & Why: Reach for Rectangle whenever creating UI containers — card surfaces, image placeholders, and button backs.',
     },
     {
       key: 'O',
       name: isId ? 'Ellipse (Lingkaran)' : 'Ellipse',
-      fn: isId ? 'Gambar lingkaran & avatar' : 'Draw circles and dots',
+      fn: isId ? 'Untuk foto profil bulat & titik status' : 'Use for avatars & indicator dots',
       Icon: Circle,
       demoNote: isId
-        ? 'Tahan tombol Shift saat menarik agar lingkaran bulat sempurna.'
-        : 'Hold Shift while dragging to keep a neat round circle or avatar.',
+        ? 'Kapan & Mengapa: Cocok untuk avatar bulat, penanda status, dan ornamen ringan (tahan Shift agar tetap 1:1 bulat rapi).'
+        : 'When & Why: Ideal for profile circles, live status dots, and clean orbs (hold Shift for a neat 1:1 circle).',
     },
     {
       key: 'T',
       name: isId ? 'Text (Teks)' : 'Text',
-      fn: isId ? 'Tulis judul dan paragraf' : 'Write titles and paragraphs',
+      fn: isId ? 'Untuk menulis judul hingga paragraf' : 'Use whenever adding headings or copy',
       Icon: Type,
       demoNote: isId
-        ? 'Klik sekali untuk label pendek, atau seret kotak teks untuk paragraf.'
-        : 'Click once for short button labels, or drag a box for longer lines.',
+        ? 'Kapan & Mengapa: Klik sekali untuk label pendek yang bebas memanjang, atau tarik kotak untuk paragraf multi-baris.'
+        : 'When & Why: Single-click for flexible short labels, or drag a text frame for clean multi-line paragraphs.',
     },
     {
       key: 'Shift + A',
       name: 'Auto Layout',
-      fn: isId ? 'Jaga jarak & padding otomatis' : 'Keep buttons neatly spaced',
+      fn: isId ? 'Bikin wadah adaptif mengikuti isi' : 'Make containers adapt to content',
       Icon: LayoutList,
       demoNote: isId
-        ? 'Ukuran tombol otomatis menyesuaikan saat panjang tulisan berubah.'
-        : 'Holds padding and gaps cleanly even when button text gets longer.',
+        ? 'Kapan & Mengapa: Bungkus elemen ke Auto Layout supaya kartu, navbar, dan tombol otomatis menyesuaikan ruang saat isi berubah.'
+        : 'When & Why: Wrap related items in Auto Layout so cards, navbars, and buttons resize gracefully as content changes.',
     },
   ];
 
@@ -2264,52 +2480,79 @@ export function CraftSlide24EssentialToolsDemo({
 
   return (
     <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-12">
-      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:col-span-7">
-        {tools.map((item, idx) => {
-          const IconComp = item.Icon;
-          const selected = idx === toolIdx;
-          return (
-            <button
-              key={item.key}
-              type="button"
-              onClick={() => setToolIdx(idx)}
-              className={`flex items-start gap-3 rounded-xl border p-3 text-left transition-colors cursor-pointer ${
-                selected
-                  ? 'border-brand-magenta bg-elevated'
-                  : 'border-border-subtle bg-elevated/60 hover:border-border-strong'
-              }`}
-            >
-              <span
-                className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
-                  selected ? 'bg-brand-magenta text-white' : 'bg-canvas text-ink border border-border-subtle'
+      <div className="space-y-2.5 lg:col-span-7">
+        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+          {tools.map((item, idx) => {
+            const IconComp = item.Icon;
+            const selected = idx === toolIdx;
+            return (
+              <button
+                key={item.key}
+                type="button"
+                onClick={() => setToolIdx(idx)}
+                className={`flex items-start gap-3 rounded-xl border p-3 text-left transition-colors cursor-pointer ${
+                  selected
+                    ? 'border-brand-magenta bg-elevated'
+                    : 'border-border-subtle bg-elevated/60 hover:border-border-strong'
                 }`}
               >
-                <IconComp size={15} aria-hidden="true" />
-              </span>
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center justify-between gap-2">
-                  <strong className={`font-display font-extrabold text-ink ${t.rowTitle}`}>
-                    {item.name}
-                  </strong>
-                  <kbd className={`rounded bg-dark px-2 py-0.5 font-mono font-bold text-white ${t.badge}`}>
-                    {item.key}
-                  </kbd>
+                <span
+                  className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
+                    selected ? 'bg-brand-magenta text-white' : 'bg-canvas text-ink border border-border-subtle'
+                  }`}
+                >
+                  <IconComp size={15} aria-hidden="true" />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between gap-2">
+                    <strong className={`font-display font-extrabold text-ink ${t.rowTitle}`}>
+                      {item.name}
+                    </strong>
+                    <kbd
+                      className={`rounded px-2 py-0.5 font-mono font-bold ${t.badge} ${
+                        isLight
+                          ? 'border border-border-strong bg-canvas text-ink'
+                          : 'bg-dark text-white'
+                      }`}
+                    >
+                      {item.key}
+                    </kbd>
+                  </div>
+                  <span className={`mt-0.5 block text-muted ${t.compactNote}`}>{item.fn}</span>
                 </div>
-                <span className={`mt-0.5 block text-muted ${t.compactNote}`}>{item.fn}</span>
-              </div>
-            </button>
-          );
-        })}
+              </button>
+            );
+          })}
+        </div>
+
+        <p className={`rounded-xl border border-border-subtle bg-surface px-3.5 py-2 text-muted ${t.compactNote}`}>
+          <strong className="font-display font-bold text-ink">
+            {isId ? 'Shortcut cukup jadi alat bantu: ' : 'Shortcuts are just speed helpers: '}
+          </strong>
+          {isId
+            ? 'Jangan paksakan menghafal tombol — klik langsung ikon di Toolbar sambil membiasakan kapan tiap alat dipakai.'
+            : 'Focus on when and why to pick each tool first; every icon is always clickable in the bottom Toolbar.'}
+        </p>
       </div>
 
       {/* Live Frame Motion Reels Visual Tool Demonstration Card */}
-      <div className="rounded-2xl bg-dark p-5 text-white lg:col-span-5">
+      <div
+        className={`rounded-2xl p-5 lg:col-span-5 ${
+          isLight
+            ? 'border border-border-subtle bg-[#FAFAFA] text-ink'
+            : 'bg-dark text-white'
+        }`}
+      >
         <div className="flex items-center justify-between gap-2">
-          <span className={`font-mono font-bold text-brand-orange ${t.badge}`}>
+          <span
+            className={`font-mono font-bold ${t.badge} ${
+              isLight ? 'text-brand-magenta' : 'text-brand-orange'
+            }`}
+          >
             REELS · FRAME MOTION
           </span>
           <span className={`rounded-full bg-brand-magenta px-2.5 py-0.5 font-mono font-bold text-white ${t.badge}`}>
-            {isId ? `Tekan ${active.key}` : `Press ${active.key}`}
+            {isId ? `Shortcut bantu: ${active.key}` : `Optional key: ${active.key}`}
           </span>
         </div>
 
@@ -2318,12 +2561,17 @@ export function CraftSlide24EssentialToolsDemo({
           onSelectToolIdx={setToolIdx}
           scale={scale}
           lang={lang}
+          theme={theme}
         />
 
         <h3 className={`font-display font-extrabold ${t.cardHeading}`}>
           {active.name} ({active.key})
         </h3>
-        <p className={`mt-1 leading-relaxed text-on-dark-muted ${t.compactNote}`}>
+        <p
+          className={`mt-1 leading-relaxed ${t.compactNote} ${
+            isLight ? 'text-muted' : 'text-on-dark-muted'
+          }`}
+        >
           {active.demoNote}
         </p>
       </div>
@@ -2394,8 +2642,8 @@ export function CraftSlide25PropertiesDemo({
   const activeProp = properties.find((p) => p.id === selectedProp) ?? properties[0];
 
   return (
-    <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-12">
-      <div className="space-y-3 lg:col-span-7">
+    <div className="grid grid-cols-1 items-stretch gap-5 lg:grid-cols-12">
+      <div className="flex flex-col justify-between space-y-3 lg:col-span-7">
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
           {properties.map((p) => {
             const active = p.id === selectedProp;
@@ -2424,11 +2672,11 @@ export function CraftSlide25PropertiesDemo({
           })}
         </div>
 
-        <div className={`rounded-xl bg-dark px-4 py-2.5 text-white ${t.compactNote}`}>
-          <strong className="font-display text-brand-orange">
+        <div className={`rounded-xl border border-[#F2B8CD] bg-[#FCECF1] px-4 py-2.5 text-ink ${t.compactNote}`}>
+          <strong className="font-display font-bold text-[#9E1148]">
             {isId ? 'LAYER & HIRARKI: ' : 'LAYERS & HIERARCHY: '}
           </strong>
-          <span className="text-on-dark-muted">
+          <span className="text-ink/85">
             {isId
               ? 'Setiap elemen adalah satu layer. Beri nama yang jelas supaya mudah dicari.'
               : 'Every object exists as a layer. Organize layers using meaningful names and logical grouping.'}
@@ -2437,7 +2685,7 @@ export function CraftSlide25PropertiesDemo({
       </div>
 
       {/* Annotated Object & Properties Inspector */}
-      <div className="rounded-2xl border border-border-subtle bg-elevated p-4 lg:col-span-5">
+      <div className="flex flex-col justify-between rounded-2xl border border-border-subtle bg-elevated p-5 lg:col-span-5">
         <div className="flex items-center justify-between border-b border-border-subtle pb-2.5">
           <span className={`flex items-center gap-1.5 font-mono font-bold text-ink ${t.badge}`}>
             <Sliders size={14} aria-hidden="true" className="text-brand-magenta" />
@@ -2456,8 +2704,10 @@ export function CraftSlide25PropertiesDemo({
             <button
               type="button"
               onClick={() => setPillPreset('outline')}
-              className={`rounded-md px-2.5 py-0.5 font-display font-bold cursor-pointer ${t.badge} ${
-                pillPreset === 'outline' ? 'bg-dark text-white' : 'bg-canvas text-muted'
+              className={`rounded-md border px-2.5 py-0.5 font-display font-bold cursor-pointer ${t.badge} ${
+                pillPreset === 'outline'
+                  ? 'border-border-strong bg-surface text-ink'
+                  : 'border-transparent bg-canvas text-muted'
               }`}
             >
               {isId ? 'Tombol Garis' : 'Outline Tag'}
@@ -2476,7 +2726,7 @@ export function CraftSlide25PropertiesDemo({
             className={`px-5 py-2.5 font-display font-bold transition-colors ${t.rowTitle} ${
               pillPreset === 'filled'
                 ? 'rounded-full bg-brand-magenta text-white'
-                : 'rounded-lg border-2 border-dark bg-elevated text-ink'
+                : 'rounded-lg border-2 border-border-strong bg-elevated text-ink'
             }`}
           >
             {isId ? 'LIHAT KARYA' : 'EXPLORE WORK'}
@@ -2506,30 +2756,38 @@ export function CraftSlide26AutoLayoutDemo({
   scale?: PresentationScale;
   lang?: PresentationLang;
 } = {}) {
-  const [longText, setLongText] = useState(false);
+  const [contentExpanded, setContentExpanded] = useState(false);
   const t = getScaleTokens(scale);
   const isId = lang === 'id';
 
-  const label = isId
-    ? longText
-      ? 'JELAJAHI SEMUA KARYA STUDIO KAMI'
-      : 'LIHAT KARYA'
-    : longText
-      ? 'EXPLORE OUR SELECTED WORK'
-      : 'EXPLORE WORK';
+  const cardTitle = isId
+    ? contentExpanded
+      ? 'Rancang Kartu Produk yang Otomatis Mengikuti Perubahan Panjang Teks & Label'
+      : 'Rancang Kartu Produk'
+    : contentExpanded
+      ? 'Design Adaptive UI Cards That Grow Automatically With Longer Copy'
+      : 'Design a Product Card';
+
+  const ctaLabel = isId
+    ? contentExpanded
+      ? 'Buka Panduan Lengkap →'
+      : 'Lihat Detail'
+    : contentExpanded
+      ? 'Open Full Guide →'
+      : 'View Detail';
 
   const concepts = isId
     ? [
         { n: '01', name: 'Arah (Direction)', desc: 'Susun elemen mendatar atau menurun.' },
-        { n: '02', name: 'Jarak (Gap)', desc: 'Atur jarak seragam antar item.' },
-        { n: '03', name: 'Padding', desc: 'Atur ruang di dalam pinggiran kotak.' },
-        { n: '04', name: 'Perataan (Align)', desc: 'Jaga teks tetap rata tengah atau kiri.' },
+        { n: '02', name: 'Jarak (Gap)', desc: 'Jaga sela seragam antar baris dan tag.' },
+        { n: '03', name: 'Padding', desc: 'Beri ruang aman di dalam bingkai wadah.' },
+        { n: '04', name: 'Ukuran Adaptif', desc: 'Kotak ikut membesar/mengecil sesuai isi.' },
       ]
     : [
-        { n: '01', name: 'Direction', desc: 'Line items side-by-side or stacked down.' },
-        { n: '02', name: 'Gap', desc: 'Set even empty space between items.' },
-        { n: '03', name: 'Padding', desc: 'Control room around inside box edges.' },
-        { n: '04', name: 'Align', desc: 'Keep text centered or snapped nicely.' },
+        { n: '01', name: 'Direction', desc: 'Stack cards vertically or place items inline.' },
+        { n: '02', name: 'Gap', desc: 'Hold uniform spacing between rows and tags.' },
+        { n: '03', name: 'Padding', desc: 'Keep safe inner cushion around all edges.' },
+        { n: '04', name: 'Adaptive Fit', desc: 'Container grows or hugs automatically with copy.' },
       ];
 
   return (
@@ -2546,16 +2804,16 @@ export function CraftSlide26AutoLayoutDemo({
         ))}
       </div>
 
-      {/* Live Without vs With Comparison */}
+      {/* Live Without vs With Adaptive Container Comparison */}
       <div className="overflow-hidden rounded-2xl border border-border-subtle bg-elevated">
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border-subtle bg-surface px-4 py-2.5">
           <div className="flex flex-wrap items-center gap-1.5">
             <span className={`font-mono font-bold text-ink ${t.badge}`}>
-              {isId ? 'COCOK UNTUK:' : 'EXAMPLES:'}
+              {isId ? 'ELEMEN ADAPTIF:' : 'ADAPTIVE ELEMENTS:'}
             </span>
             {(isId
-              ? ['Tombol responsif', 'Menu navbar', 'Kartu artikel', 'Daftar vertikal']
-              : ['Responsive buttons', 'Navigation bars', 'Content cards', 'Vertical lists']
+              ? ['Kartu konten', 'Menu navbar', 'Daftar notifikasi', 'Badge & tombol']
+              : ['Content cards', 'Navigation bars', 'Notification feeds', 'Dynamic buttons']
             ).map((ex) => (
               <span
                 key={ex}
@@ -2568,65 +2826,100 @@ export function CraftSlide26AutoLayoutDemo({
 
           <button
             type="button"
-            onClick={() => setLongText((v) => !v)}
+            onClick={() => setContentExpanded((v) => !v)}
             className={`rounded-lg bg-brand-magenta px-3 py-1 font-display font-bold text-white transition-colors hover:bg-brand-magenta-hover cursor-pointer ${t.badge}`}
           >
             {isId
-              ? longText
-                ? 'Kembalikan Teks Pendek'
-                : 'Uji Teks Panjang ->'
-              : longText
-                ? 'Reset to Short Label'
-                : 'Test Longer Button Copy ->'}
+              ? contentExpanded
+                ? 'Kembalikan Isi Ringkas'
+                : 'Uji Konten Bertambah →'
+              : contentExpanded
+                ? 'Reset Short Card Content'
+                : 'Simulate Real Content Growth →'}
           </button>
         </div>
 
         <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2">
           <div className="rounded-xl bg-canvas p-4">
             <span className={`font-mono font-bold text-muted ${t.badge}`}>
-              {isId ? 'TANPA AUTO LAYOUT (Kotak Manual)' : 'WITHOUT AUTO LAYOUT (Manual Box)'}
+              {isId ? 'TANPA AUTO LAYOUT (Wadah Manual Kaku)' : 'WITHOUT AUTO LAYOUT (Fixed Manual Box)'}
             </span>
-            <div className="my-3.5 flex min-h-[56px] items-center">
-              <div
-                className={`relative rounded-lg border border-dark bg-dark/10 ${
-                  t.isFs ? 'h-12 w-48' : t.isPres ? 'h-11 w-44' : 'h-10 w-36'
-                }`}
-              >
-                <span
-                  className={`absolute left-3.5 top-2.5 whitespace-nowrap font-display font-bold text-ink ${t.rowTitle}`}
-                >
-                  {label}
-                </span>
+            <div className="my-3 flex min-h-[132px] items-start gap-2.5">
+              <div className="relative h-[108px] w-full max-w-[238px] overflow-hidden rounded-xl border-2 border-border-strong bg-elevated p-3">
+                <div className="flex items-center gap-1.5">
+                  <span className="rounded border border-border-strong bg-surface px-2 py-0.5 font-mono text-[10px] font-bold text-ink">
+                    {isId ? 'PANDUAN UI' : 'UI GUIDE'}
+                  </span>
+                  {contentExpanded && (
+                    <span className="rounded bg-brand-orange px-2 py-0.5 font-mono text-[10px] font-bold text-ink">
+                      {isId ? '+ BARU' : '+ NEW'}
+                    </span>
+                  )}
+                </div>
+
+                <strong className={`mt-1.5 block font-display font-bold leading-snug text-ink ${t.compactNote}`}>
+                  {cardTitle}
+                </strong>
+
+                <div className="mt-2 inline-flex h-7 w-24 items-center overflow-hidden rounded-lg border border-border-strong bg-canvas px-2.5">
+                  <span className="whitespace-nowrap font-display text-[11px] font-bold text-ink">
+                    {ctaLabel}
+                  </span>
+                </div>
               </div>
+              {contentExpanded && (
+                <span className="rounded-md border border-[#F2B8CD] bg-[#FCECF1] px-2 py-0.5 font-mono text-[10px] font-bold text-[#9E1148]">
+                  {isId ? 'Terpotong!' : 'Clipped!'}
+                </span>
+              )}
             </div>
             <p className={`text-muted ${t.compactNote}`}>
               {isId
-                ? longText
-                  ? 'Ukuran kotak diam saja — teks panjang langsung meluber keluar!'
-                  : 'Tombol manual mudah berantakan saat teks diubah.'
-                : longText
-                  ? 'The box stays fixed — longer words spill right outside the button edge!'
-                  : 'Manual buttons break as soon as words get longer.'}
+                ? contentExpanded
+                  ? 'Wadah kaku diam di tempat — judul menabrak tombol dan teks tombol meluber keluar kotak!'
+                  : 'Saat teks masih pendek, wadah manual terlihat seolah baik-baik saja.'
+                : contentExpanded
+                  ? 'Fixed boxes stay rigid — longer titles collide into the CTA and button labels overflow!'
+                  : 'While text stays short, rigid boxes give a false sense of order.'}
             </p>
           </div>
 
           <div className="rounded-xl border border-[#C6DEC8] bg-[#EDF5ED] p-4">
             <span className={`font-mono font-bold text-[#1F4A24] ${t.badge}`}>
               {isId
-                ? 'DENGAN AUTO LAYOUT (Shift + A · Menyesuaikan Isi)'
-                : 'WITH AUTO LAYOUT (Shift + A · Fits Words)'}
+                ? 'DENGAN AUTO LAYOUT (Shift + A · Wadah Adaptif)'
+                : 'WITH AUTO LAYOUT (Shift + A · Adaptive Card)'}
             </span>
-            <div className="my-3.5 flex min-h-[56px] items-center">
-              <div
-                className={`inline-flex items-center gap-2 rounded-lg bg-brand-magenta px-5 py-2.5 font-display font-bold text-white ${t.rowTitle}`}
-              >
-                <span>{label}</span>
+            <div className="my-3 flex min-h-[132px] items-start">
+              <div className="flex w-full max-w-[300px] flex-col items-start gap-2 rounded-xl border-2 border-[#1F4A24] bg-elevated p-3.5">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className="rounded bg-brand-magenta px-2 py-0.5 font-mono text-[10px] font-bold text-white">
+                    {isId ? 'PANDUAN UI' : 'UI GUIDE'}
+                  </span>
+                  {contentExpanded && (
+                    <span className="rounded bg-brand-orange px-2 py-0.5 font-mono text-[10px] font-bold text-ink">
+                      {isId ? 'ADAPTIF OTOMATIS' : 'AUTO ADAPTIVE'}
+                    </span>
+                  )}
+                </div>
+
+                <strong className={`font-display font-bold leading-snug text-ink ${t.compactNote}`}>
+                  {cardTitle}
+                </strong>
+
+                <span className="inline-flex items-center rounded-lg bg-brand-magenta px-3 py-1.5 font-display text-[11px] font-bold text-white">
+                  {ctaLabel}
+                </span>
               </div>
             </div>
             <p className={`text-[#1F4A24] ${t.compactNote}`}>
               {isId
-                ? 'Padding otomatis terkunci — tombol melebar rapi mengikuti panjang kata!'
-                : 'Inner padding stays locked automatically — the button grows neatly around any word!'}
+                ? contentExpanded
+                  ? 'Kartu, baris tag, jarak ke tombol, serta lebar tombol otomatis beradaptasi tanpa saling menabrak!'
+                  : 'Bukan cuma merapikan tombol — seluruh kartu ikut bernapas dan menjaga jaraknya secara adaptif.'
+                : contentExpanded
+                  ? 'Card height, badge rows, vertical spacing, and CTA width all adapt smoothly with zero collision!'
+                  : 'Beyond tidying buttons — the entire card stays adaptive to real headlines, tags, and translations.'}
             </p>
           </div>
         </div>
@@ -2691,7 +2984,7 @@ export function CraftSlide27BuildingInterfaceDemo({
               onClick={() => setTab('workflow')}
               className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-1 font-display font-bold cursor-pointer ${t.badge} ${
                 tab === 'workflow'
-                  ? 'border-dark bg-dark text-white'
+                  ? 'border-border-strong bg-surface text-ink'
                   : 'border-border-subtle bg-canvas text-muted'
               }`}
             >
@@ -2824,9 +3117,9 @@ export function CraftSlide27BuildingInterfaceDemo({
                   </div>
 
                   <div
-                    className={`col-span-4 flex h-24 items-center justify-center rounded-xl text-center font-mono ${t.badge} ${
+                    className={`col-span-4 flex h-24 items-center justify-center rounded-xl text-center font-mono font-bold ${t.badge} ${
                       activeStep >= 4
-                        ? 'bg-dark text-brand-orange'
+                        ? 'border border-[#F2B8CD] bg-[#FCECF1] text-[#9E1148]'
                         : 'border border-dashed border-border-strong bg-canvas text-muted'
                     }`}
                   >
@@ -2887,20 +3180,20 @@ export function CraftSlide33ChecklistDemo({
 
   const questions = isId
     ? [
-        'Apa yang langsung dilihat orang pertama kali?',
-        'Apakah judul utama mudah dimengerti?',
-        'Apakah susunan layar terlihat rapi & teratur?',
-        'Apakah tombol utama mudah dikenali & diklik?',
-        'Apakah warna tulisan aman dibaca?',
-        'Apakah setiap elemen di layar punya tujuan jelas?',
+        { q: 'Apa yang langsung dilihat orang pertama kali?', tag: 'Fokus Pertama', Icon: Eye },
+        { q: 'Apakah judul utama mudah dimengerti?', tag: 'Kejelasan Pesan', Icon: Type },
+        { q: 'Apakah susunan layar terlihat rapi & teratur?', tag: 'Grid & Jarak', Icon: GridIcon },
+        { q: 'Apakah tombol utama mudah dikenali & diklik?', tag: 'Tombol Aksi', Icon: MousePointer },
+        { q: 'Apakah warna tulisan aman dibaca?', tag: 'Kontras & Warna', Icon: Sliders },
+        { q: 'Apakah setiap elemen di layar punya tujuan jelas?', tag: 'Tujuan Visual', Icon: Sparkles },
       ]
     : [
-        'What should people notice first?',
-        'Is the headline easy to understand?',
-        'Does the layout feel organized?',
-        'Is the main action easy to identify?',
-        'Do the colors support readability?',
-        'Does every element have a purpose?',
+        { q: 'What should people notice first?', tag: 'First Glance', Icon: Eye },
+        { q: 'Is the headline easy to understand?', tag: 'Clear Message', Icon: Type },
+        { q: 'Does the layout feel organized?', tag: 'Grid & Spacing', Icon: GridIcon },
+        { q: 'Is the main action easy to identify?', tag: 'Primary Action', Icon: MousePointer },
+        { q: 'Do the colors support readability?', tag: 'Safe Contrast', Icon: Sliders },
+        { q: 'Does every element have a purpose?', tag: 'Visual Intent', Icon: Sparkles },
       ];
 
   const toggle = (idx: number) =>
@@ -2910,35 +3203,56 @@ export function CraftSlide33ChecklistDemo({
 
   return (
     <div className="divide-y divide-border-subtle overflow-hidden rounded-2xl border border-border-subtle bg-elevated sm:grid sm:grid-cols-2 sm:divide-x sm:divide-y-0">
-      {questions.map((q, idx) => {
+      {questions.map((item, idx) => {
         const done = checked.includes(idx);
+        const AspectIcon = item.Icon;
         return (
           <button
-            key={q}
+            key={item.q}
             type="button"
             aria-pressed={done}
             onClick={() => toggle(idx)}
-            className={`flex items-center gap-3.5 border-b border-border-subtle text-left transition-colors cursor-pointer sm:[&:nth-last-child(-n+2)]:border-b-0 ${
+            className={`flex items-center justify-between gap-3.5 border-b border-border-subtle text-left transition-colors cursor-pointer sm:[&:nth-last-child(-n+2)]:border-b-0 ${
               t.isFs ? 'p-5' : 'p-4'
             } ${
               done ? 'bg-[#EDF5ED]/75 text-[#1F4A24]' : 'bg-elevated text-ink hover:bg-canvas/70'
             }`}
           >
-            <CheckCircle2
-              size={t.isFs ? 22 : t.isPres ? 20 : 18}
-              aria-hidden="true"
-              className={done ? 'shrink-0 text-[#1F4A24]' : 'shrink-0 text-muted'}
-            />
+            <div className="flex items-center gap-3.5">
+              <CheckCircle2
+                size={t.isFs ? 22 : t.isPres ? 20 : 18}
+                aria-hidden="true"
+                className={done ? 'shrink-0 text-[#1F4A24]' : 'shrink-0 text-muted'}
+              />
+              <div>
+                <span
+                  className={`block font-mono font-bold ${t.badge} ${
+                    done ? 'text-[#1F4A24]/80' : 'text-brand-magenta'
+                  }`}
+                >
+                  {item.tag}
+                </span>
+                <span
+                  className={`font-display font-bold ${
+                    t.isFs
+                      ? 'text-lg lg:text-xl'
+                      : t.isPres
+                        ? 'text-base sm:text-lg'
+                        : 'text-sm'
+                  }`}
+                >
+                  {item.q}
+                </span>
+              </div>
+            </div>
             <span
-              className={`font-display font-bold ${
-                t.isFs
-                  ? 'text-lg lg:text-xl'
-                  : t.isPres
-                    ? 'text-base sm:text-lg'
-                    : 'text-sm'
+              className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border ${
+                done
+                  ? 'border-[#C6DEC8] bg-elevated text-[#1F4A24]'
+                  : 'border-border-subtle bg-canvas text-muted'
               }`}
             >
-              {q}
+              <AspectIcon size={15} aria-hidden="true" />
             </span>
           </button>
         );
