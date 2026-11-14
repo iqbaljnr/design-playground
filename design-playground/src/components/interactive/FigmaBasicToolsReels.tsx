@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Badge } from '../ui/Badge';
+import { HighlightText } from '../ui/HighlightText';
 
 type ReelToolId =
   | 'move'
@@ -55,7 +56,6 @@ interface ReelScene {
   title: string;
   shortLabel: string;
   shortcut: string;
-  videoRange: string;
   durationMs: number;
   actionSummary: string;
   inspectorSummary: string;
@@ -81,12 +81,11 @@ const REEL_SCENES: ReelScene[] = [
     title: 'Move, Hand & Scale',
     shortLabel: 'Move',
     shortcut: 'V / H / K',
-    videoRange: '00:00 – 00:04',
     durationMs: 3600,
-    actionSummary: 'Click arrow dropdown -> switch between Move (V), Hand (H), and Scale (K)',
-    inspectorSummary: 'Page settings (#1E1E1E canvas), Styles, Export & MCP',
+    actionSummary: 'Click arrow menu -> switch **Move (V)**, **Hand (H)**, and **Scale (K)**',
+    inspectorSummary: 'Page settings (#1E1E1E), Styles, Export & MCP',
     beginnerTip:
-      'Press V anytime you finish drawing or typing so you do not accidentally create extra shapes.',
+      'Press **V** after drawing or typing so you never add stray shapes.',
     waypoints: [
       { t: 0.0, xPct: 38, xPx: 0, yPct: 68, yPx: 0 },
       { t: 0.18, xPct: 50, xPx: DOCK_DX.move + 8, yPct: 100, yPx: -26 },
@@ -102,12 +101,11 @@ const REEL_SCENES: ReelScene[] = [
     title: 'Frame Tool',
     shortLabel: 'Frame',
     shortcut: 'F',
-    videoRange: '00:05 – 00:10',
     durationMs: 4400,
-    actionSummary: 'Select # Frame -> preview Desktop/Phone presets -> drag white 342×342 artboard',
-    inspectorSummary: 'Switches from Frame Presets to Frame Size, Fill #FFFFFF & Layout Guide',
+    actionSummary: 'Pick **# Frame** -> preview presets -> drag a **342×342 canvas**',
+    inspectorSummary: 'Frame Presets -> Frame Size, Fill #FFFFFF & Layout Guide',
     beginnerTip:
-      'Start every poster or screen inside a Frame (F). Never draw loose designs straight on the empty table.',
+      'Start every poster or screen in a **Frame (F)** — never loose on the table.',
     waypoints: [
       { t: 0.0, xPct: 42, xPx: 0, yPct: 72, yPx: 0 },
       { t: 0.15, xPct: 50, xPx: DOCK_DX.frame, yPct: 100, yPx: -26 },
@@ -122,12 +120,11 @@ const REEL_SCENES: ReelScene[] = [
     title: 'Rectangle Tool',
     shortLabel: 'Rect',
     shortcut: 'R',
-    videoRange: '00:11 – 00:15',
     durationMs: 4000,
-    actionSummary: 'Pick □ Rectangle -> drag out a 150×139 gray block beside Frame 1',
-    inspectorSummary: 'Updates to Rectangle Position (X/Y), Layout (150×139) & Fill #D9D9D9',
+    actionSummary: 'Pick **□ Rectangle** -> drag a **150×139 block** beside Frame 1',
+    inspectorSummary: 'Position (X/Y), Size (150×139) & Fill #D9D9D9',
     beginnerTip:
-      'Rectangles form buttons, cards, and photo placeholders. Watch Layers list Rectangle 1 cleanly on top.',
+      'Rectangles form **buttons, cards, and placeholders** stacked cleanly in Layers.',
     waypoints: [
       { t: 0.0, xPct: 56, xPx: 0, yPct: 64, yPx: 0 },
       { t: 0.16, xPct: 50, xPx: DOCK_DX.rectangle, yPct: 100, yPx: -26 },
@@ -142,12 +139,11 @@ const REEL_SCENES: ReelScene[] = [
     title: 'Pen & Pencil Tool',
     shortLabel: 'Pen',
     shortcut: 'P / Shift+P',
-    videoRange: '00:15 – 00:22',
     durationMs: 5000,
-    actionSummary: 'Open Pen dropdown -> switch to Pencil (Shift+P) -> draw Vector 1 inside Frame 1',
-    inspectorSummary: 'Shows Vector Stroke (#000000 · Weight 1) & nests Vector 1 inside Frame 1',
+    actionSummary: 'Open Pen menu -> pick **Pencil (Shift+P)** -> sketch **Vector 1** in Frame 1',
+    inspectorSummary: 'Vector Stroke (#000000 · Weight 1) nested inside Frame 1',
     beginnerTip:
-      'Use Pen (P) for sharp icons or Pencil (Shift+P) for quick freehand sketches inside your Frame.',
+      'Use **Pen (P)** for crisp icons or **Pencil (Shift+P)** for quick freehand sketches.',
     waypoints: [
       { t: 0.0, xPct: 76, xPx: 0, yPct: 62, yPx: 0 },
       { t: 0.14, xPct: 50, xPx: DOCK_DX.pen + 10, yPct: 100, yPx: -26 },
@@ -169,12 +165,11 @@ const REEL_SCENES: ReelScene[] = [
     title: 'Text Tool',
     shortLabel: 'Text',
     shortcut: 'T',
-    videoRange: '00:23 – 00:31',
     durationMs: 4600,
-    actionSummary: 'Select T -> click inside Frame 1 -> type HELLO WORLD (96×19 blue box)',
-    inspectorSummary: 'Displays Text Typography controls (Inter · Regular · 16 · Auto)',
+    actionSummary: 'Pick **T** -> click inside Frame 1 -> type **HELLO WORLD**',
+    inspectorSummary: 'Typography controls (Inter · Regular · 16 · Auto)',
     beginnerTip:
-      'Click once inside a Frame for headings and buttons, then adjust font size and weight on the right.',
+      '**Click once** for headings or buttons, then tune **font size and weight** on the right.',
     waypoints: [
       { t: 0.0, xPct: 49, xPx: 0, yPct: 34, yPx: 0 },
       { t: 0.16, xPct: 50, xPx: DOCK_DX.text, yPct: 100, yPx: -26 },
@@ -189,12 +184,11 @@ const REEL_SCENES: ReelScene[] = [
     title: 'Code Layer & Actions',
     shortLabel: 'Code',
     shortcut: '{}',
-    videoRange: '00:32 – 00:35',
     durationMs: 3600,
-    actionSummary: 'Click {} dock icon -> inspect Code layer presets (Frame, Tablet, Desktop)',
-    inspectorSummary: 'Opens UI3 Code Layer inspector & responsive preview options',
+    actionSummary: 'Click **{}** on dock -> inspect **Code layer** presets (Frame, Tablet, Desktop)',
+    inspectorSummary: 'UI3 Code Layer inspector & responsive preview options',
     beginnerTip:
-      'Spot the {} and </> buttons in modern Figma UI3 — they help turn design frames into code-ready specs.',
+      'In **UI3**, **{}** and **</>** inspect frames and generate **code-ready specs**.',
     waypoints: [
       { t: 0.0, xPct: 44, xPx: 0, yPct: 64, yPx: 0 },
       { t: 0.2, xPct: 50, xPx: DOCK_DX.code, yPct: 100, yPx: -26 },
@@ -209,12 +203,11 @@ const REEL_SCENES: ReelScene[] = [
     title: 'Comment Tool',
     shortLabel: 'Comment',
     shortcut: 'C',
-    videoRange: '00:36 – 00:47',
     durationMs: 4800,
-    actionSummary: 'Select Comment bubble -> click Rectangle 1 -> type "THAT\'S GREAT" note',
-    inspectorSummary: 'Opens Comments thread panel to post & resolve feedback directly on canvas',
+    actionSummary: 'Pick **Comment (C)** -> click Rectangle 1 -> type **"THAT\'S GREAT"**',
+    inspectorSummary: 'Comments thread panel to post & resolve feedback on canvas',
     beginnerTip:
-      'Press C to pin review notes right onto any shape without editing or shifting the artwork.',
+      'Press **C** to pin review notes right onto any shape without shifting your layout.',
     waypoints: [
       { t: 0.0, xPct: 54, xPx: 0, yPct: 76, yPx: 0 },
       { t: 0.16, xPct: 50, xPx: DOCK_DX.comment, yPct: 100, yPx: -26 },
@@ -438,7 +431,7 @@ export function FigmaBasicToolsReelsDemo({
         <div className="flex flex-wrap items-center gap-2">
           <Badge tone="orange">{badgeText}</Badge>
           <span className="font-mono text-[11px] font-bold text-muted">
-            REEL {currentScene.num} / 0{REEL_SCENES.length} · {currentScene.videoRange}
+            REEL {currentScene.num} / 0{REEL_SCENES.length} · SHORTCUT: {currentScene.shortcut}
           </span>
         </div>
         <h2 className="mt-1 font-display text-base font-extrabold text-ink sm:text-lg">
@@ -1485,7 +1478,8 @@ export function FigmaBasicToolsReelsDemo({
           </div>
           <p className="mt-1 text-xs leading-relaxed text-[#E5E5E5]">
             <strong className="text-brand-orange">Action: </strong>
-            {currentScene.actionSummary} — {currentScene.beginnerTip}
+            <HighlightText text={currentScene.actionSummary} variant="dark" /> —{' '}
+            <HighlightText text={currentScene.beginnerTip} variant="dark" />
           </p>
         </div>
       </div>

@@ -8,33 +8,33 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
     phase: 'phase-01',
     phaseLabel: 'Visual Foundations',
     title: 'Layout & Composition',
-    subtitle: 'Using simple columns, margins, reading flow, and colorful Swiss grid style',
+    subtitle: 'Using **columns, safe margins, scan paths**, and vibrant **Swiss grids**',
     learningObjective:
-      'Set up clean page margins, column grids, and clear top-to-bottom scan paths for posters and websites.',
+      'Set clean **margins, column gutters**, and clear **eye-scan paths** for posters and hero screens.',
     durationMinutes: 25,
     accentColor: 'cobalt',
     introduction:
-      'A neat layout is not luck — it rests on invisible columns and edges holding everything steady! Learn simple rules for margins, gaps, eye travel, and colorful Swiss Editorial grids before lunch.',
+      'Great layouts aren’t guesswork — **invisible columns and safe edges** hold every block steady. Master **margins, gutters, eye patterns**, and colorful Swiss Editorial grids.',
     terminology: [
       {
         term: 'Margin',
         definition:
-          'The safe outer border keeping words away from the very edge of your paper or screen.',
+          'The **safe outer border** keeping words away from the paper or screen edge.',
       },
       {
         term: 'Gutter',
         definition:
-          'The even gap between side-by-side columns so cards never bump into each other.',
+          'The **even column gap** keeping side-by-side blocks from colliding.',
       },
       {
         term: 'Whitespace',
         definition:
-          'Calm open space left clear intentionally so headlines and photos feel uncluttered.',
+          '**Intentional open space** left clear so headlines and focal art breathe.',
       },
       {
         term: 'Swiss Editorial Style',
         definition:
-          'Modern design built on neat grids, crisp type, and bold purpose — and yes, it loves vibrant colors too!',
+          'Clean **grid structure, bold typography**, and clarity — and **vibrant colors** are welcome.',
       },
     ],
     topics: [
@@ -43,13 +43,13 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '5.1',
         title: 'What Is a Layout Grid?',
         summary:
-          'Think of a grid like ruled notebook paper behind your poster — keeping rows and boxes lined up.',
+          'Think of a grid like **ruled guide paper** that keeps every card and text edge aligned.',
         details: [
-          'Start with columns (6 columns for an A3 poster, 12 columns for a wide webpage) before dropping text.',
-          'Invisible vertical tracks prevent cards from wandering out of line.',
+          'Turn on **4–6 columns** for A3 posters and **12 columns** for wide web frames.',
+          'Invisible tracks stop sections from drifting out of line.',
         ],
         exampleNote:
-          'Turning on Figma Layout Grids right at minute 1 keeps both your poster and hero neat automatically.',
+          'Enabling **Figma Layout Grids** at minute one keeps both challenges organized.',
         diagram: 'grid-anatomy',
       },
       {
@@ -57,13 +57,13 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '5.2',
         title: 'Margins, Gutters & Inner Padding',
         summary:
-          'Margins frame the whole page edge; Gutters separate neighbor boxes; Padding gives text room inside buttons.',
+          '**Margins** guard outer edges; **Gutters** separate columns; **Padding** cushions text inside boxes.',
         details: [
-          'Keep outer Margins wide enough (like 48–64px on desktop) so nothing feels squished against borders.',
-          'Use easy numbers stepping by 8 (8, 16, 24, 32, 48) for tidy gaps everywhere.',
+          'Keep outer desktop margins spacious (**48–72px**) so copy never crowds borders.',
+          'Step gaps in **multiples of 8** (8, 16, 24, 32, 48) for automatic consistency.',
         ],
         exampleNote:
-          'Give buttons twice as much left/right space as top/bottom space so words sit comfortably inside.',
+          'Give buttons roughly **2× side padding** (24px) vs. top/bottom (12px).',
         diagram: 'margins-vs-gutters',
       },
       {
@@ -71,13 +71,13 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '5.3',
         title: 'Mix Grid Widths for Energy',
         summary:
-          'You do not have to split pages 50/50 — uneven splits like 4 columns + 2 columns feel livelier.',
+          'Asymmetrical splits like **4 cols + 2 cols** look much livelier than flat 50/50 halves.',
         details: [
-          'Put your big headline across 4 columns and place a crisp graphic or open space in the remaining 2 columns.',
-          'Keeping open sky/background space draws eyes directly onto your headline.',
+          'Anchor your headline across **wider columns**, balancing a crisp shape or open space beside it.',
+          'Leaving quiet open space aims attention right toward the **main headline**.',
         ],
         exampleNote:
-          'Leaving open space in the top corner makes the big title and bright CTA badge stand out immediately.',
+          '**Generous top corner air** lets bold titles and CTAs hit instantaneously.',
         diagram: 'grid-rhythm',
       },
       {
@@ -85,13 +85,13 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '5.4',
         title: 'How Eyes Scan (Z & F Patterns)',
         summary:
-          'Eyes naturally zigzag in a Z across posters/heroes, and scan down the left edge in an F on lists.',
+          'Eyes trace a **Z-pattern** across posters/heroes and skim an **F-pattern** down text lists.',
         details: [
-          'Z-Pattern (Posters & Hero): Top-Left logo -> Top-Right date -> Big Title -> Bottom Button.',
-          'F-Pattern (Long Text Pages): Eyes hug the left edge jumping across bold subheadings.',
+          '**Z-Pattern (Poster & Hero):** Top-left logo → Top-right badge → Big title → CTA button.',
+          '**F-Pattern (Text Pages):** Eyes hug the left rail jumping across bold headings.',
         ],
         exampleNote:
-          'Always put your main button right where the viewer’s eye naturally finishes scanning.',
+          'Place your **primary CTA** right where the Z-scan finishes.',
         diagram: 'reading-patterns',
       },
       {
@@ -99,13 +99,13 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '5.5',
         title: 'Poster vs. Website Hero',
         summary:
-          'A wall poster grabs people walking past in 2 seconds; a website hero welcomes visitors cleanly above the fold.',
+          'A wall poster hooks **passersby in 2 seconds**; a website hero greets visitors **above the fold**.',
         details: [
-          'Poster (Tall A3): Huge headline, clear graphic shape, Date/Place block, big margins.',
-          'Website Hero (Wide Laptop): Top menu links + Big headline + Short intro + 2 clean buttons.',
+          '**Poster (Tall A3):** Giant headline, key motif, date/venue block, generous margins.',
+          '**Web Hero (Wide Laptop):** Compact navbar + H1 value prop + short bio + crisp buttons.',
         ],
         exampleNote:
-          'Both formats follow the exact same rule: Big Title -> Helpful Details -> Clear Action.',
+          'Both rely on one chain: **Big Hook → Core Details → Clear Action**.',
         diagram: 'poster-vs-web',
       },
       {
@@ -113,42 +113,42 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '5.6',
         title: 'Swiss Editorial Style (Not Just Black & White!)',
         summary:
-          'Swiss style means clean grids, clear fonts, and sharp balance — and you CAN use vivid orange, magenta, or cobalt!',
+          'Swiss style blends **sharp grids and clear type** with **vivid, intentional colors**.',
         details: [
-          'Common Myth: thinking "Swiss Editorial" means boring plain black-and-white rectangles.',
-          'Reality: Swiss designers love bold bright colors paired with crisp grid discipline.',
+          '**Myth:** "Swiss Editorial means plain black-and-white minimalism only."',
+          '**Fact:** Bold orange, magenta, or cobalt blocks thrive on a clean Swiss grid.',
         ],
         exampleNote:
-          'Try Soft Off-White (#F2F2F2) + Charcoal (#171717) + Magenta (#C2185B) or Orange (#FF8A3D) on a clean grid!',
+          'Pair #F2F2F2 ground + #171717 ink with **vivid #C2185B or #FF8A3D** accents.',
         diagram: 'swiss-editorial',
         beforeAfter: {
           beforeTitle: 'Common Myth',
           beforeNote:
-            'Thinking Swiss style is strict boring grayscale with zero excitement.',
+            'Assuming Swiss style forces **dull grayscale boxes** with zero color energy.',
           afterTitle: 'Real Swiss Style',
           afterNote:
-            'Clean organized grids, sharp bold titles, open breathing space, and bright strategic colors.',
+            '**Clean column structure, expressive type**, generous space, and **vivid accent color**.',
         },
       },
     ],
     interactiveDemo: 'layout-and-swiss',
     interactiveTitle: 'Explore Swiss Examples & Toggle Grid Lines',
     interactiveInstructions:
-      'Switch between colorful Swiss examples, click "Show Grid Overlay" to peek at hidden columns, and adjust column counts below.',
+      'Toggle **Show Grid Overlay** on the colorful Swiss samples below, then test columns and padding.',
     studentActivity: {
-      title: 'Peek Under the Grid (5 Mins)',
+      title: 'Peek Under the Grid',
       instructions: [
-        'Click through the colorful examples below and turn ON "Show Grid Overlay" to see how boxes snap cleanly to lines.',
-        'Scroll to the Grid Tool below and compare a 6-column poster grid vs. a 12-column website grid.',
+        'Turn ON **Show Grid Overlay** to inspect how headlines and badges align to tracks.',
+        'Test **6-column poster grids** vs. **12-column web grids** in the Grid Lab.',
       ],
-      deliverable: 'Ready-to-use column & margin plan for the afternoon projects.',
+      deliverable: 'Clear **column, margin, and gutter** plan for your practical briefs.',
     },
     learningCheckpoint:
-      'You understand Margins vs. Gutters, Z/F eye paths, and how colorful Swiss grids work.',
+      'You know **Margins vs. Gutters**, **Z/F reading flow**, and **colorful Swiss grids**.',
     keyTakeaways: [
-      'Margins guard outer canvas edges; Gutters keep interior columns from touching.',
-      'Use Z-Pattern scan flow for posters and website hero headers.',
-      'Swiss Editorial means crisp grids + clear type — vibrant colors are totally welcome!',
+      '**Margins** protect outer edges; **Gutters** separate neighboring columns.',
+      'Use **Z-Pattern flow** to guide eyes toward buttons on posters and heroes.',
+      '**Swiss Editorial** combines structured grids with **bold expressive colors**.',
     ],
     miniChecks: [
       {
@@ -161,7 +161,7 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         ],
         correctIndex: 1,
         explanation:
-          'Swiss design uses clean grids, crisp type, and bold colorful accents — not just plain black and white.',
+          'Swiss design relies on **clean grids and crisp type**, often paired with **bold colors**.',
       },
       {
         id: 'm5-q2',
@@ -173,7 +173,7 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         ],
         correctIndex: 0,
         explanation:
-          'Gutters give clean separation between columns next to each other.',
+          '**Gutters** maintain clean separation between adjacent columns.',
       },
     ],
     linkedLabTool: 'grid',
@@ -185,33 +185,33 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
     phase: 'phase-02',
     phaseLabel: 'Figma & Interface Tooling',
     title: 'Figma Essentials',
-    subtitle: 'Getting comfortable with Figma’s workspace, Frames, basic tools, and easy shortcuts',
+    subtitle: 'Understanding Figma’s **workspace, Frames, core tools**, and **everyday shortcuts**',
     learningObjective:
-      'Use Figma comfortably to create Frames, draw simple shapes, edit text, line items up, and save files.',
+      'Use **Frames (F), basic shapes, text modes, alignment**, and clean **Export** workflows.',
     durationMinutes: 35,
     accentColor: 'orange',
     introduction:
-      'You do not need to learn 50 complicated buttons in Figma today! Just knowing the 4 screen areas, how Frames work, and 8 handy shortcuts is enough to design clean posters and hero screens smoothly.',
+      'You do not need 50 menus to build cleanly in Figma. Master **6 workspace zones, Frames (F), and 8 helpful shortcuts** to create posters and screens smoothly.',
     terminology: [
       {
         term: 'Frame (F)',
         definition:
-          'A real screen or paper box in Figma (like A3 Poster or Desktop Screen) where all your design pieces live safely.',
+          'Your **real artboard or screen container** (A3 Poster or Desktop) where layers live.',
       },
       {
         term: 'Group (Cmd/Ctrl + G)',
         definition:
-          'A simple bundle for grouping loose items together so you can drag them around at the same time.',
+          'A **temporary bundle** to drag loose items together without grids or padding.',
       },
       {
         term: 'Properties Panel (Right)',
         definition:
-          'The right-hand side menu where you adjust size, color, borders, fonts, alignment, and Export.',
+          'Context menu on the right to adjust **size, color, type, align, and export**.',
       },
       {
         term: 'Fill vs. Stroke',
         definition:
-          'Fill is the inside color of a box or word; Stroke is the outline border around the outside edge.',
+          '**Fill** colors the inside surface; **Stroke** outlines the outer border.',
       },
     ],
     topics: [
@@ -220,14 +220,14 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '6.1',
         title: 'The 4 Main Areas of Figma',
         summary:
-          'Figma splits into Left (Layers/Pages), Center (Workspace Canvas), Right (Edit Controls), and Toolbar.',
+          'Figma divides cleanly into **Left (Pages/Layers), Center (Canvas), Right (Properties), and Toolbar**.',
         details: [
-          'Left Sidebar: holds your Pages and Layers list — keep everything neatly named like "Title" or "Main Button".',
-          'Center Canvas: your open workspace! Hold Space + Drag to move around, and pinch or Cmd/Ctrl + +/- to zoom.',
-          'Right Panel: shows size, color, font, alignment, and Export buttons for whatever you clicked.',
+          '**Left Sidebar:** Lists Pages and Layers — name key blocks clearly (Title, CTA_Btn).',
+          '**Center Canvas:** Open workspace — hold Space + Drag to pan, zoom cleanly.',
+          '**Right Panel:** Controls dimensions, fills, typography, alignment, and Export.',
         ],
         exampleNote:
-          'Give major sections clear names right away so you never get lost looking at 30 "Rectangle" layers.',
+          'Naming key layers early avoids getting lost among **20 "Rectangle" items**.',
         diagram: 'figma-layers-frame',
       },
       {
@@ -235,14 +235,14 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '6.2',
         title: 'Frames (F) vs. Groups & Shapes',
         summary:
-          'Always start a poster or web screen with a Frame (F) — never draw loosely onto the blank gray canvas.',
+          'Start every poster or screen with a **Frame (F)** — never drop layers loosely onto blank canvas.',
         details: [
-          'Press F and pick ready-made sizes from the right panel (Paper -> A3, or Desktop 1440 x 1024).',
-          'Shapes: Press R for boxes, O for circles — hold Shift while dragging to make perfect squares and circles.',
-          'Press P (Pen) to click point-to-point for crisp arrows or custom lines; hit Esc when finished.',
+          'Press F and pick ready presets on the right (**Print A3** or **Desktop 1440×1024**).',
+          'Draw boxes (R), circles (O) with Shift held down, or crisp vectors (P).',
+          'Check Layers so every text and shape stays **indented inside your Frame**.',
         ],
         exampleNote:
-          'Make sure every headline and shape sits INSIDE your main Frame in the left Layers list so nothing gets left out when saving.',
+          'Objects sitting outside the Frame won’t appear in **PDF or PNG exports**.',
         diagram: 'frame-vs-group',
       },
       {
@@ -250,13 +250,13 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '6.3',
         title: 'Text Boxes, Colors & Outlines',
         summary:
-          'Click once with T for short button words; click and drag with T to create a wrapping paragraph box.',
+          'Press T: **click once** for short button labels; **drag a box** for wrapping paragraphs.',
         details: [
-          'Use the Right Panel to switch Font, Boldness, Size, Line Height, and Fill colors cleanly.',
-          'Click Fill (+) for inside color, Stroke (+) for clean borders, and go easy on heavy drop shadows.',
+          'Tune **font, weight, line height, and Fill** inside the right panel.',
+          'Keep borders thin with **Stroke (+)** and avoid muddy heavy shadows.',
         ],
         exampleNote:
-          'Short labels work great with auto-width text so buttons grow naturally if you edit a word.',
+          'Auto-width single clicks let **button labels expand** naturally when edited.',
         diagram: 'text-box-modes',
       },
       {
@@ -264,13 +264,13 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '6.4',
         title: 'Line Things Up & Export Your Work',
         summary:
-          'Use the top-right Align icons to snap items evenly, and scroll down to Export to save crisp images.',
+          'Snap layers fast with top-right **Align icons**, then export clean **PNG 2x or PDF**.',
         details: [
-          'Select 2+ objects -> tap the Align icons at the top-right to line up left edges or center them cleanly.',
-          'Click your outer Poster or Hero Frame -> scroll down the Right Panel -> Export as PNG (2x) or PDF.',
+          'Select 2+ items and tap **Align Left / Vertical Centers** at top-right.',
+          'Select your outer **Main Frame** → scroll right panel bottom → **Export PNG 2x / PDF**.',
         ],
         exampleNote:
-          'Always tap "Preview" inside Export to check your full poster is inside the box before hitting Download.',
+          'Check **Export Preview** to verify nothing is clipped before downloading.',
         diagram: 'align-export',
       },
       {
@@ -278,34 +278,34 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '6.5',
         title: '8 Shortcuts That Save Time',
         summary:
-          'One key per tool keeps building fast and smooth without hunting through menus.',
+          'Single-letter shortcuts keep focus on **layout choices** instead of hunting menus.',
         details: [
-          'V Move · F Frame · R Rectangle · O Circle · T Text · P Pen · Shift+A Auto Layout · Cmd/Ctrl+G Group.',
-          'Handy trick: Hold Alt (Windows) or Option (Mac) and hover near another item to see exact pixel gaps!',
+          '**Core Keys:** V Move · F Frame · R Box · O Circle · T Text · P Pen · Shift+A Auto Layout · Cmd/Ctrl+G Group.',
+          'Hold Option/Alt and hover neighboring layers to inspect **exact pixel gaps**.',
         ],
         exampleNote:
-          'Press V whenever you finish typing or drawing shapes so you return safely to the normal pointer.',
+          'Tap V right after drawing or typing to return to the safe **Move cursor**.',
         diagram: 'shortcut-keys',
       },
     ],
     interactiveDemo: 'figma-essentials-tour',
     interactiveTitle: 'Click Around the Figma Screen Map',
     interactiveInstructions:
-      'Click any labeled area inside the Figma mockup to see what it does, then test the 8 helpful shortcuts below.',
+      'Select any numbered zone inside the mockup to see **what it controls**, then browse **8 shortcuts**.',
     studentActivity: {
-      title: 'Make Your First Clean Frame (5 Mins)',
+      title: 'Make Your First Clean Frame',
       instructions: [
-        'Click through all regions in the Figma map below.',
-        'In real Figma (or check the Figma Guide page), press F for a Frame, draw 1 box (R) + 1 circle (O) + 1 text (T), and check that they all sit neatly inside the Frame in Layers.',
+        'Explore all **6 screen regions** in the interactive tour below.',
+        'Practice in Figma: create a **Frame (F)** containing 1 box (R), 1 circle (O), and 1 title (T).',
       ],
-      deliverable: 'One clean named Frame with shapes and text tucked neatly inside.',
+      deliverable: 'One properly named **Frame** with shapes and text nested cleanly inside.',
     },
     learningCheckpoint:
-      'You know where Figma controls live, why Frames beat loose Groups, and how to export your work.',
+      'You know **Figma’s workspace**, why **Frames (F) beat Groups**, and how to **Export**.',
     keyTakeaways: [
-      'Start every poster or screen with a Frame (F) — keep everything nested inside it.',
-      'Remember V (Move), F (Frame), R (Box), O (Circle), T (Text), and Option/Alt for spacing checks.',
-      'Use top-right Align buttons so elements snap neatly without guessing by eye.',
+      'Start every project inside a **named Frame (F)** with nested layers.',
+      'Use **V, F, R, O, T** + **Option/Alt** distance check to move quickly.',
+      'Align cleanly with top-right **Align tools** instead of eyeballing.',
     ],
     miniChecks: [
       {
@@ -318,7 +318,7 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         ],
         correctIndex: 0,
         explanation:
-          'Frames work like real pages or screens with layout grids and clean borders, while Groups only bundle items together.',
+          '**Frames** act like real pages with grids and export bounds, while Groups only bundle items.',
       },
       {
         id: 'm6-q2',
@@ -330,7 +330,7 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         ],
         correctIndex: 0,
         explanation:
-          'Single letters (V, F, R, O, T) plus Shift + A make everyday work in Figma super fast.',
+          '**F (Frame), T (Text), and Shift + A (Auto Layout)** cover most everyday UI setup.',
       },
     ],
   },
@@ -341,33 +341,33 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
     phase: 'phase-02',
     phaseLabel: 'Figma & Interface Tooling',
     title: 'Figma for Interface Design',
-    subtitle: 'Auto Layout buttons, reusable copies, tidy spacing, and clicking Play to preview your screen',
+    subtitle: 'Building **adaptive Auto Layout buttons**, reusable **Components**, and **Present previews**',
     learningObjective:
-      'Build clean buttons and website hero sections using Auto Layout (Shift + A), simple Components, and Present mode.',
+      'Structure clean web heroes using **Auto Layout (Shift + A), Components**, and **Present mode (▶)**.',
     durationMinutes: 35,
     accentColor: 'lime',
     introduction:
-      'Now let’s connect graphic design to real websites! With just three beginner-friendly UI tricks — Auto Layout (smart spacing), Reusable Buttons, and clicking Play to preview — you’ll be completely ready for Challenge 02.',
+      'Bridge graphic layout into **interactive web UI**. Three practical Figma workflows — **Auto Layout, Reusable Components, and 100% Present Previews** — prepare you for Challenge 02.',
     terminology: [
       {
         term: 'Auto Layout (Shift + A)',
         definition:
-          'A smart Frame setting that lines items up in a row or stack and keeps equal padding & gaps automatically.',
+          'Smart container rules that keep **padding and gaps consistent** when text or screen sizes change.',
       },
       {
         term: 'Main Component & Copy',
         definition:
-          'Save one finished button as a master design; change the main one and every copy updates everywhere automatically!',
+          'A **master element** whose style updates sync across every copy automatically.',
       },
       {
         term: 'Hug vs. Fill',
         definition:
-          'Simple sizing choices: Hug makes a button grow/shrink around text; Fill stretches a box to fill its column.',
+          '**Hug** shrinks/grows around text inside buttons; **Fill** stretches text/boxes across columns.',
       },
       {
         term: 'Present Mode (Play)',
         definition:
-          'Clicking Play (▶) top-right to view your design at real size in a clean preview tab.',
+          'Top-right **Play (▶) preview** showing true typography scale above the fold.',
       },
     ],
     topics: [
@@ -376,13 +376,13 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '7.1',
         title: 'Desktop Frames & Real Reading Size',
         summary:
-          'Build websites inside a standard Desktop Frame (1440 x 1024) and zoom to 100% often to check font sizes.',
+          'Start in a **1440 × 1024 Desktop Frame** and press Shift + 0 often to judge true size.',
         details: [
-          'Put your top logo and menu links cleanly across the top inside a neat horizontal row.',
-          'Hit Shift + 0 regularly to view at 100% real size so text isn’t secretly tiny or giant.',
+          'Arrange top logo and menu links cleanly across **one horizontal bar**.',
+          'Viewing zoomed at **100%** reveals undersized subheadlines or tiny buttons immediately.',
         ],
         exampleNote:
-          'A 14px–16px button label inside a ~48px tall button feels comfortable to read and tap.',
+          'A **14–16px CTA label** inside a **~48px tall button** feels balanced to scan and tap.',
         diagram: 'screen-containers',
       },
       {
@@ -390,13 +390,13 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '7.2',
         title: 'Auto Layout — Smart Buttons & Stacks',
         summary:
-          'Press Shift + A on text to turn it into a button that grows cleanly whenever words change!',
+          '**Shift + A** turns text or stacked blocks into **adaptive containers** that never look lopsided.',
         details: [
-          'Try it: type "Explore Work", press Shift + A, set Side Padding 24px and Top/Bottom 14px.',
-          'Also works vertically! Select Title + Intro + Buttons and press Shift + A to lock even gaps between them.',
+          'On buttons: press Shift + A on text and set **24px side padding / 14px vertical**.',
+          'On hero copy: wrap Eyebrow + H1 + Intro + CTAs vertically with **clean 16–24px gaps**.',
         ],
         exampleNote:
-          'Changing a button label from "Go" to "Explore Projects" works effortlessly with zero manual resizing.',
+          'Renaming "Go" to "Explore Projects" **resizes cleanly** without touching padding boxes.',
         diagram: 'auto-layout-diagram',
       },
       {
@@ -404,13 +404,13 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '7.3',
         title: 'Reuse Elements With Components',
         summary:
-          'Turn repeated items like your main buttons or menu bars into a Component so they always match.',
+          'Convert repeated navbars or buttons into a **Component** so copies stay visually unified.',
         details: [
-          'Right-click a finished button -> "Create Component" (turns purple with a diamond icon).',
-          'Grab copies from the Assets tab! Editing the main purple button updates every copy automatically.',
+          'Right-click a finished button → **Create Component** (turns purple diamond).',
+          'Drag instances from **Assets**; tweaking the master color updates every instance.',
         ],
         exampleNote:
-          'Great for keeping your "Explore My Work" button looking consistent across screens.',
+          'Ideal for syncing primary **Explore My Work** buttons across screens.',
         diagram: 'component-reuse',
       },
       {
@@ -418,13 +418,13 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '7.4',
         title: 'Hug vs. Fill Sizing (Made Simple)',
         summary:
-          'Use "Hug contents" for buttons so they fit text neatly, and "Fill container" for paragraphs so lines wrap.',
+          'Use **Hug contents** on buttons/pills, and **Fill container** on paragraphs so lines wrap cleanly.',
         details: [
-          'Hug contents: wraps snugly around words inside buttons, tags, and pills.',
-          'Fill container: stretches text boxes to fit a column so long sentences wrap nicely onto new lines.',
+          '**Hug contents:** wraps tightly around button labels and tags.',
+          '**Fill container:** matches column width so multi-line bios adapt without overflowing.',
         ],
         exampleNote:
-          'Keep spacing simple by stepping in 8s (8, 16, 24, 32) everywhere.',
+          'Stick to clean **8px increments (8, 16, 24, 32)** across padding and gaps.',
         diagram: 'hug-vs-fill',
       },
       {
@@ -432,34 +432,34 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         number: '7.5',
         title: 'Link a Click & Check Present Mode',
         summary:
-          'Connect a button click to another screen in the Prototype tab, then tap Play (▶) to test it full size.',
+          'Wire a quick click transition in **Prototype** and inspect your hero full-size with **Play (▶)**.',
         details: [
-          'Click Prototype (top right) -> drag the blue circle from your button onto Screen 2 -> set On Click -> Navigate.',
-          'Click Play (▶) top right to inspect your whole hero layout like a real website visitor.',
+          'Open **Prototype** → drag node from CTA button to Screen 2 → set **On Click → Navigate**.',
+          'Click **Play (▶)** to judge above-the-fold balance like a real visitor.',
         ],
         exampleNote:
-          'Looking at your hero in Present mode right away spots cramped menus or undersized intros fast.',
+          '**Present mode** immediately catches cramped nav links or off-balance hero columns.',
         diagram: 'present-preview',
       },
     ],
     interactiveDemo: 'figma-interface-mini',
     interactiveTitle: 'Build a Mini Hero Card Right Here',
     interactiveInstructions:
-      'Practice editing the 5 essential hero parts below: Headline, Intro, Button Text, 2 Shapes, and Auto Layout spacing/padding sliders.',
+      'Practice combining the **5 core hero parts** — Title, Intro, 2 Shapes, CTA, and **Padding/Gap sliders**.',
     studentActivity: {
-      title: 'Finish the 5-Part Mini Hero Card (10 Mins)',
+      title: 'Finish the 5-Part Mini Hero Card',
       instructions: [
-        'Use the Mini Hero Sandbox below to check all 5 items: Frame + Headline + Intro + 2 Shapes + CTA Button.',
-        'Adjust Padding and Gap sliders until spacing looks balanced, then click "Complete Mini Exercise"!',
+        'Complete all **5 parts** inside the interactive sandbox below.',
+        'Tune **Edge Padding** and **Item Gap** until balanced, then click Complete Mini Exercise.',
       ],
-      deliverable: 'A clean 5-part structured Hero Frame ready to inspire Challenge 02.',
+      deliverable: 'A clean **5-part Mini Hero** ready as a template for Challenge 02.',
     },
     learningCheckpoint:
-      'You know how to build smart Auto Layout buttons, reuse Components, and preview screens at 100%.',
+      'You can build **adaptive Auto Layout stacks, Components**, and preview screens at **100% scale**.',
     keyTakeaways: [
-      'Auto Layout (Shift + A) keeps button padding and stack gaps neat automatically.',
-      'Set buttons to Hug contents, and wrapping text boxes to Fill container.',
-      'Always click Play (▶) at real 100% screen scale before sharing your work.',
+      '**Auto Layout (Shift + A)** keeps buttons and text stacks tidy automatically.',
+      'Set buttons to **Hug contents** and wrapping body boxes to **Fill container**.',
+      'Always test final heroes in **Present mode (▶)** at real scale.',
     ],
     miniChecks: [
       {
@@ -468,7 +468,7 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         options: ['Hug contents', 'Fixed width lock', 'Hidden clip'],
         correctIndex: 0,
         explanation:
-          'Hug contents automatically stretches or shrinks the button neatly around whatever label you type.',
+          '**Hug contents** grows or shrinks the button cleanly around any label length.',
       },
       {
         id: 'm7-q2',
@@ -480,7 +480,7 @@ export const CHAPTERS_5_TO_7: Chapter[] = [
         ],
         correctIndex: 0,
         explanation:
-          'Editing zoomed way in tricks your eyes — checking at real size catches tiny text and cramped buttons fast.',
+          'Previewing at **real 100% size** catches tiny body copy and cramped CTAs right away.',
       },
     ],
   },

@@ -24,6 +24,7 @@ import {
   Type,
 } from 'lucide-react';
 import { Badge } from '../ui/Badge';
+import { HighlightText } from '../ui/HighlightText';
 
 /* ========================================================================== */
 /* 1. INTERACTIVE FIGMA UI3 WORKSPACE DIAGRAM (iCraft Dark UI3 Studio)        */
@@ -55,33 +56,33 @@ const WORKSPACE_AREAS: Record<WorkspaceAreaId, WorkspaceAreaInfo> = {
     id: 'toolbar',
     num: '1',
     title: 'Toolbar',
-    desc: 'Floating dock at the bottom holding Move, Frame, Shapes, Pen, and Text.',
+    desc: 'Bottom dock holding **Move, Frame, Shapes, Pen, and Text**.',
     beginnerHabit:
-      'Press V (Move), F (Frame), R (Box), or T (Text) from this bottom dock instead of searching menus.',
+      'Use bottom dock icons — shortcuts like **V, F, R, T** only speed up switching.',
   },
   layers: {
     id: 'layers',
     num: '2',
     title: 'Layers panel',
-    desc: 'Left sidebar showing File navigation, Pages list, and Layers stack.',
+    desc: 'Left sidebar holding **Files, Pages, and Layers stack**.',
     beginnerHabit:
-      'Organize work into Pages (Graphic Design, Instagram, UI / UX) and click layers like Hero Section to select them.',
+      'Group work into **Pages** and click Layers like **Hero Section** to select items fast.',
   },
   canvas: {
     id: 'canvas',
     num: '3',
     title: 'Canvas',
-    desc: 'Your main dark working table holding clean white Frames like Hero Section.',
+    desc: 'Main workspace holding **Frames** like your Hero Section.',
     beginnerHabit:
-      'Press F to draw a crisp white Frame here, hold Space + Drag to pan, and use Option/Alt to check gaps.',
+      'Start inside a **Frame (F)**, hold **Space + Drag** to pan, and **Alt/Option** to check gaps.',
   },
   properties: {
     id: 'properties',
     num: '4',
     title: 'Properties panel',
-    desc: 'Right inspector showing Design/Prototype tabs, zoom, Page fill, Styles & Export.',
+    desc: 'Right inspector for **Design/Prototype, Fill, Styles & Export**.',
     beginnerHabit:
-      'Use Design for layout, Page hex (#313030) for desk tone, and Export (+) at the bottom to save PNG/PDF files.',
+      'Tune spacing and colors in **Design**, or click **Export (+)** at the bottom to save files.',
   },
 };
 
@@ -121,14 +122,14 @@ const PAGE_METADATA: Record<
 };
 
 const TOOL_LABELS: Record<WorkspaceToolId, string> = {
-  move: 'Move Tool (V) — Select and reposition elements',
-  frame: 'Frame Tool (F) — Create screens or containers like Hero Section',
-  shape: 'Rectangle Tool (R) — Draw cards, buttons, and containers',
-  pen: 'Pen Tool (P) — Draw custom vector paths or lines',
-  text: 'Text Tool (T) — Click or drag to write headings and body copy',
-  code: 'Variables & Tokens — Bind reusable colors and spacing values',
-  comment: 'Comments / Stamp — Leave quick notes directly on canvas frames',
-  actions: 'Plugins & Actions — Browse shortcuts, icons, and quick tools',
+  move: '**Move (V)** — Select and drag objects safely',
+  frame: '**Frame (F)** — Create screens or poster artboards',
+  shape: '**Rectangle (R)** — Draw cards, buttons, and placeholders',
+  pen: '**Pen (P)** — Draw custom vector paths or lines',
+  text: '**Text (T)** — Click or drag to add headings and paragraphs',
+  code: '**Variables & Tokens** — Bind reusable colors and spacing',
+  comment: '**Comments (C)** — Pin feedback notes right onto frames',
+  actions: '**Plugins & Actions** — Quick search for icons and tools',
 };
 
 export function FigmaWorkspaceAnnotatedInteractive() {
@@ -174,7 +175,9 @@ export function FigmaWorkspaceAnnotatedInteractive() {
             {info.title}
           </strong>
         </div>
-        <p className="mt-1 text-xs leading-snug text-muted">{info.desc}</p>
+        <p className="mt-1 text-xs leading-snug text-muted">
+          <HighlightText text={info.desc} variant="soft" />
+        </p>
       </button>
     );
   };
@@ -186,7 +189,7 @@ export function FigmaWorkspaceAnnotatedInteractive() {
         <div className="flex flex-wrap items-center gap-2.5">
           <Badge tone="orange">Interactive Workspace Diagram</Badge>
           <span className="font-display text-sm font-bold text-ink">
-            Click Any Annotated Callout (1–4) or Panel Inside the Figma UI3 Studio
+            Click Callouts (1–4) or Any UI3 Panel
           </span>
         </div>
 
@@ -801,9 +804,14 @@ export function FigmaWorkspaceAnnotatedInteractive() {
               AREA {currentArea.num} · {currentArea.title.toUpperCase()}
             </span>
             <p className="mt-0.5 text-xs text-on-dark-muted">
-              {activeArea === 'toolbar'
-                ? TOOL_LABELS[activeTool]
-                : currentArea.beginnerHabit}
+              <HighlightText
+                text={
+                  activeArea === 'toolbar'
+                    ? TOOL_LABELS[activeTool]
+                    : currentArea.beginnerHabit
+                }
+                variant="dark"
+              />
             </p>
           </div>
           <span className="shrink-0 rounded-lg border border-[#333130] bg-[#20201F] px-3 py-1 font-mono text-xs text-white">
@@ -836,31 +844,31 @@ const FILL_PALETTE: FillHexCode[] = ['FFFFFF', 'C2185B', '171717', 'F04438', 'FF
 const PROP_EXPLANATIONS: Record<AnnotatedPropId, { title: string; tip: string }> = {
   alignment: {
     title: 'Alignment Icons',
-    tip: 'Line up your selected Frame or shape neatly along the Left, Center, Right, Top, Middle, or Bottom edge.',
+    tip: 'Line up Frames or shapes neatly along **Left, Center, Right, Top, Middle, or Bottom** edges.',
   },
   position: {
     title: 'Position (X / Y)',
-    tip: 'X moves items left and right inside your canvas; Y moves them up and down.',
+    tip: '**X** shifts objects horizontally; **Y** shifts them vertically inside the Frame.',
   },
   rotation: {
     title: 'Rotation & Flip',
-    tip: 'Tilt boxes by degrees or mirror them horizontally and vertically with one click.',
+    tip: 'Rotate objects by **exact degrees** or flip horizontally/vertically in one click.',
   },
   flow: {
     title: 'Layout Flow',
-    tip: 'Switch between Freeform placement or Auto Layout stacks (Vertical, Horizontal, or Grid).',
+    tip: 'Switch between **Freeform** placement or **Auto Layout** stacks (Vertical, Horizontal, Grid).',
   },
   dimensions: {
     title: 'Dimensions (W / H) & Clip',
-    tip: 'Adjust Width and Height, lock aspect ratio on the right, or check Clip content to trim overflow.',
+    tip: 'Set **Width/Height**, lock aspect ratio, or toggle **Clip content** to trim overflow.',
   },
   appearance: {
     title: 'Appearance (Opacity & Corners)',
-    tip: 'Fade transparency with Opacity or soften corners all together — or enable Individual Corners for custom curves.',
+    tip: 'Adjust **Opacity** or round **corners** uniformly or individually.',
   },
   fill: {
     title: 'Fill Color & Opacity',
-    tip: 'Click the color square or Hex code to swap card colors, change fill opacity, or toggle visibility.',
+    tip: 'Edit **Fill Hex**, opacity, or toggle visibility without deleting the layer.',
   },
 };
 
@@ -1266,7 +1274,9 @@ export function FigmaPropertiesAnnotatedInteractive() {
             <strong className="font-display font-bold text-brand-magenta">
               {PROP_EXPLANATIONS[activeProp].title}:{' '}
             </strong>
-            <span className="text-ink">{PROP_EXPLANATIONS[activeProp].tip}</span>
+            <span className="text-ink">
+              <HighlightText text={PROP_EXPLANATIONS[activeProp].tip} variant="soft" />
+            </span>
           </div>
         </div>
 
@@ -2278,39 +2288,39 @@ type HeightSizingMode = 'Fixed' | 'Hug' | 'Fill';
 const AUTO_LAYOUT_TIPS: Record<AutoLayoutCalloutId, { title: string; tip: string }> = {
   freeform: {
     title: 'Freeform Flow (Off)',
-    tip: 'Items sit wherever you place them manually without pushing neighbors when text grows.',
+    tip: 'Items stay **fixed in place** and do not adapt when neighboring text grows.',
   },
   vertical: {
     title: 'Vertical Flow (↓)',
-    tip: 'Stacks items top-to-bottom like headlines, copy, and CTA buttons with uniform vertical gap.',
+    tip: 'Stacks headlines, paragraphs, and buttons **top-to-bottom** with automatic spacing.',
   },
   horizontal: {
     title: 'Horizontal Flow (→)',
-    tip: 'Places items side by side in a row with horizontal ]·[ spacing — great for navbars and button groups.',
+    tip: 'Places items **side-by-side in one row** — ideal for navbars and button pairs.',
   },
   grid: {
     title: 'Grid Flow (⊞)',
-    tip: 'Unlocks Grid columns (e.g. 1 × Auto / 2 × Auto) plus separate Horizontal (]·[) and Vertical gaps.',
+    tip: 'Arranges **multi-column tracks** (e.g. 2 × Auto) with separate row and column gaps.',
   },
   alignment: {
     title: '3×3 Align Grid / Grid Tracks',
-    tip: 'Pick which corner or edge items anchor to — in Grid mode this slot switches to column tracks like 1 × Auto.',
+    tip: 'Anchor items to any **edge or center** — or switch tracks in Grid mode.',
   },
   spacing: {
     title: 'Gap Between Items',
-    tip: 'Sets exact spacing (e.g. 10px) between elements; Grid mode controls column gap & row gap independently.',
+    tip: 'Locks **consistent spacing** (e.g. 10px) so items never overlap when content edits happen.',
   },
   hpad: {
     title: 'Horizontal Padding (Left & Right)',
-    tip: 'Adds balanced empty breathing room between the container side edges and items inside.',
+    tip: 'Keeps **left/right breathing room** proportional inside adaptive buttons and cards.',
   },
   vpad: {
     title: 'Vertical Padding (Top & Bottom)',
-    tip: 'Adds balanced empty breathing room above and below the content inside a button or card.',
+    tip: 'Keeps **top/bottom breathing room** balanced around labels and card blocks.',
   },
   clip: {
     title: 'Clip Content',
-    tip: 'When checked, trims anything overflowing beyond the Frame boundary cleanly.',
+    tip: 'Trims **overflowing layers** cleanly at the Frame boundary.',
   },
 };
 
@@ -2473,7 +2483,7 @@ export function FigmaAutoLayoutAnnotatedInteractive() {
         <div className="flex flex-wrap items-center gap-2.5">
           <Badge tone="orange">Annotated Auto Layout Inspector</Badge>
           <span className="font-display text-sm font-bold text-ink">
-            Switch Between Vertical, Horizontal & Grid Flow to Inspect Live UI3 Controls
+            Switch Vertical, Horizontal &amp; Grid Flow to Test Adaptive Containers
           </span>
         </div>
 
@@ -3159,7 +3169,7 @@ export function FigmaAutoLayoutAnnotatedInteractive() {
               {AUTO_LAYOUT_TIPS[activeCallout].title}:{' '}
             </strong>
             <span className="text-on-dark-muted">
-              {AUTO_LAYOUT_TIPS[activeCallout].tip}
+              <HighlightText text={AUTO_LAYOUT_TIPS[activeCallout].tip} variant="dark" />
             </span>
           </div>
         </div>

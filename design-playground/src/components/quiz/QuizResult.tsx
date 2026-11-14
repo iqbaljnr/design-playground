@@ -11,6 +11,7 @@ import {
 import type { QuizQuestion } from '../../types/curriculum';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
+import { HighlightText } from '../ui/HighlightText';
 
 interface QuizResultProps {
   questions: QuizQuestion[];
@@ -111,9 +112,14 @@ export function QuizResult({ questions, answers, onRetry }: QuizResultProps) {
               Next Studio Actions
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
-              {percentage >= 70
-                ? 'You cleared the 70% studio comprehension mark and earned the Knowledge Checked milestone.'
-                : 'Review the explanations above or revisit specific modules in the Learning Hub, then try again to reach 70%+.'}
+              <HighlightText
+                variant="soft"
+                text={
+                  percentage >= 70
+                    ? 'You cleared the **70% benchmark** and earned the Knowledge Verified milestone.'
+                    : 'Review the explanations above or revisit modules in the **Learning Hub**, then retry for **70%+**.'
+                }
+              />
             </p>
           </div>
 

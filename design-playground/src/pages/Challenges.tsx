@@ -11,6 +11,7 @@ import { PageContainer } from '../components/layout/PageContainer';
 import { MiddleFidelityReference } from '../components/interactive/MiddleFidelityReference';
 import { Badge } from '../components/ui/Badge';
 import { ProgressBar } from '../components/ui/ProgressBar';
+import { HighlightText } from '../components/ui/HighlightText';
 import {
   DESIGN_CHALLENGES,
   getChallengeBySlugOrId,
@@ -111,9 +112,10 @@ export function Challenges() {
                 Workshop Design Challenges
               </h1>
               <p className="mt-2 max-w-2xl text-base text-muted-surface">
-                Move from morning visual principles and Figma practice to two full
-                portfolio briefs inside Figma—complete with required copy, mid-fidelity
-                wireframe blueprints, starter assets, and weighted review rubrics.
+                <HighlightText
+                  variant="soft"
+                  text="Turn **visual principles** and **Figma tools** into two portfolio briefs — complete with **copy, blueprints, starter assets**, and **rubrics**."
+                />
               </p>
             </div>
             <div className="w-full max-w-xs rounded-2xl border border-border-subtle bg-elevated p-4">
@@ -145,19 +147,17 @@ export function Challenges() {
                   key={challenge.id}
                   type="button"
                   onClick={() => navigate(`/challenges/${challenge.slug}`)}
-                  className={`flex w-full flex-col justify-between rounded-2xl border p-5 text-left transition-colors cursor-pointer ${
-                    selected
-                      ? 'border-dark bg-dark text-white'
-                      : 'border-border-subtle bg-elevated text-ink hover:border-brand-magenta'
-                  }`}
+                  className={`flex w-full flex-col justify-between rounded-2xl border p-5 text-left transition-colors cursor-pointer ${selected
+                    ? 'border-dark bg-dark text-white'
+                    : 'border-border-subtle bg-elevated text-ink hover:border-brand-magenta'
+                    }`}
                 >
                   <div className="flex w-full items-center justify-between gap-2">
                     <span
-                      className={`rounded-full border px-2.5 py-0.5 font-display text-xs font-semibold tabular-nums ${
-                        selected
-                          ? 'border-[#2A2928] bg-[#20201F] text-brand-orange'
-                          : 'border-border-subtle bg-canvas text-muted'
-                      }`}
+                      className={`rounded-full border px-2.5 py-0.5 font-display text-xs font-semibold tabular-nums ${selected
+                        ? 'border-[#2A2928] bg-[#20201F] text-brand-orange'
+                        : 'border-border-subtle bg-canvas text-muted'
+                        }`}
                     >
                       Challenge {challenge.number} · {challenge.category}
                     </span>
@@ -173,18 +173,16 @@ export function Challenges() {
                     {challenge.title}
                   </h2>
                   <span
-                    className={`mt-1.5 block font-display text-xs font-medium tabular-nums ${
-                      selected ? 'text-on-dark-muted' : 'text-muted'
-                    }`}
+                    className={`mt-1.5 block font-display text-xs font-medium tabular-nums ${selected ? 'text-on-dark-muted' : 'text-muted'
+                      }`}
                   >
                     {challenge.canvasSpec}
                   </span>
                   <div
-                    className={`mt-3 flex items-center justify-between border-t border-current/15 pt-2.5 font-display text-xs font-medium tabular-nums ${
-                      selected ? 'text-on-dark-muted' : 'text-muted'
-                    }`}
+                    className={`mt-3 flex items-center justify-between border-t border-current/15 pt-2.5 font-display text-xs font-medium tabular-nums ${selected ? 'text-on-dark-muted' : 'text-muted'
+                      }`}
                   >
-                    <span>~{challenge.estimatedTime}</span>
+                    <span>{challenge.category} Brief</span>
                     <span className="tabular-nums">
                       Checklist: {critDone}/{challenge.evaluationCriteria.length}
                     </span>
@@ -203,7 +201,7 @@ export function Challenges() {
                   <Badge tone="outline">{resolved.tool}</Badge>
                 </div>
                 <span className="font-display text-xs font-semibold text-muted-surface tabular-nums">
-                  Timebox: {resolved.estimatedTime}
+                  {resolved.category} · {resolved.difficulty}
                 </span>
               </div>
 
@@ -213,7 +211,7 @@ export function Challenges() {
                     {resolved.title}
                   </h2>
                   <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
-                    {resolved.introduction}
+                    <HighlightText text={resolved.introduction} variant="soft" />
                   </p>
                 </div>
 
@@ -248,7 +246,7 @@ export function Challenges() {
                         Core Objective
                       </dt>
                       <dd className="mt-0.5 text-ink">
-                        {resolved.designBrief.goal}
+                        <HighlightText text={resolved.designBrief.goal} variant="soft" />
                       </dd>
                     </div>
                     <div className="sm:col-span-2">
@@ -256,7 +254,7 @@ export function Challenges() {
                         Target Audience
                       </dt>
                       <dd className="mt-0.5 text-ink">
-                        {resolved.designBrief.audience}
+                        <HighlightText text={resolved.designBrief.audience} variant="soft" />
                       </dd>
                     </div>
                   </dl>
@@ -290,7 +288,9 @@ export function Challenges() {
                     </span>
                     <ul className="mt-1.5 list-disc space-y-1 pl-5 text-sm text-ink">
                       {resolved.designBrief.constraints.map((item) => (
-                        <li key={item}>{item}</li>
+                        <li key={item}>
+                          <HighlightText text={item} variant="soft" />
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -305,7 +305,9 @@ export function Challenges() {
                     {resolved.designDirectionPoints.map((pt, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-magenta" />
-                        <span>{pt}</span>
+                        <span>
+                          <HighlightText text={pt} variant="soft" />
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -389,7 +391,9 @@ export function Challenges() {
                         <span className="rounded-md bg-dark px-2 py-0.5 font-display text-xs font-semibold text-white tabular-nums">
                           0{idx + 1}
                         </span>
-                        <span className="leading-relaxed">{stepText}</span>
+                        <span className="leading-relaxed">
+                          <HighlightText text={stepText} variant="soft" />
+                        </span>
                       </li>
                     ))}
                   </ol>
@@ -437,11 +441,10 @@ export function Challenges() {
                       return (
                         <label
                           key={criterion.id}
-                          className={`flex cursor-pointer items-start justify-between gap-3 rounded-xl border p-4 transition-colors ${
-                            checked
-                              ? 'border-[#C6DEC8] bg-[#EDF5ED]'
-                              : 'border-border-subtle bg-elevated hover:bg-canvas'
-                          }`}
+                          className={`flex cursor-pointer items-start justify-between gap-3 rounded-xl border p-4 transition-colors ${checked
+                            ? 'border-[#C6DEC8] bg-[#EDF5ED]'
+                            : 'border-border-subtle bg-elevated hover:bg-canvas'
+                            }`}
                         >
                           <div className="flex items-start gap-3">
                             <input
@@ -455,7 +458,7 @@ export function Challenges() {
                                 {criterion.label}
                               </span>
                               <span className="text-xs leading-relaxed text-muted">
-                                {criterion.detail}
+                                <HighlightText text={criterion.detail} variant={checked ? 'mint' : 'soft'} />
                               </span>
                             </div>
                           </div>
@@ -496,11 +499,10 @@ export function Challenges() {
                   <button
                     type="button"
                     onClick={() => toggleChallengeComplete(resolved.id)}
-                    className={`inline-flex min-h-[46px] items-center gap-2 rounded-lg border px-5 py-2.5 font-display text-sm font-semibold transition-colors cursor-pointer ${
-                      isCompleted
-                        ? 'border-[#C6DEC8] bg-[#EDF5ED] text-[#1F4A24]'
-                        : 'border-brand-magenta bg-brand-magenta text-white hover:border-brand-magenta-hover hover:bg-brand-magenta-hover'
-                    }`}
+                    className={`inline-flex min-h-[46px] items-center gap-2 rounded-lg border px-5 py-2.5 font-display text-sm font-semibold transition-colors cursor-pointer ${isCompleted
+                      ? 'border-[#C6DEC8] bg-[#EDF5ED] text-[#1F4A24]'
+                      : 'border-brand-magenta bg-brand-magenta text-white hover:border-brand-magenta-hover hover:bg-brand-magenta-hover'
+                      }`}
                   >
                     <CheckCircle2 size={17} aria-hidden="true" />
                     <span>

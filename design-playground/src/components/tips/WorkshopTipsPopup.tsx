@@ -3,6 +3,7 @@ import { ChevronRight, Lightbulb, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import { FIGMA_TIPS, getStarterTipIndex } from '../../content/tips/workshopTips';
 import { useLearningStore } from '../../stores/learningStore';
+import { HighlightText } from '../ui/HighlightText';
 
 interface WorkshopTipsPopupProps {
   contextKey: string;
@@ -122,7 +123,7 @@ export function WorkshopTipsPopup({ contextKey }: WorkshopTipsPopupProps) {
               {currentTip.title}
             </h3>
             <p className="mt-1 text-[12.5px] leading-relaxed text-muted-surface">
-              {currentTip.description}
+              <HighlightText text={currentTip.description} variant="soft" />
             </p>
           </motion.div>
 

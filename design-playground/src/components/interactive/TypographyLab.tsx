@@ -27,7 +27,7 @@ const THEMES: TypeTheme[] = [
 
 const DEFAULT_HEADLINE = 'CREATIVE WORKSHOP — GOOD TYPE GUIDES THE EYE FIRST.';
 const DEFAULT_BODY =
-  'Typography balances geometric clarity with comfortable reading rhythm. Adjust font choice, scale, weight, line height, and letter spacing to feel how optical proportions shape communication.';
+  'Type pairs clear structure with comfortable reading rhythm. Adjust font, size, weight, line height, and tracking to feel how scale shapes focus.';
 
 const FONT_OPTIONS: FontChoice[] = [
   'Montserrat',
@@ -188,11 +188,10 @@ export function TypographyLab() {
                       setFontWeight(700);
                     }
                   }}
-                  className={`rounded-lg border px-2.5 py-1.5 font-display text-xs font-semibold transition-colors cursor-pointer ${
-                    fontFamily === font
-                      ? 'border-dark bg-dark text-white'
-                      : 'border-border-subtle bg-canvas text-ink hover:bg-surface'
-                  }`}
+                  className={`rounded-lg border px-2.5 py-1.5 font-display text-xs font-semibold transition-colors cursor-pointer ${fontFamily === font
+                    ? 'border-dark bg-dark text-white'
+                    : 'border-border-subtle bg-canvas text-ink hover:bg-surface'
+                    }`}
                 >
                   {font}
                 </button>
@@ -309,11 +308,10 @@ export function TypographyLab() {
                       aria-label={opt.label}
                       aria-pressed={alignment === opt.id}
                       onClick={() => setAlignment(opt.id)}
-                      className={`flex h-9 w-10 items-center justify-center border-r border-border-subtle last:border-r-0 cursor-pointer ${
-                        alignment === opt.id
-                          ? 'bg-dark text-white'
-                          : 'bg-canvas text-ink hover:bg-surface'
-                      }`}
+                      className={`flex h-9 w-10 items-center justify-center border-r border-border-subtle last:border-r-0 cursor-pointer ${alignment === opt.id
+                        ? 'bg-dark text-white'
+                        : 'bg-canvas text-ink hover:bg-surface'
+                        }`}
                     >
                       <Icon size={15} aria-hidden="true" />
                     </button>
@@ -335,9 +333,8 @@ export function TypographyLab() {
                     aria-pressed={theme.id === item.id}
                     onClick={() => setTheme(item)}
                     style={{ backgroundColor: item.bg }}
-                    className={`h-8 w-8 rounded-lg border border-border-strong cursor-pointer ${
-                      theme.id === item.id ? 'ring-2 ring-dark ring-offset-2' : ''
-                    }`}
+                    className={`h-8 w-8 rounded-lg border border-border-strong cursor-pointer ${theme.id === item.id ? 'ring-2 ring-dark ring-offset-2' : ''
+                      }`}
                   />
                 ))}
               </div>
@@ -407,8 +404,8 @@ export function TypographyLab() {
                 {lineHeight <= 1.15
                   ? 'Tight & Architectural'
                   : lineHeight <= 1.35
-                  ? 'Balanced Multi-line'
-                  : 'Loose Display Rhythm'}
+                    ? 'Balanced Multi-line'
+                    : 'Loose Display Rhythm'}
               </span>
             </div>
             <div>

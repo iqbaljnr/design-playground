@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { useLearningStore } from '../../stores/learningStore';
 import { CHAPTERS } from '../../content/modules';
-import logoMark from '../../assets/logo.jpg';
+import { BrandLogoMark } from '../ui/BrandLogoMark';
 
 const NAV_ITEMS = [
   { to: '/hub', label: 'Module', icon: BookOpen },
@@ -53,16 +53,7 @@ export function Navbar() {
           to="/"
           className="group flex shrink-0 items-center gap-3 text-ink no-underline"
         >
-          <span
-            aria-hidden="true"
-            className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-[#000000]"
-          >
-            <img
-              src={logoMark}
-              alt=""
-              className="h-full w-full translate-y-[3%] scale-[1.2] object-cover"
-            />
-          </span>
+          <BrandLogoMark className="h-10 w-10 shrink-0 transition-transform duration-150 group-hover:scale-[1.03]" />
           <div className="flex flex-col leading-none">
             <span className="font-display text-sm font-bold tracking-[-0.02em] text-ink sm:text-base">
               Design Playground

@@ -3,6 +3,7 @@ import { CheckCircle2, Download, FileText, Sparkles } from 'lucide-react';
 import { PageContainer } from '../components/layout/PageContainer';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
+import { HighlightText } from '../components/ui/HighlightText';
 import { ASSET_LIBRARY_ITEMS } from '../content/assets/assetLibraryData';
 import type { AssetItem } from '../types/curriculum';
 import {
@@ -77,8 +78,10 @@ export function AssetLibrary() {
                 Curated Workshop Assets
               </h1>
               <p className="mt-2.5 text-base leading-relaxed text-muted-surface">
-                Download ready-to-use vector SVGs, high-resolution PNG graphics, and
-                approved copy sheets for your social media and portfolio design challenges.
+                <HighlightText
+                  variant="soft"
+                  text="Download ready-to-use **vector SVGs, PNG graphics**, and **approved copy sheets** for both challenges."
+                />
               </p>
             </div>
 
@@ -205,7 +208,7 @@ export function AssetLibrary() {
                     {item.name}
                   </h2>
                   <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-muted-surface">
-                    {item.description}
+                    <HighlightText text={item.description} variant="soft" />
                   </p>
                 </div>
               </div>
@@ -244,9 +247,10 @@ export function AssetLibrary() {
               <Sparkles size={13} aria-hidden="true" /> Figma Import Tip
             </span>
             <p className="mt-1 text-sm leading-relaxed text-on-dark-muted">
-              Drag downloaded <code className="text-white">.svg</code> files directly
-              into an open Figma Frame to retain editable vector curves and recolor shapes
-              using your challenge palette cleanly.
+              <HighlightText
+                variant="dark"
+                text="Drag downloaded **.svg files** directly into an open Figma Frame to keep **editable vector paths** and recolor shapes fast."
+              />
             </p>
           </div>
           <Button to="/challenges" variant="cobalt">

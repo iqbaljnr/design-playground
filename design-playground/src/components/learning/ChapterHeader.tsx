@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import { CheckCircle2, Clock, ChevronRight } from 'lucide-react';
+import { CheckCircle2, ChevronRight } from 'lucide-react';
 import type { Chapter } from '../../types/curriculum';
 import { Badge } from '../ui/Badge';
+import { HighlightText } from '../ui/HighlightText';
 
 interface ChapterHeaderProps {
   chapter: Chapter;
@@ -35,10 +36,7 @@ export function ChapterHeader({
             <div className="mb-3 flex flex-wrap items-center gap-2">
               <Badge tone="dark">MODULE {chapter.number}</Badge>
               <span className="inline-flex items-center gap-1 rounded-full border border-border-strong bg-elevated px-3 py-0.5 font-display text-xs font-medium text-muted tabular-nums">
-                <Clock size={12} aria-hidden="true" /> ~{chapter.durationMinutes} min
-              </span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-border-strong bg-elevated px-3 py-0.5 font-display text-xs font-medium text-muted tabular-nums">
-                {chapter.topics.length} topics + activity
+                {chapter.topics.length} lessons + activity
               </span>
             </div>
 
@@ -47,7 +45,7 @@ export function ChapterHeader({
             </h1>
 
             <p className="mt-3 text-base leading-relaxed text-muted-surface sm:text-lg">
-              {chapter.subtitle}
+              <HighlightText text={chapter.subtitle} variant="soft" />
             </p>
           </div>
 
@@ -74,7 +72,7 @@ export function ChapterHeader({
             What You Will Learn
           </span>
           <p className="mt-1 font-display text-base font-semibold text-ink sm:text-lg">
-            {chapter.learningObjective}
+            <HighlightText text={chapter.learningObjective} variant="soft" />
           </p>
         </div>
       </div>

@@ -14,6 +14,7 @@ import { ChapterCard } from '../components/learning/ChapterCard';
 import { LearningProgress } from '../components/learning/LearningProgress';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
+import { HighlightText } from '../components/ui/HighlightText';
 import { CHAPTERS } from '../content/modules';
 import { DESIGN_CHALLENGES } from '../content/challenges/challengesData';
 import { useLearningStore } from '../stores/learningStore';
@@ -39,8 +40,10 @@ export function LearningHub() {
                 Workshop Learning Hub
               </h1>
               <p className="mt-2 max-w-2xl text-base text-muted-surface">
-                Learn design basics step by step, get comfortable inside Figma, and
-                finish your own poster and website hero project.
+                <HighlightText
+                  variant="soft"
+                  text="Learn **design fundamentals** step by step, practice **Figma basics**, and finish your poster and website hero."
+                />
               </p>
             </div>
 
@@ -86,13 +89,13 @@ export function LearningHub() {
         <div>
           <div className="mb-5 flex flex-wrap items-end justify-between gap-2 border-b border-border-subtle pb-3.5">
             <div>
-              <Badge tone="surface">Morning · Part 1</Badge>
+              <Badge tone="surface">Part 01 · Design Basics</Badge>
               <h2 className="mt-2 font-display text-2xl font-bold text-ink">
                 Design Basics (Modules 01 – 05)
               </h2>
             </div>
             <span className="font-display text-xs font-semibold text-muted">
-              Morning Sessions · Visual Basics
+              Core Visual Foundations
             </span>
           </div>
 
@@ -126,7 +129,7 @@ export function LearningHub() {
         <div>
           <div className="mb-5 flex flex-wrap items-end justify-between gap-2 border-b border-border-subtle pb-3.5">
             <div>
-              <Badge tone="cobalt">Afternoon · Figma Tools</Badge>
+              <Badge tone="cobalt">Part 02 · Figma Tools</Badge>
               <h2 className="mt-2 font-display text-2xl font-bold text-ink">
                 Figma Made Easy (Modules 06 – 07)
               </h2>
@@ -170,8 +173,10 @@ export function LearningHub() {
                   Practice Tools &amp; Figma Guide
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-surface">
-                  Play with Type, Color Contrast, Shapes, and Grids right in your browser,
-                  or walk through our beginner Figma Guide.
+                  <HighlightText
+                    variant="soft"
+                    text="Test **Type, Contrast, Shapes, and Grids** live, or walk through our beginner **Figma Guide**."
+                  />
                 </p>
               </div>
               <div className="mt-5 flex flex-col gap-2">
@@ -194,7 +199,7 @@ export function LearningHub() {
             <div>
               <Badge tone="dark">Hands-On Studio Projects</Badge>
               <h2 className="mt-2 font-display text-2xl font-bold text-ink">
-                Afternoon Design Challenges (Poster &amp; Website Hero)
+                Practical Design Challenges (Poster &amp; Website Hero)
               </h2>
             </div>
             <Link
@@ -222,7 +227,7 @@ export function LearningHub() {
                     </div>
                     <h3 className="mt-4 font-display text-2xl font-bold text-white">{ch.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-on-dark-muted">
-                      {ch.subtitle}
+                      <HighlightText text={ch.subtitle} variant="dark" />
                     </p>
                   </div>
                   <div className="mt-6 flex flex-wrap gap-2.5">
@@ -254,8 +259,10 @@ export function LearningHub() {
               Ready to Test All 7 Modules?
             </h2>
             <p className="mt-1 text-sm text-muted-surface">
-              Try a friendly 14-question check covering design basics, type, color, grids,
-              and Figma.
+              <HighlightText
+                variant="soft"
+                text="Test **design basics, typography, color, Swiss grids**, and **Figma workflows**."
+              />
             </p>
           </div>
           <Button to="/quiz" variant="cobalt">

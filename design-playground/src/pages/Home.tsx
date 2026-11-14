@@ -10,6 +10,7 @@ import { motion } from 'motion/react';
 import { PageContainer } from '../components/layout/PageContainer';
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
+import { HighlightText } from '../components/ui/HighlightText';
 import { CHAPTERS } from '../content/modules';
 import { DESIGN_CHALLENGES } from '../content/challenges/challengesData';
 import { useLearningStore } from '../stores/learningStore';
@@ -45,10 +46,11 @@ export function Home() {
               &ldquo;From Design To UI/UX&rdquo;
             </p>
 
-            <p className="mt-4 max-w-[58ch] text-[15px] leading-relaxed text-muted sm:text-base">
-              A structured one-day hybrid creative studio guiding beginner students
-              from graphic design clarity and visual hierarchy to practical Figma
-              production and real portfolio briefs.
+            <p className="mt-4 max-w-[54ch] text-[15px] leading-relaxed text-muted sm:text-base">
+              <HighlightText
+                variant="soft"
+                text="A beginner studio guiding you from **visual clarity and hierarchy** to **Figma workflow** and real **portfolio briefs**."
+              />
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -90,9 +92,9 @@ export function Home() {
               </dd>
             </div>
             <div>
-              <dt className="text-xs font-medium text-muted">Session Format:</dt>
+              <dt className="text-xs font-medium text-muted">Studio Format:</dt>
               <dd className="mt-0.5 font-display text-sm font-bold text-ink tabular-nums">
-                One-Day Hybrid · 2026
+                Browser Studio · 2026
               </dd>
             </div>
           </dl>
@@ -112,8 +114,10 @@ export function Home() {
               </h2>
             </div>
             <p className="max-w-md text-sm leading-relaxed text-muted-surface">
-              First build sharp visual judgment, then learn essential Figma controls, and
-              finally build and critique two authentic portfolio works.
+              <HighlightText
+                variant="soft"
+                text="Build **sharp visual judgment**, practice **Figma essentials**, and critique two **portfolio pieces**."
+              />
             </p>
           </div>
 
@@ -126,7 +130,8 @@ export function Home() {
                 pill: 'border-border-subtle bg-canvas text-ink',
                 stepColor: 'text-muted',
                 descColor: 'text-muted',
-                desc: 'Distinguish design from decoration and learn visual elements, core principles, typography, color contrast, and grid logic.',
+                variant: 'soft' as const,
+                desc: 'Separate **purposeful design** from decoration using hierarchy, contrast, and grid logic.',
               },
               {
                 num: '02',
@@ -135,7 +140,8 @@ export function Home() {
                 pill: 'border-border-subtle bg-canvas text-ink',
                 stepColor: 'text-muted',
                 descColor: 'text-muted',
-                desc: 'Test type pairings, contrast calculators, Swiss Editorial specimens, and interactive Figma workspace panels firsthand.',
+                variant: 'soft' as const,
+                desc: 'Test **type scale, contrast ratios, Swiss layouts**, and interactive **Figma workspace** guides.',
               },
               {
                 num: '03',
@@ -144,7 +150,8 @@ export function Home() {
                 pill: 'border-[#F2B8CD] bg-[#FCECF1] text-[#9E1148]',
                 stepColor: 'text-brand-magenta',
                 descColor: 'text-muted',
-                desc: 'Build Challenge 01 (CREATIVE FREQUENCY A3 Poster) and Challenge 02 (Alex Morgan Portfolio Hero) with curated SVG/PNG assets.',
+                variant: 'soft' as const,
+                desc: 'Build **Challenge 01 (A3 Poster)** and **Challenge 02 (Portfolio Hero)** with ready SVG/PNG assets.',
               },
               {
                 num: '04',
@@ -153,7 +160,8 @@ export function Home() {
                 pill: 'border-[#2A2928] bg-[#20201F] text-brand-orange',
                 stepColor: 'text-on-dark-muted',
                 descColor: 'text-on-dark-muted',
-                desc: 'Inspect mid-fidelity alignment, explain visual reasoning aloud using weighted rubrics, and complete knowledge checks.',
+                variant: 'dark' as const,
+                desc: 'Check alignment with **mid-fi blueprints**, explain choices aloud, and pass **knowledge checks**.',
               },
             ].map((item, idx) => (
               <motion.div
@@ -179,7 +187,7 @@ export function Home() {
                     {item.verb}
                   </h3>
                   <p className={`mt-2.5 text-sm leading-relaxed ${item.descColor}`}>
-                    {item.desc}
+                    <HighlightText text={item.desc} variant={item.variant} />
                   </p>
                 </div>
               </motion.div>
@@ -221,11 +229,11 @@ export function Home() {
                   </span>
                 </div>
                 <p className="text-sm text-muted sm:col-span-6">
-                  {chapter.learningObjective}
+                  <HighlightText text={chapter.learningObjective} variant="soft" />
                 </p>
                 <div className="flex items-center justify-between text-muted group-hover:text-brand-magenta sm:col-span-2 sm:justify-end sm:gap-3">
                   <span className="font-display text-xs font-semibold tabular-nums">
-                    {chapter.durationMinutes} min
+                    {chapter.topics.length} lessons
                   </span>
                   <ArrowRight size={16} aria-hidden="true" />
                 </div>
@@ -277,12 +285,12 @@ export function Home() {
                     {challenge.title}
                   </h3>
                   <p className="mt-2.5 text-sm leading-relaxed text-muted">
-                    {challenge.subtitle}
+                    <HighlightText text={challenge.subtitle} variant="soft" />
                   </p>
                 </div>
 
                 <div className="mt-7 flex items-center justify-between border-t border-border-subtle pt-4 font-display text-sm font-semibold text-ink group-hover:text-brand-magenta group-hover:underline">
-                  <span>Open Brief, Mid-Fi Blueprint &amp; Rubric</span>
+                  <span>Open Brief &amp; Rubric</span>
                   <ArrowRight size={16} aria-hidden="true" />
                 </div>
               </Link>
@@ -303,9 +311,10 @@ export function Home() {
                 Everything Runs Right Here in One Shared Studio
               </h2>
               <p className="mt-2.5 text-sm leading-relaxed text-on-dark-muted">
-                Present full-screen sessions directly on a projector, read simplified beginner
-                modules step by step, practice inside interactive Figma sandboxes, download
-                local starter assets, and save progress in your browser.
+                <HighlightText
+                  variant="dark"
+                  text="Present sessions **full-screen**, read beginner lessons, test **interactive Figma sandboxes**, and save progress locally."
+                />
               </p>
             </div>
             <div className="flex flex-wrap gap-3">

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Grid, RotateCcw, Plus, Trash2 } from 'lucide-react';
 import { Badge } from '../ui/Badge';
+import { HighlightText } from '../ui/HighlightText';
 
 type ElementShape = 'circle' | 'square' | 'triangle' | 'line';
 
@@ -57,19 +58,19 @@ const PALETTE = ['#171717', '#746C68', '#C2185B', '#F04438', '#FF8A3D', '#EAEAEA
 const ELEMENT_NOTES: Record<ElementShape, { element: string; note: string }> = {
   circle: {
     element: 'Shape & Space',
-    note: 'Circular forms pull the eye smoothly inward and contrast cleanly against rectangular Swiss grids.',
+    note: 'Circles pull **eye focus** inward and contrast cleanly against rectangular grids.',
   },
   square: {
     element: 'Shape & Form',
-    note: 'Squares and rectangles convey structural stability; rotating one introduces energetic diagonal tension.',
+    note: 'Squares show **structure and stability**; slight rotation adds visual energy.',
   },
   triangle: {
     element: 'Directional Shape',
-    note: 'Triangles act like arrows—pointing eye flow toward neighboring headlines or anchor elements.',
+    note: 'Triangles point **reading direction** toward nearby titles or key actions.',
   },
   line: {
     element: 'Line & Rhythm',
-    note: 'Lines connect separated blocks, establish reading axes, and subdivide open negative space cleanly.',
+    note: 'Lines connect **related blocks**, anchor alignment, and divide open space cleanly.',
   },
 };
 
@@ -132,11 +133,10 @@ export function CompositionLab() {
             type="button"
             onClick={() => setShowGrid((prev) => !prev)}
             aria-pressed={showGrid}
-            className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-xs font-display font-semibold cursor-pointer ${
-              showGrid
+            className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-xs font-display font-semibold cursor-pointer ${showGrid
                 ? 'border-dark bg-dark text-white'
                 : 'border-border-strong bg-elevated text-ink'
-            }`}
+              }`}
           >
             <Grid size={12} aria-hidden="true" /> Grid Guides
           </button>
@@ -144,11 +144,10 @@ export function CompositionLab() {
             type="button"
             onClick={() => setShowAnnotations((prev) => !prev)}
             aria-pressed={showAnnotations}
-            className={`rounded-lg border px-2.5 py-1 text-xs font-display font-semibold cursor-pointer ${
-              showAnnotations
+            className={`rounded-lg border px-2.5 py-1 text-xs font-display font-semibold cursor-pointer ${showAnnotations
                 ? 'border-[#C6DEC8] bg-[#EDF5ED] text-[#1F4A24]'
                 : 'border-border-strong bg-elevated text-ink'
-            }`}
+              }`}
           >
             Annotations
           </button>
@@ -166,9 +165,8 @@ export function CompositionLab() {
         {/* Stage Canvas */}
         <div className="border-b border-border-subtle p-5 lg:col-span-7 lg:border-r lg:border-b-0">
           <div
-            className={`relative h-[380px] w-full overflow-hidden rounded-xl border border-border-strong bg-canvas ${
-              showGrid ? 'playground-grid-bg' : ''
-            }`}
+            className={`relative h-[380px] w-full overflow-hidden rounded-xl border border-border-strong bg-canvas ${showGrid ? 'playground-grid-bg' : ''
+              }`}
           >
             {showGrid && (
               <>
@@ -197,9 +195,8 @@ export function CompositionLab() {
                     transform: `translate(-50%, -50%) rotate(${item.rotation}deg)`,
                     opacity: item.opacity / 100,
                   }}
-                  className={`absolute cursor-pointer focus-visible:outline-2 focus-visible:outline-brand-magenta ${
-                    isSelected ? 'z-20' : 'z-10'
-                  }`}
+                  className={`absolute cursor-pointer focus-visible:outline-2 focus-visible:outline-brand-magenta ${isSelected ? 'z-20' : 'z-10'
+                    }`}
                 >
                   {item.shape === 'circle' && (
                     <div
@@ -208,9 +205,8 @@ export function CompositionLab() {
                         height: item.size,
                         backgroundColor: item.color,
                       }}
-                      className={`rounded-full border border-dark/25 ${
-                        isSelected ? 'ring-2 ring-brand-magenta ring-offset-2' : ''
-                      }`}
+                      className={`rounded-full border border-dark/25 ${isSelected ? 'ring-2 ring-brand-magenta ring-offset-2' : ''
+                        }`}
                     />
                   )}
                   {item.shape === 'square' && (
@@ -220,9 +216,8 @@ export function CompositionLab() {
                         height: item.size,
                         backgroundColor: item.color,
                       }}
-                      className={`rounded-md border border-dark/25 ${
-                        isSelected ? 'ring-2 ring-brand-magenta ring-offset-2' : ''
-                      }`}
+                      className={`rounded-md border border-dark/25 ${isSelected ? 'ring-2 ring-brand-magenta ring-offset-2' : ''
+                        }`}
                     />
                   )}
                   {item.shape === 'triangle' && (
@@ -247,9 +242,8 @@ export function CompositionLab() {
                         height: 8,
                         backgroundColor: item.color,
                       }}
-                      className={`rounded-full ${
-                        isSelected ? 'ring-2 ring-brand-magenta ring-offset-2' : ''
-                      }`}
+                      className={`rounded-full ${isSelected ? 'ring-2 ring-brand-magenta ring-offset-2' : ''
+                        }`}
                     />
                   )}
                 </button>
@@ -266,7 +260,9 @@ export function CompositionLab() {
                     X:{selected.x}% Y:{selected.y}% · {selected.rotation}° · Value:{selected.opacity}%
                   </span>
                 </div>
-                <p className="mt-1 text-muted">{ELEMENT_NOTES[selected.shape].note}</p>
+                <p className="mt-1 text-muted">
+                  <HighlightText text={ELEMENT_NOTES[selected.shape].note} variant="soft" />
+                </p>
               </div>
             )}
           </div>
@@ -278,11 +274,10 @@ export function CompositionLab() {
                   key={item.id}
                   type="button"
                   onClick={() => setSelectedId(item.id)}
-                  className={`rounded-full border px-3 py-1 font-display text-xs font-semibold cursor-pointer ${
-                    selected?.id === item.id
+                  className={`rounded-full border px-3 py-1 font-display text-xs font-semibold cursor-pointer ${selected?.id === item.id
                       ? 'border-dark bg-dark text-white'
                       : 'border-border-subtle bg-canvas text-ink'
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -324,11 +319,10 @@ export function CompositionLab() {
                       key={shape}
                       type="button"
                       onClick={() => updateSelected({ shape })}
-                      className={`rounded-lg border px-2 py-2 font-display text-xs font-semibold capitalize cursor-pointer ${
-                        selected.shape === shape
+                      className={`rounded-lg border px-2 py-2 font-display text-xs font-semibold capitalize cursor-pointer ${selected.shape === shape
                           ? 'border-dark bg-dark text-white'
                           : 'border-border-subtle bg-canvas text-ink'
-                      }`}
+                        }`}
                     >
                       {shape}
                     </button>
@@ -349,9 +343,8 @@ export function CompositionLab() {
                     aria-label={`Set color ${hex}`}
                     onClick={() => updateSelected({ color: hex })}
                     style={{ backgroundColor: hex }}
-                    className={`h-8 w-8 rounded-lg border border-border-strong cursor-pointer ${
-                      selected.color === hex ? 'ring-2 ring-dark ring-offset-2' : ''
-                    }`}
+                    className={`h-8 w-8 rounded-lg border border-border-strong cursor-pointer ${selected.color === hex ? 'ring-2 ring-dark ring-offset-2' : ''
+                      }`}
                   />
                 ))}
               </div>

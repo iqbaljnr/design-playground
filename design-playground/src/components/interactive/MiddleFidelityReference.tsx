@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Monitor, Smartphone, Frame } from 'lucide-react';
 import { Badge } from '../ui/Badge';
+import { HighlightText } from '../ui/HighlightText';
 
 interface MiddleFidelityReferenceProps {
   challengeId: string;
@@ -240,7 +241,10 @@ export function MiddleFidelityReference({
               Why Structural Reference First?
             </span>
             <p className={`mt-1 leading-relaxed text-muted ${compact ? 'text-xs' : 'text-sm'}`}>
-              This blueprint clarifies spatial zones, visual hierarchy sequence, and alignment rails without dictating your exact styling. Use it to plan proximity and grids—not copy pixels blindly.
+              <HighlightText
+                variant="soft"
+                text="This blueprint maps **spatial zones, reading order**, and alignment — use it to plan **grids and proximity**, not copy pixels."
+              />
             </p>
           </div>
 
@@ -253,7 +257,9 @@ export function MiddleFidelityReference({
                 <span className="rounded-md bg-dark px-2 py-0.5 font-mono text-xs font-semibold text-white">
                   Z{idx + 1}
                 </span>
-                <span>{note}</span>
+                <span>
+                  <HighlightText text={note} variant="soft" />
+                </span>
               </li>
             ))}
           </ul>

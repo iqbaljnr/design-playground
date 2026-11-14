@@ -16,7 +16,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 1,
     explanation:
-      'Art lets every person feel something different, while design helps everyone understand the same message right away.',
+      'Art welcomes **personal interpretation**, while design helps **everyone grasp one clear message** fast.',
   },
   {
     id: 'q-02',
@@ -33,7 +33,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 0,
     explanation:
-      'Real words set the true length and priority — designing around fake filler text often breaks when real copy arrives.',
+      '**Real words define true layout proportions** — styling placeholder copy breaks once real details arrive.',
   },
   {
     id: 'q-03',
@@ -45,7 +45,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ['Texture', 'Value', 'Form', 'Rhythm'],
     correctIndex: 1,
     explanation:
-      'Value means lightness vs. darkness. Squinting your eyes quickly shows if dark-on-light contrast is strong enough.',
+      '**Value** controls light-vs-dark separation — squint at your screen to spot weak text contrast quickly.',
   },
   {
     id: 'q-04',
@@ -62,7 +62,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 1,
     explanation:
-      'Open space gives structure and calm so visitors immediately notice what matters most.',
+      '**Intentional open space** stops crowding so the primary headline and CTA command attention.',
   },
   {
     id: 'q-05',
@@ -74,7 +74,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     options: ['Proximity', 'Repetition', 'Symmetry', 'Rhythm'],
     correctIndex: 0,
     explanation:
-      'Proximity uses closeness to group related details (Date + Time together) away from other blocks.',
+      '**Proximity** groups related details (**Date + Time**) close together and separates unrelated blocks.',
   },
   {
     id: 'q-06',
@@ -91,7 +91,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 0,
     explanation:
-      'Hierarchy needs a clear size jump between #1 Main Title, #2 Details, and #3 Fine Print.',
+      '**Hierarchy** needs decisive size jumps between **#1 Headline, #2 Details, and #3 Meta**.',
   },
   {
     id: 'q-07',
@@ -108,7 +108,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 0,
     explanation:
-      'Tight spacing locks big title lines together cleanly; open spacing makes paragraphs relaxing to read.',
+      '**Tight leading (~1.0)** locks giant display lines together; **open spacing (~1.5)** relaxes body copy.',
   },
   {
     id: 'q-08',
@@ -125,7 +125,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 1,
     explanation:
-      'Color depends on context! Always judge colors together in your real card and check readability contrast (>= 4.5:1 for normal text).',
+      'Color meaning depends on **context**, and normal body text requires **4.5:1+ contrast** to stay legible.',
   },
   {
     id: 'q-09',
@@ -142,7 +142,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 1,
     explanation:
-      'Clarity, neat grids, bold type, and confident vibrant color accents define Swiss Editorial work.',
+      'Swiss Editorial pairs **clean grids and crisp type** with **vivid, intentional accent color**.',
   },
   {
     id: 'q-10',
@@ -159,7 +159,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 0,
     explanation:
-      'Margins protect the outside edges of the poster/screen, and Gutters keep neighboring columns cleanly separated.',
+      '**Margins** protect outer paper/screen edges, while **Gutters** keep columns cleanly separated.',
   },
   {
     id: 'q-11',
@@ -176,7 +176,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 0,
     explanation:
-      'A Frame is Figma’s real artboard container for screens and posters, while Groups just bundle loose objects together.',
+      '**Frames (F)** give real artboard sizes, column grids, and clean exports; Groups only bundle loose layers.',
   },
   {
     id: 'q-12',
@@ -193,7 +193,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 0,
     explanation:
-      'Single keys V (Move), F (Frame), R (Rectangle), O (Circle), T (Text), P (Pen) plus Shift + A (Auto Layout) keep Figma effortless.',
+      'Core keys (**V, F, R, O, T, P**) plus **Shift + A** speed up building once you know when each fits.',
   },
   {
     id: 'q-13',
@@ -201,7 +201,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     chapterNumber: '07',
     topicTag: 'Auto Layout Hug vs. Fill',
     question:
-      'You made a button "Explore My Work" with Auto Layout (Shift + A). When you rename it "View Projects", which sizing mode lets the button box fit nicely?',
+      'You made a button "Explore Work" with Auto Layout (Shift + A). When you rename it "View Projects", which sizing mode lets the button box fit nicely?',
     options: [
       'Hug contents',
       'Fixed 90px lock',
@@ -210,7 +210,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 0,
     explanation:
-      'Hug contents shrinks or stretches the Auto Layout button neatly around whatever text sits inside.',
+      '**Hug contents** adapts button width cleanly around whatever text label sits inside.',
   },
   {
     id: 'q-14',
@@ -227,6 +227,6 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     ],
     correctIndex: 0,
     explanation:
-      'Checking at real 100% screen size spots tiny unreadable subheadings, cramped menus, or weak buttons right away.',
+      'Checking at **real 100% size** immediately exposes tiny body text or cramped buttons.',
   },
 ];

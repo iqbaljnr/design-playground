@@ -1,4 +1,5 @@
 import type { DiagramKind } from '../../types/curriculum';
+import { HighlightText } from '../ui/HighlightText';
 
 interface TopicDiagramProps {
   kind: DiagramKind;
@@ -22,7 +23,10 @@ export function TopicDiagram({ kind }: TopicDiagramProps) {
               </span>
             </div>
             <p className="text-xs font-medium text-ink">
-              Looks fancy, but people squint to figure out what it says.
+              <HighlightText
+                text="Looks fancy, yet readers **squint to understand it**."
+                variant="tint"
+              />
             </p>
           </div>
           <div className="rounded-xl border border-[#C6DEC8] bg-[#EDF5ED] p-4">
@@ -38,7 +42,10 @@ export function TopicDiagram({ kind }: TopicDiagramProps) {
               </span>
             </div>
             <p className="text-xs font-medium text-ink">
-              Bold, friendly, and clear in 1 second for everyone walking by.
+              <HighlightText
+                text="**Bold and clear in 1 second** for everyone walking by."
+                variant="mint"
+              />
             </p>
           </div>
         </div>
@@ -56,7 +63,10 @@ export function TopicDiagram({ kind }: TopicDiagramProps) {
               <div className="-ml-4 h-8 w-8 -rotate-12 rounded-md border border-ink/20 bg-brand-magenta/70" />
             </div>
             <p className="text-xs font-medium text-ink">
-              Every viewer can feel something different — and that is great!
+              <HighlightText
+                text="Every viewer feels **something personal** — open to interpretation."
+                variant="soft"
+              />
             </p>
           </div>
           <div className="rounded-xl border border-[#2D2B2A] bg-dark p-4 text-white">
@@ -70,7 +80,10 @@ export function TopicDiagram({ kind }: TopicDiagramProps) {
               </span>
             </div>
             <p className="text-xs text-on-dark-muted">
-              Everyone should understand the exact same message quickly.
+              <HighlightText
+                text="Everyone grasps **the same message fast**."
+                variant="dark"
+              />
             </p>
           </div>
         </div>
@@ -273,7 +286,12 @@ export function TopicDiagram({ kind }: TopicDiagramProps) {
               <span className="rounded bg-brand-magenta px-2 py-1 text-xs font-bold text-white">Home</span>
               <span className="rounded bg-dark px-2 py-1 text-xs font-bold text-white">Next</span>
             </div>
-            <span className="text-xs text-ink">When everything is bright, nothing stands out.</span>
+            <span className="text-xs text-ink">
+              <HighlightText
+                text="When **everything shouts**, nothing stands out."
+                variant="tint"
+              />
+            </span>
           </div>
           <div className="rounded-xl border border-[#C6DEC8] bg-[#EDF5ED] p-4">
             <span className="font-display text-xs font-bold text-[#1F4A24]">Mostly Calm + 1 Bright Color</span>
@@ -282,7 +300,12 @@ export function TopicDiagram({ kind }: TopicDiagramProps) {
               <span className="rounded border border-border-strong bg-elevated px-2 py-1 text-xs text-muted">Home</span>
               <span className="rounded bg-brand-magenta px-2.5 py-1 text-xs font-bold text-white">Join Now</span>
             </div>
-            <span className="text-xs text-ink">Your eyes go straight to &quot;Join Now&quot;!</span>
+            <span className="text-xs text-ink">
+              <HighlightText
+                text="Eyes jump straight to **&quot;Join Now&quot;**."
+                variant="mint"
+              />
+            </span>
           </div>
         </div>
       );
@@ -636,7 +659,10 @@ export function TopicDiagram({ kind }: TopicDiagramProps) {
                 Warm vs. Calm Neutral
               </strong>
               <span className="text-muted">
-                Warm orange/red jump forward; calm light gray/charcoal keep pages restful.
+                <HighlightText
+                  text="**Warm colors** jump forward; **calm neutrals** rest the eye."
+                  variant="soft"
+                />
               </span>
             </div>
           </div>
@@ -820,7 +846,10 @@ export function TopicDiagram({ kind }: TopicDiagramProps) {
               Common Myth Busted
             </span>
             <p className="mt-2 text-xs leading-relaxed text-on-dark-muted">
-              Swiss style is NOT stuck in plain black &amp; white! You can use bright red, orange, or magenta — just keep your layout organized on clean lines.
+              <HighlightText
+                text="Swiss style is **NOT just black &amp; white** — pair bright accents with **clean grid lines**."
+                variant="dark"
+              />
             </p>
           </div>
         </div>
@@ -879,12 +908,17 @@ export function TopicDiagram({ kind }: TopicDiagramProps) {
             <div className="mt-2 inline-block rounded border border-brand-magenta px-3 py-1 font-display text-xs font-bold text-ink">
               Join Event
             </div>
-            <span className="mt-1.5 block text-[11px] text-muted">Box grows with your words. Ideal for buttons.</span>
+            <span className="mt-1.5 block text-[11px] text-muted">
+              <HighlightText text="Box hugs words — **best for buttons**." variant="soft" />
+            </span>
           </div>
           <div className="rounded-lg border border-border-subtle bg-elevated p-3.5">
             <span className="font-display text-xs font-bold text-ink">Click &amp; Drag (Paragraphs)</span>
             <div className="mt-2 rounded border border-dark p-2 text-xs text-muted">
-              Wrapping box forces longer lines to drop neatly down to the next line.
+              <HighlightText
+                text="**Fixed width wraps** longer sentences neatly down."
+                variant="soft"
+              />
             </div>
           </div>
         </div>
@@ -1003,14 +1037,18 @@ export function TopicDiagram({ kind }: TopicDiagramProps) {
             <div className="mt-2 inline-block rounded-lg bg-dark px-3 py-1.5 font-bold text-white">
               Fits Short Text
             </div>
-            <span className="mt-1.5 block text-muted">Great for buttons so they resize to fit words.</span>
+            <span className="mt-1.5 block text-muted">
+              <HighlightText text="Resizes tightly to **short buttons**." variant="soft" />
+            </span>
           </div>
           <div className="rounded-xl border border-border-subtle bg-elevated p-3.5">
             <strong className="block font-display text-ink">Fill Container</strong>
             <div className="mt-2 w-full rounded-lg border border-dark bg-canvas px-3 py-1.5 font-semibold text-ink">
               Stretches Across Full Column &rarr;
             </div>
-            <span className="mt-1.5 block text-muted">Great for paragraphs that wrap cleanly.</span>
+            <span className="mt-1.5 block text-muted">
+              <HighlightText text="Stretches across column width for **paragraphs**." variant="soft" />
+            </span>
           </div>
         </div>
       );

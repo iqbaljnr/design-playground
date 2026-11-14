@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { CheckCircle2, AlertTriangle, Grid } from 'lucide-react';
 import { Badge } from '../ui/Badge';
+import { HighlightText } from '../ui/HighlightText';
 
 interface DemoProps {
   compact?: boolean;
@@ -123,9 +124,14 @@ export function CommunicationCompareDemo({ compact = false }: DemoProps) {
                   : 'Look at Poster A again: '}
               </strong>
               <span className="text-muted">
-                {choice === 'B'
-                  ? 'Big title first, highlighted date badge second, short summary third, and clear button last.'
-                  : 'Every sentence has the same visual volume, forcing viewers to work hard just to find the event name and date.'}
+                <HighlightText
+                  text={
+                    choice === 'B'
+                      ? '**Big title first**, **date pill second**, short note third, and crisp button last.'
+                      : '**Every sentence has equal weight**, forcing eyes to hunt for the event and date.'
+                  }
+                  variant={choice === 'B' ? 'mint' : 'tint'}
+                />
               </span>
             </div>
           </div>
@@ -203,25 +209,25 @@ export function ElementsBeforeAfterDemo({ compact = false }: DemoProps) {
           {[
             {
               label: 'Line (Structure & Dividers)',
-              desc: 'Separates the top label from the bottom location cleanly.',
+              desc: 'Separates the **top label** from the **bottom venue** cleanly.',
               on: linesOn,
               toggle: () => setLinesOn((v) => !v),
             },
             {
               label: 'Shape & Form (Focal Graphic)',
-              desc: 'Draws attention straight to the right-side visual mark.',
+              desc: 'Draws eye focus directly to the **right-side visual mark**.',
               on: shapesOn,
               toggle: () => setShapesOn((v) => !v),
             },
             {
               label: 'Space (Breathing Margins)',
-              desc: 'Adds comfortable padding so text never hugs card edges.',
+              desc: 'Adds **open padding** so text never hugs card edges.',
               on: spaceOn,
               toggle: () => setSpaceOn((v) => !v),
             },
             {
               label: 'Value & Color Accent',
-              desc: 'Separates light paper from bold dark ink and one action button.',
+              desc: 'Separates **light card, dark ink**, and **one main button**.',
               on: valueOn,
               toggle: () => setValueOn((v) => !v),
             },
@@ -243,7 +249,9 @@ export function ElementsBeforeAfterDemo({ compact = false }: DemoProps) {
                 <span className="block font-display text-xs sm:text-sm font-bold text-ink">
                   {item.label}
                 </span>
-                <span className="text-xs text-muted">{item.desc}</span>
+                <span className="text-xs text-muted">
+                  <HighlightText text={item.desc} variant={item.on ? 'mint' : 'soft'} />
+                </span>
               </div>
               <span
                 className={`rounded-full border px-2.5 py-0.5 font-mono text-xs font-semibold ${
@@ -332,9 +340,16 @@ export function ElementsBeforeAfterDemo({ compact = false }: DemoProps) {
           </div>
 
           <p className="mt-3 text-center text-xs font-medium text-muted">
-            {activeCount === 0 && 'No lines, shapes, margins, or contrast = flat text dump nobody notices.'}
-            {activeCount > 0 && activeCount < 4 && `Notice what each element contributes (${activeCount}/4 active).`}
-            {activeCount === 4 && 'Clean structure: lines divide, shapes draw focus, space calms, contrast makes it readable.'}
+            <HighlightText
+              text={
+                activeCount === 0
+                  ? 'No lines, shapes, space, or contrast = **flat wall of text**.'
+                  : activeCount < 4
+                    ? `See what each element adds (**${activeCount}/4 active**).`
+                    : '**Clear structure**: lines divide, shapes focus, space calms, contrast leads.'
+              }
+              variant="soft"
+            />
           </p>
         </div>
       </div>
@@ -412,25 +427,25 @@ export function PrinciplesBeforeAfterDemo({ compact = false }: DemoProps) {
           {[
             {
               label: 'Visual Hierarchy',
-              desc: 'Enlarges the headline 3x above metadata.',
+              desc: 'Makes the **headline 3x larger** than metadata.',
               on: hierarchyOn,
               toggle: () => setHierarchyOn((v) => !v),
             },
             {
               label: 'Alignment',
-              desc: 'Locks all text blocks onto one crisp left grid edge.',
+              desc: 'Locks all blocks onto **one crisp left grid edge**.',
               on: alignmentOn,
               toggle: () => setAlignmentOn((v) => !v),
             },
             {
               label: 'Proximity',
-              desc: 'Groups headline with description and separates logistics.',
+              desc: 'Groups **related info** together and separates logistics.',
               on: proximityOn,
               toggle: () => setProximityOn((v) => !v),
             },
             {
               label: 'Contrast & Balance',
-              desc: 'Separates priority badge and CTA via clean ink contrast.',
+              desc: 'Separates priority tag and **CTA** with crisp ink contrast.',
               on: contrastOn,
               toggle: () => setContrastOn((v) => !v),
             },
@@ -452,7 +467,9 @@ export function PrinciplesBeforeAfterDemo({ compact = false }: DemoProps) {
                 <span className="block font-display text-xs sm:text-sm font-bold text-ink">
                   {item.label}
                 </span>
-                <span className="text-xs text-muted">{item.desc}</span>
+                <span className="text-xs text-muted">
+                  <HighlightText text={item.desc} variant={item.on ? 'mint' : 'soft'} />
+                </span>
               </div>
               <span
                 className={`rounded-full border px-2.5 py-0.5 font-mono text-xs font-semibold ${
@@ -604,25 +621,25 @@ export function TypographySwitchboardDemo({ compact = false }: DemoProps) {
           {[
             {
               label: 'Clear Title Size Jump',
-              desc: 'Makes headings clearly bigger than paragraphs so eyes know where to start.',
+              desc: '**Bigger headings** tell eyes right where to start.',
               on: sizeJumpOn,
               toggle: () => setSizeJumpOn((v) => !v),
             },
             {
               label: 'Tight Headline Spacing',
-              desc: 'Pulls stacked big title lines together so the heading feels like one unit.',
+              desc: 'Pulls **stacked title lines** together as one unit.',
               on: tightTitleOn,
               toggle: () => setTightTitleOn((v) => !v),
             },
             {
               label: 'Airy Paragraph Spacing',
-              desc: 'Adds comfortable vertical air between reading lines so text feels easy.',
+              desc: 'Adds **vertical air** between body lines for comfort.',
               on: airyBodyOn,
               toggle: () => setAiryBodyOn((v) => !v),
             },
             {
               label: 'Bold Title + Clean Left Edge',
-              desc: 'Separates thick display voice from regular readable copy along one edge.',
+              desc: 'Pairs bold display text with body copy on **one clean edge**.',
               on: cleanEdgeOn,
               toggle: () => setCleanEdgeOn((v) => !v),
             },
@@ -644,7 +661,9 @@ export function TypographySwitchboardDemo({ compact = false }: DemoProps) {
                 <span className="block font-display text-xs sm:text-sm font-bold text-ink">
                   {item.label}
                 </span>
-                <span className="text-xs text-muted">{item.desc}</span>
+                <span className="text-xs text-muted">
+                  <HighlightText text={item.desc} variant={item.on ? 'mint' : 'soft'} />
+                </span>
               </div>
               <span
                 className={`rounded-full border px-2.5 py-0.5 font-mono text-xs font-semibold ${
@@ -688,9 +707,8 @@ export function TypographySwitchboardDemo({ compact = false }: DemoProps) {
                 cleanEdgeOn ? '' : 'mx-auto'
               } ${airyBodyOn ? 'leading-[1.65]' : 'leading-[1.08]'}`}
             >
-              Typography is not only choosing pretty fonts. Clear size contrast lets readers
-              understand the title in one glance, while open paragraph line spacing prevents
-              lines from crashing together during reading.
+              Good typography goes beyond pretty fonts. Clear size jumps show where
+              to start reading, while airy line spacing keeps paragraphs comfortable.
             </p>
           </div>
 
@@ -701,11 +719,16 @@ export function TypographySwitchboardDemo({ compact = false }: DemoProps) {
                 activeCount >= 3 ? 'text-[#1F4A24]' : 'text-[#9E1148]'
               }`}
             >
-              {activeCount === 4
-                ? 'Fast Scan · Clear Hierarchy & Comfortable Reading'
-                : activeCount === 0
-                ? 'Confusing · Flat sizes & cramped lines'
-                : `Improving (${activeCount}/4 habits applied)`}
+              <HighlightText
+                text={
+                  activeCount === 4
+                    ? 'Fast Scan · **Clear Hierarchy & Comfortable Reading**'
+                    : activeCount === 0
+                      ? 'Confusing · **Flat sizes & cramped lines**'
+                      : `Improving (**${activeCount}/4 habits active**)`
+                }
+                variant="soft"
+              />
             </span>
           </div>
         </div>
@@ -842,20 +865,20 @@ export function ColorSwitchboardDemo({ compact = false }: DemoProps) {
 
           {[
             {
-              label: 'Use Calm 60 / 30 / 10 Palette',
-              desc: 'Keeps background calm instead of loud bright neon backgrounds everywhere.',
+              label: 'Use Calm 60 / 30 / 10 Guideline',
+              desc: 'Keeps backgrounds **calm** instead of loud neon everywhere.',
               on: rule603010On,
               toggle: () => setRule603010On((v) => !v),
             },
             {
               label: 'High Text Contrast (Easy to Read)',
-              desc: 'Ensures crisp difference between ink color and card surface.',
+              desc: 'Ensures **crisp separation** between ink color and background.',
               on: highContrastOn,
               toggle: () => setHighContrastOn((v) => !v),
             },
             {
               label: 'Highlight Only Main Action',
-              desc: 'Reserves bright accent strictly for the primary CTA instead of every tag.',
+              desc: 'Saves bright accents strictly for the **primary CTA**.',
               on: singleAccentOn,
               toggle: () => setSingleAccentOn((v) => !v),
             },
@@ -877,7 +900,9 @@ export function ColorSwitchboardDemo({ compact = false }: DemoProps) {
                 <span className="block font-display text-xs sm:text-sm font-bold text-ink">
                   {item.label}
                 </span>
-                <span className="text-xs text-muted">{item.desc}</span>
+                <span className="text-xs text-muted">
+                  <HighlightText text={item.desc} variant={item.on ? 'mint' : 'soft'} />
+                </span>
               </div>
               <span
                 className={`rounded-full border px-2.5 py-0.5 font-mono text-xs font-semibold ${
@@ -965,9 +990,14 @@ export function ColorSwitchboardDemo({ compact = false }: DemoProps) {
                 highContrastOn ? 'text-[#1F4A24]' : 'text-[#9E1148]'
               }`}
             >
-              {highContrastOn
-                ? 'PASS — Crisp, readable text without eye strain'
-                : 'FAIL — Faint contrast makes letters disappear'}
+              <HighlightText
+                text={
+                  highContrastOn
+                    ? 'PASS — **Crisp, readable text** without eye strain'
+                    : 'FAIL — **Faint contrast** makes words disappear'
+                }
+                variant="soft"
+              />
             </span>
           </div>
         </div>
@@ -1044,25 +1074,25 @@ export function LayoutGridSwitchboardDemo({ compact = false }: DemoProps) {
           {[
             {
               label: 'Safe Outer Page Margin',
-              desc: 'Keeps cards comfortably inside the container instead of hitting walls.',
+              desc: 'Keeps cards **comfortably inside frame edges**.',
               on: marginOn,
               toggle: () => setMarginOn((v) => !v),
             },
             {
               label: 'Equal Gaps Between Cards',
-              desc: 'Spaces cards evenly so one card never looks squeezed.',
+              desc: 'Spaces cards **evenly** so none look squeezed.',
               on: evenGapsOn,
               toggle: () => setEvenGapsOn((v) => !v),
             },
             {
               label: 'Align Cards to 3 Equal Columns',
-              desc: 'Locks cards onto uniform vertical rails rather than jagged sizes.',
+              desc: 'Locks cards onto **uniform vertical rails**.',
               on: alignColsOn,
               toggle: () => setAlignColsOn((v) => !v),
             },
             {
               label: 'Show Column Ruler Guides',
-              desc: 'Reveals the hidden vertical tracks structuring the page.',
+              desc: 'Reveals the **hidden column tracks** guiding the page.',
               on: showGuidesOn,
               toggle: () => setShowGuidesOn((v) => !v),
             },
@@ -1084,7 +1114,9 @@ export function LayoutGridSwitchboardDemo({ compact = false }: DemoProps) {
                 <span className="block font-display text-xs sm:text-sm font-bold text-ink">
                   {item.label}
                 </span>
-                <span className="text-xs text-muted">{item.desc}</span>
+                <span className="text-xs text-muted">
+                  <HighlightText text={item.desc} variant={item.on ? 'mint' : 'soft'} />
+                </span>
               </div>
               <span
                 className={`rounded-full border px-2.5 py-0.5 font-mono text-xs font-semibold ${
@@ -1174,9 +1206,14 @@ export function LayoutGridSwitchboardDemo({ compact = false }: DemoProps) {
           </div>
 
           <p className="mt-3 text-center text-xs font-medium text-muted">
-            {activeCount === 4
-              ? 'Consistent margins + even gutters make simple cards look instantly professional.'
-              : 'Notice how missing margins or uneven card spacing breaks visual trust.'}
+            <HighlightText
+              text={
+                activeCount === 4
+                  ? '**Even margins + equal gutters** make simple cards look balanced fast.'
+                  : '**Missing margins or uneven card spacing** breaks visual order.'
+              }
+              variant="soft"
+            />
           </p>
         </div>
       </div>
@@ -1206,7 +1243,7 @@ const SWISS_SPECIMENS: SwissSpecimen[] = [
     tag: 'SPECIMEN 01 // WARM ORANGE & CHARCOAL',
     title: 'Asymmetric Sound Poster Grid',
     paletteLabel: '#FF8A3D + #171717 + #F2F2F2',
-    note: 'Demonstrates high-energy Swiss Editorial rhythm: tight stacked display headline anchored against open whitespace and a crisp 2-column footer row.',
+    note: '**Swiss Editorial rhythm**: stacked display headline balanced by **open whitespace** and a crisp 2-column footer.',
     bgClass: 'bg-[#FF8A3D]',
     inkClass: 'text-[#171717]',
     accentBgClass: 'bg-[#171717]',
@@ -1214,8 +1251,8 @@ const SWISS_SPECIMENS: SwissSpecimen[] = [
     eyebrow: 'ZURICH MEETS BANDUNG // 04 TRACK GRID',
     headline: 'SIGNAL RHYTHM',
     columnsText: [
-      'Grid discipline organizes vibrant orange ink so metadata stays fast to scan.',
-      'Asymmetrical margins give expressive geometry breathing room.',
+      'Grid discipline organizes vibrant orange ink so details scan fast.',
+      'Asymmetric margins give bold geometry room to breathe.',
     ],
     cta: 'EXPLORE GRID',
   },
@@ -1224,7 +1261,7 @@ const SWISS_SPECIMENS: SwissSpecimen[] = [
     tag: 'SPECIMEN 02 // COBALT EDITORIAL SPREAD',
     title: 'Structured Interface & Exhibition Header',
     paletteLabel: '#315BFF + #FFFFFF + #C6FF3D',
-    note: 'Shows how classic Swiss columns translate straight into sleek web heroes using bold cool cobalt, stark alignment rails, and one crisp lime CTA anchor.',
+    note: '**Swiss columns** scale directly to web heroes using **bold cobalt**, aligned rails, and **one lime CTA**.',
     bgClass: 'bg-[#315BFF]',
     inkClass: 'text-[#FFFFFF]',
     accentBgClass: 'bg-[#C6FF3D]',
@@ -1232,8 +1269,8 @@ const SWISS_SPECIMENS: SwissSpecimen[] = [
     eyebrow: 'MODERN SWISS INTERFACE SYSTEM',
     headline: 'CLARITY IN COLOR',
     columnsText: [
-      'Swiss style is defined by clear hierarchy and modular alignment—not only grayscale.',
-      'Crisp contrast keeps UI labels accessible on rich colored grounds.',
+      'Swiss style is clear hierarchy and alignment — never stuck in grayscale.',
+      'Crisp contrast keeps labels readable on rich colored surfaces.',
     ],
     cta: 'INSPECT LAYOUT',
   },
@@ -1242,7 +1279,7 @@ const SWISS_SPECIMENS: SwissSpecimen[] = [
     tag: 'SPECIMEN 03 // SOFT OFF-WHITE & MAGENTA',
     title: 'Minimalist Poster Type Specimen',
     paletteLabel: '#F2F2F2 + #C2185B + #171717',
-    note: 'Soft off-white paired with sculptural Montserrat headline proportions, hairline dividers, bold magenta focal emphasis, and deliberate negative space.',
+    note: '**Soft off-white** paired with bold Montserrat headlines, thin **hairline dividers**, and a single magenta focal cue.',
     bgClass: 'bg-[#F2F2F2]',
     inkClass: 'text-[#171717]',
     accentBgClass: 'bg-[#C2185B]',
@@ -1250,8 +1287,8 @@ const SWISS_SPECIMENS: SwissSpecimen[] = [
     eyebrow: 'EDITORIAL TYPOGRAPHY SPECIMEN',
     headline: 'FORM & ORDER',
     columnsText: [
-      'Notice how hairline rules separate sections without wrapping everything in heavy shadows.',
-      'Scale contrast carries the composition cleanly.',
+      'Hairline rules separate sections cleanly without heavy drop shadows.',
+      'Clear type scale carries the layout structure.',
     ],
     cta: 'VIEW SPECS',
   },
@@ -1343,7 +1380,9 @@ export function SwissEditorialGallery({ compact = false }: DemoProps) {
               <strong className="block font-display text-xs font-bold text-ink">
                 Why This Works
               </strong>
-              <p className="mt-1 text-muted-surface">{active.note}</p>
+              <p className="mt-1 text-muted-surface">
+                <HighlightText text={active.note} variant="soft" />
+              </p>
             </div>
           )}
         </div>
@@ -1401,7 +1440,9 @@ export function SwissEditorialGallery({ compact = false }: DemoProps) {
           </div>
 
           {compact && (
-            <p className="mt-2.5 text-center text-xs text-muted">{active.note}</p>
+            <p className="mt-2.5 text-center text-xs text-muted">
+              <HighlightText text={active.note} variant="soft" />
+            </p>
           )}
         </div>
       </div>

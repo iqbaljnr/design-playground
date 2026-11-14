@@ -1,4 +1,5 @@
 import { CheckCircle2, AlertCircle } from 'lucide-react';
+import { HighlightText } from '../ui/HighlightText';
 
 interface QuizFeedbackProps {
   isCorrect: boolean;
@@ -31,7 +32,9 @@ export function QuizFeedback({
             ? 'Correct Answer'
             : `Not Quite — Correct Option Is ${correctOptionLabel}`}
         </strong>
-        <p className="mt-1 leading-relaxed text-ink">{explanation}</p>
+        <p className="mt-1 leading-relaxed text-ink">
+          <HighlightText text={explanation} variant={isCorrect ? 'mint' : 'tint'} />
+        </p>
       </div>
     </div>
   );

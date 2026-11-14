@@ -7,6 +7,7 @@ import { ColorLab } from '../components/interactive/ColorLab';
 import { CompositionLab } from '../components/interactive/CompositionLab';
 import { GridLab } from '../components/interactive/GridLab';
 import { Badge } from '../components/ui/Badge';
+import { HighlightText } from '../components/ui/HighlightText';
 import { useLearningStore } from '../stores/learningStore';
 
 type LabToolId = 'typography' | 'color' | 'composition' | 'grid';
@@ -20,25 +21,25 @@ const LAB_TOOLS: Array<{
     {
       id: 'typography',
       label: '01 · Typography Playground',
-      desc: 'Test display & body font pairings, scale jumps, tracking, line-height, and alignment live.',
+      desc: 'Test **font pairings, scale jumps, tracking**, and **line height** live.',
       icon: Type,
     },
     {
       id: 'color',
       label: '02 · Color Exploration',
-      desc: 'Generate color harmonies from any HEX value and verify WCAG 2.2 AA/AAA contrast ratios.',
+      desc: 'Build **HEX palettes** and check live **WCAG 4.5:1 text contrast**.',
       icon: Palette,
     },
     {
       id: 'composition',
       label: '03 · Visual Composition Lab',
-      desc: 'Manipulate shapes, rotation, opacity value, and space to see focal tension and alignment.',
+      desc: 'Move shapes, adjust rotation and opacity, and practice **balanced space**.',
       icon: Layers,
     },
     {
       id: 'grid',
       label: '04 · Layout & Grid Experiment',
-      desc: 'Control grid columns, gutters, outer padding, and container widths with live spatial overlays.',
+      desc: 'Tune **columns, gutters, outer padding**, and container widths live.',
       icon: Grid,
     },
   ];
@@ -75,9 +76,10 @@ export function DesignLab() {
                 Design Lab
               </h1>
               <p className="mt-2 max-w-2xl text-base text-muted-surface">
-                Experiment directly with typography, color contrast, visual
-                composition, and grid layout parameters. Every control updates the
-                canvas immediately.
+                <HighlightText
+                  variant="soft"
+                  text="Practice **typography, color contrast, visual balance**, and **grid layouts** directly — every control updates live."
+                />
               </p>
             </div>
             <span className="rounded-full border border-border-strong bg-elevated px-3.5 py-1.5 font-display text-xs font-semibold text-ink tabular-nums">
@@ -122,7 +124,9 @@ export function DesignLab() {
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-6 rounded-xl border border-border-strong bg-surface px-4 py-3 text-sm text-ink">
           <strong className="font-display font-bold text-ink">{currentMeta.label}: </strong>
-          <span className="text-muted-surface">{currentMeta.desc}</span>
+          <span className="text-muted-surface">
+            <HighlightText text={currentMeta.desc} variant="soft" />
+          </span>
         </div>
 
         <div role="tabpanel" aria-label={currentMeta.label}>

@@ -5,6 +5,7 @@ import { QuizQuestion } from '../components/quiz/QuizQuestion';
 import { QuizResult } from '../components/quiz/QuizResult';
 import { Badge } from '../components/ui/Badge';
 import { ProgressBar } from '../components/ui/ProgressBar';
+import { HighlightText } from '../components/ui/HighlightText';
 import { QUIZ_QUESTIONS } from '../content/quizzes/quizQuestions';
 import { useLearningStore } from '../stores/learningStore';
 
@@ -58,9 +59,10 @@ export function KnowledgeCheck() {
                 Workshop Knowledge Check
               </h1>
               <p className="mt-2 max-w-2xl text-base text-muted-surface">
-                Test your understanding across Modules 01 through 07—covering visual
-                communication, elements &amp; principles, typography, Swiss Editorial grids,
-                and beginner Figma workflow proficiency.
+                <HighlightText
+                  variant="soft"
+                  text="Test your understanding across **Modules 01–07** — from hierarchy and contrast to **Swiss grids** and **Figma workflows**."
+                />
               </p>
             </div>
 

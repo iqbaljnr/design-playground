@@ -28,6 +28,7 @@ import { FigmaWorkspaceTour } from '../components/interactive/FigmaWorkspaceTour
 import { MiniFigmaExercise } from '../components/interactive/MiniFigmaExercise';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
+import { HighlightText } from '../components/ui/HighlightText';
 import { getAdjacentChapters, getChapterById } from '../content/modules';
 import { TEACHABLE_SESSIONS } from '../content/schedule/workshopSchedule';
 import { useLearningStore } from '../stores/learningStore';
@@ -144,7 +145,7 @@ export function LearningModule() {
               In Plain Words
             </span>
             <p className="text-base leading-relaxed text-ink sm:text-lg">
-              {chapter.introduction}
+              <HighlightText text={chapter.introduction} variant="soft" />
             </p>
           </div>
 
@@ -162,7 +163,7 @@ export function LearningModule() {
                     {item.term}
                   </strong>
                   <span className="mt-1 block text-xs leading-relaxed text-muted">
-                    {item.definition}
+                    <HighlightText text={item.definition} variant="soft" />
                   </span>
                 </div>
               ))}
@@ -322,7 +323,7 @@ export function LearningModule() {
                 {chapter.interactiveTitle}
               </h2>
               <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-                {chapter.interactiveInstructions}
+                <HighlightText text={chapter.interactiveInstructions} variant="soft" />
               </p>
             </div>
             {chapter.linkedLabTool && (
@@ -359,7 +360,9 @@ export function LearningModule() {
                   <span className="mt-0.5 rounded-md border border-border-strong bg-elevated px-2 py-0.5 font-display text-xs font-semibold text-muted-surface tabular-nums">
                     0{i + 1}
                   </span>
-                  <span>{step}</span>
+                  <span>
+                    <HighlightText text={step} variant="soft" />
+                  </span>
                 </li>
               ))}
             </ol>
@@ -370,11 +373,12 @@ export function LearningModule() {
                 Goal Check
               </span>
               <p className="mt-2 font-display text-base font-bold text-ink">
-                {chapter.learningCheckpoint}
+                <HighlightText text={chapter.learningCheckpoint} variant="soft" />
               </p>
             </div>
             <div className="mt-4 border-t border-border-subtle pt-3 text-xs font-semibold text-muted">
-              What You Make: {chapter.studentActivity.deliverable}
+              Deliverable:{' '}
+              <HighlightText text={chapter.studentActivity.deliverable} variant="soft" />
             </div>
           </div>
         </section>
@@ -388,7 +392,7 @@ export function LearningModule() {
             <Sparkles size={14} aria-hidden="true" /> Quick Summary
           </span>
           <h2 className="mt-2 font-display text-2xl font-bold text-white">
-            3 Things to Remember from Module {chapter.number}
+            3 Takeaways from Module {chapter.number}
           </h2>
           <ul className="mt-4 space-y-3">
             {chapter.keyTakeaways.map((point, index) => (
@@ -396,7 +400,9 @@ export function LearningModule() {
                 <span className="mt-0.5 rounded-md border border-[#2A2928] bg-[#20201F] px-2 py-0.5 font-display text-xs font-semibold text-brand-orange tabular-nums">
                   0{index + 1}
                 </span>
-                <span className="leading-relaxed text-on-dark-muted">{point}</span>
+                <span className="leading-relaxed text-on-dark-muted">
+                  <HighlightText text={point} variant="dark" />
+                </span>
               </li>
             ))}
           </ul>
@@ -466,7 +472,7 @@ export function LearningModule() {
                       className="mt-3 rounded-lg border border-border-subtle bg-canvas px-3.5 py-2.5 text-xs leading-relaxed text-muted sm:text-sm"
                     >
                       <strong className="text-ink">{isCorrect ? 'Nice! ' : 'Hint: '}</strong>
-                      {check.explanation}
+                      <HighlightText text={check.explanation} variant="soft" />
                     </p>
                   )}
                 </div>

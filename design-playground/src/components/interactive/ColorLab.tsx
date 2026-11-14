@@ -9,6 +9,7 @@ import {
   type HarmonyType,
 } from '../../utils/color';
 import { Badge } from '../ui/Badge';
+import { HighlightText } from '../ui/HighlightText';
 
 const PRESET_SWATCHES = [
   { hex: '#171717', name: 'Charcoal Ink' },
@@ -23,27 +24,27 @@ const HARMONY_OPTIONS: Array<{ id: HarmonyType; label: string; desc: string }> =
   {
     id: 'complementary',
     label: 'Complementary',
-    desc: 'Opposite hues on the wheel (180° apart) for bold energetic contrast.',
+    desc: '**180° opposite hues** on the wheel for bold, energetic contrast.',
   },
   {
     id: 'analogous',
     label: 'Analogous',
-    desc: 'Neighboring hues (30° steps) that sit calmly together in editorial systems.',
+    desc: '**30° neighboring hues** that sit calmly together in editorial layouts.',
   },
   {
     id: 'triadic',
     label: 'Triadic',
-    desc: 'Three evenly spaced hues (120° apart) creating playful vibrancy.',
+    desc: '**Three even hues (120° apart)** for playful visual variety.',
   },
   {
     id: 'split-complementary',
     label: 'Split-Comp',
-    desc: 'Base hue paired with the two neighbors of its opposite for balanced tension.',
+    desc: 'Base color + **two neighbors of its opposite** for balanced punch.',
   },
   {
     id: 'monochromatic',
     label: 'Monochromatic',
-    desc: 'Tints and shades of a single hue for cohesive monochrome hierarchy.',
+    desc: '**Tints and shades of one hue** for cohesive hierarchy.',
   },
 ];
 
@@ -166,7 +167,9 @@ export function ColorLab() {
               ))}
             </div>
             {activeHarmonyMeta && (
-              <p className="mt-2.5 text-sm text-muted">{activeHarmonyMeta.desc}</p>
+              <p className="mt-2.5 text-sm text-muted">
+                <HighlightText text={activeHarmonyMeta.desc} variant="soft" />
+              </p>
             )}
           </div>
 
@@ -296,9 +299,8 @@ export function ColorLab() {
                 Readability Preview Heading (24px Bold)
               </div>
               <p className="mt-2 text-base leading-relaxed">
-                Normal body copy (16px) requires at least a 4.5:1 luminance contrast
-                ratio so students can read comfortably across varied screens and
-                lighting conditions.
+                Normal body text (16px) needs at least a 4.5:1 contrast ratio so
+                readers stay comfortable across screens and lighting.
               </p>
             </div>
           </div>

@@ -16,6 +16,7 @@ import {
   CraftSlide27BuildingInterfaceDemo,
 } from '../components/mentor/CraftSlideDemos';
 import { Badge } from '../components/ui/Badge';
+import { HighlightText } from '../components/ui/HighlightText';
 import { WorkshopTipsPopup } from '../components/tips/WorkshopTipsPopup';
 import { useLearningStore } from '../stores/learningStore';
 
@@ -107,7 +108,7 @@ function LessonSectionHeader({
             {title}
           </h2>
           <p className="mt-1.5 max-w-3xl text-sm leading-relaxed text-muted-surface">
-            {description}
+            <HighlightText text={description} variant="soft" />
           </p>
         </div>
       </div>
@@ -190,10 +191,10 @@ export function FigmaGuide() {
               From First Click to Your First Website Screen
             </h1>
             <p className="mt-2.5 text-base leading-relaxed text-muted-surface">
-              Think of Figma like{' '}
-              <strong className="font-semibold text-ink">Canva meets Google Docs</strong> — a free
-              browser workspace where anyone can lay out websites, posters, and clickable mockups
-              together with zero coding required.
+              <HighlightText
+                variant="soft"
+                text="Think of Figma like **Canva meets Google Docs** — a browser canvas to build **posters, UI layouts, and previews** with zero code."
+              />
             </p>
           </div>
 
@@ -277,7 +278,7 @@ export function FigmaGuide() {
             headingId="heading-figma-01"
             category="6 BASIC TOOLS"
             title="THE ONLY TOOLS YOU NEED TO START."
-            description="Start with these 6 everyday tools — click any tool card to preview its Frame Motion reel and shortcut key."
+            description="Master **6 everyday tools** — click any card to preview when and why each shortcut helps."
             focusTag={LESSON_SECTIONS[0].focusTag}
           />
 
@@ -298,7 +299,7 @@ export function FigmaGuide() {
             headingId="heading-figma-02"
             category="SCREEN LAYOUT"
             title="FIND YOUR WAY AROUND."
-            description="Knowing where each tool, layer tree, and right-hand panel lives keeps your project tidy and stress-free."
+            description="See where the **toolbar, Layers tree, and Properties inspector** sit so projects stay organized."
             focusTag={LESSON_SECTIONS[1].focusTag}
           />
 
@@ -318,7 +319,7 @@ export function FigmaGuide() {
             headingId="heading-figma-03"
             category="EDIT PROPERTIES"
             title="CONTROL EVERY BOX AND WORD."
-            description="Click any shape or text, then use the right-hand panel to change its size, color, rounded corners, and font."
+            description="Select any shape or text and tune **size, Fill, corners, and type** in the right panel."
             focusTag={LESSON_SECTIONS[2].focusTag}
           />
 
@@ -338,7 +339,7 @@ export function FigmaGuide() {
             headingId="heading-figma-04"
             category="AUTO LAYOUT"
             title="LET FIGMA SPACE ITEMS FOR YOU."
-            description="Auto Layout automatically lines things up with even padding and gaps so buttons never break when you edit text."
+            description="**Auto Layout** keeps padding and gaps adaptive so buttons and stacks **never break when text changes**."
             focusTag={LESSON_SECTIONS[3].focusTag}
           />
 
@@ -359,7 +360,7 @@ export function FigmaGuide() {
             headingId="heading-figma-05"
             category="BUILD YOUR FIRST HERO"
             title="PUTTING IT ALL TOGETHER."
-            description="Follow these 6 simple steps to assemble your first clean website hero screen from scratch, then practice directly below."
+            description="Follow **6 practical steps** to structure your first website hero, then test it interactively below."
             focusTag={LESSON_SECTIONS[4].focusTag}
           />
 
@@ -390,7 +391,7 @@ export function FigmaGuide() {
             headingId="heading-figma-06"
             category="QUICK CHEAT SHEET"
             title="KEEP THIS HANDY WHILE YOU CREATE."
-            description="A quick 1-minute summary card to glance at whenever you forget a key or setting."
+            description="A **quick reference card** whenever you need a key, property, or contrast check."
             focusTag={LESSON_SECTIONS[5].focusTag}
           />
 
@@ -490,7 +491,10 @@ export function FigmaGuide() {
 
           <div className="rounded-xl border border-dark bg-dark px-5 py-4 text-sm font-semibold text-white">
             <strong className="text-brand-orange">Remember: </strong>
-            You don&apos;t have to memorize every tool — just use the right basics with clear choices.
+            <HighlightText
+              variant="dark"
+              text="You don’t need to memorize shortcuts — focus on **why and when each tool fits your goal**."
+            />
           </div>
         </div>
       </section>

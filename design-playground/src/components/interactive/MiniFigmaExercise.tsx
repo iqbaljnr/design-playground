@@ -1,6 +1,7 @@
 import { useId, useState } from 'react';
 import { CheckCircle2, Download, Layers, Sparkles } from 'lucide-react';
 import { Badge } from '../ui/Badge';
+import { HighlightText } from '../ui/HighlightText';
 import { useLearningStore } from '../../stores/learningStore';
 import { downloadSvgFile } from '../../utils/assetDownload';
 
@@ -91,10 +92,10 @@ export function MiniFigmaExercise({
   scale = 'default',
   lang = 'en',
   initialHeadline = 'DESIGNING VISUAL INTERFACES',
-  initialSubheading = 'Practice tidy padding, even gaps, and clean shapes before starting Challenge 01.',
+  initialSubheading = 'Practice tidy padding, even gaps, and clean shapes.',
   initialButtonLabel = 'Explore My Work',
   badgeLabel = 'Mini Figma Practice',
-  helperText = 'Try building these same 5 pieces inside Figma next!',
+  helperText = 'Try building these **5 pieces inside Figma** next!',
 }: {
   compact?: boolean;
   scale?: PresentationScale;
@@ -129,7 +130,7 @@ export function MiniFigmaExercise({
   const requirements = [
     {
       label: isId
-        ? '1 Frame Wadah (Frame_Hero_Mini)'
+        ? '1 Frame (Frame_Hero)'
         : '1 Frame Container (Frame_Hero_Mini)',
       met: true,
     },
@@ -138,18 +139,18 @@ export function MiniFigmaExercise({
       met: headline.trim().length > 2,
     },
     {
-      label: isId ? '1 Subjudul Jelas (T)' : '1 Readable Subheading (T)',
+      label: isId ? '1 Deskripsi Singkat (T)' : '1 Readable Subheading (T)',
       met: subheading.trim().length > 5,
     },
     {
       label: isId
-        ? '2 Bentuk Geometri (Lingkaran + Kotak)'
+        ? '2 Bentuk (Bulat + Kotak)'
         : '2 Geometric Shapes (Circle + Square)',
       met: includeShapes,
     },
     {
       label: isId
-        ? '1 Tombol Utama (Shift + A Auto Layout)'
+        ? '1 Tombol (Auto Layout)'
         : '1 CTA Button (Shift + A Auto Layout)',
       met: buttonLabel.trim().length > 1,
     },
@@ -191,7 +192,7 @@ export function MiniFigmaExercise({
               isFullscreen ? 'text-base' : isProjector ? 'text-sm sm:text-base' : 'text-sm'
             }`}
           >
-            {isId ? 'Susun Kartu Hero 5 Bagian' : 'Build a 5-Part Hero Card'}
+            {isId ? 'Susun Hero 5 Bagian' : 'Build a 5-Part Hero Card'}
           </span>
         </div>
 
@@ -455,7 +456,7 @@ export function MiniFigmaExercise({
                       isFullscreen ? 'text-sm' : isProjector ? 'text-xs sm:text-sm' : 'text-xs'
                     } ${t.btnBg} ${t.btnInk}`}
                   >
-                    {buttonLabel || (isId ? 'Tombol Aksi' : 'CTA Button')}
+                    {buttonLabel || (isId ? 'Tombol CTA' : 'CTA Button')}
                   </span>
                 </div>
 
@@ -526,7 +527,7 @@ export function MiniFigmaExercise({
               }`}
             >
               <span className={`${isFullscreen ? 'text-sm' : 'text-xs'} text-muted`}>
-                {helperText}
+                <HighlightText text={helperText} variant="soft" />
               </span>
               <button
                 type="button"

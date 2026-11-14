@@ -5,6 +5,7 @@ import {
   FIGMA_WORKSPACE_REGIONS,
 } from '../../content/figma/figmaData';
 import { Badge } from '../ui/Badge';
+import { HighlightText } from '../ui/HighlightText';
 
 interface FigmaWorkspaceTourProps {
   compact?: boolean;
@@ -228,7 +229,7 @@ export function FigmaWorkspaceTour({
                 Location: {activeRegion.areaLabel}
               </span>
               <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted">
-                {activeRegion.summary}
+                <HighlightText text={activeRegion.summary} variant="soft" />
               </p>
 
               <div className="mt-3 space-y-1.5">
@@ -239,7 +240,9 @@ export function FigmaWorkspaceTour({
                   {activeRegion.essentialActions.map((act, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-magenta" />
-                      <span>{act}</span>
+                      <span>
+                        <HighlightText text={act} variant="soft" />
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -250,7 +253,7 @@ export function FigmaWorkspaceTour({
                   Common Beginner Mistake
                 </strong>
                 <span className="mt-0.5 block text-ink">
-                  {activeRegion.commonMistake}
+                  <HighlightText text={activeRegion.commonMistake} variant="tint" />
                 </span>
               </div>
             </div>
@@ -308,11 +311,11 @@ export function FigmaWorkspaceTour({
                     {shortcut.name}
                   </h4>
                   <p className="mt-1 text-xs leading-relaxed text-muted">
-                    {shortcut.usage}
+                    <HighlightText text={shortcut.usage} variant="soft" />
                   </p>
                 </div>
                 <p className="mt-2 border-t border-border-subtle pt-2 text-xs font-medium text-ink">
-                  Tip: {shortcut.workshopTip}
+                  Tip: <HighlightText text={shortcut.workshopTip} variant="soft" />
                 </p>
               </div>
             ))}

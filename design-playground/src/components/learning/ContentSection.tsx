@@ -1,5 +1,6 @@
 import type { ChapterTopic } from '../../types/curriculum';
 import { TopicDiagram } from './TopicDiagram';
+import { HighlightText } from '../ui/HighlightText';
 
 interface ContentSectionProps {
   topic: ChapterTopic;
@@ -30,7 +31,7 @@ export function ContentSection({ topic, stepLabel }: ContentSectionProps) {
 
       {/* 1. Simple 1-sentence core takeaway */}
       <p className="mt-4 font-display text-base font-bold leading-snug text-ink sm:text-lg">
-        {topic.summary}
+        <HighlightText text={topic.summary} variant="soft" />
       </p>
 
       {/* 2. Visual-first illustration / comparison */}
@@ -48,7 +49,7 @@ export function ContentSection({ topic, stepLabel }: ContentSectionProps) {
               BEFORE · {topic.beforeAfter.beforeTitle}
             </span>
             <p className="mt-2 text-xs leading-relaxed text-ink">
-              {topic.beforeAfter.beforeNote}
+              <HighlightText text={topic.beforeAfter.beforeNote} variant="tint" />
             </p>
           </div>
           <div className="rounded-xl border border-[#C6DEC8] bg-[#EDF5ED] p-4">
@@ -56,7 +57,7 @@ export function ContentSection({ topic, stepLabel }: ContentSectionProps) {
               AFTER · {topic.beforeAfter.afterTitle}
             </span>
             <p className="mt-2 text-xs leading-relaxed text-ink">
-              {topic.beforeAfter.afterNote}
+              <HighlightText text={topic.beforeAfter.afterNote} variant="mint" />
             </p>
           </div>
         </div>
@@ -71,7 +72,9 @@ export function ContentSection({ topic, stepLabel }: ContentSectionProps) {
                 aria-hidden="true"
                 className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-magenta"
               />
-              <span>{tip}</span>
+              <span>
+                <HighlightText text={tip} variant="soft" />
+              </span>
             </li>
           ))}
         </ul>
@@ -81,7 +84,7 @@ export function ContentSection({ topic, stepLabel }: ContentSectionProps) {
             Real-Life Example
           </span>
           <p className="mt-1 leading-relaxed text-muted-surface">
-            {topic.exampleNote}
+            <HighlightText text={topic.exampleNote} variant="soft" />
           </p>
         </div>
       </div>

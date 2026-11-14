@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, Clock, Lock } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Lock } from 'lucide-react';
 import type { Chapter } from '../../types/curriculum';
 import { Badge } from '../ui/Badge';
+import { HighlightText } from '../ui/HighlightText';
 
 interface ChapterCardProps {
   chapter: Chapter;
@@ -65,11 +66,7 @@ export function ChapterCard({
 
         <div className="p-5 sm:p-6">
           <div className="mb-2.5 flex items-center gap-2.5 font-display text-xs font-medium text-muted">
-            <span className="inline-flex items-center gap-1 tabular-nums">
-              <Clock size={12} aria-hidden="true" /> {chapter.durationMinutes} min
-            </span>
-            <span>·</span>
-            <span className="tabular-nums">{chapter.topics.length} topics</span>
+            <span className="tabular-nums">{chapter.topics.length} lessons</span>
           </div>
 
           <h3 className="font-display text-xl font-bold leading-snug text-ink">
@@ -77,7 +74,7 @@ export function ChapterCard({
           </h3>
 
           <p className="mt-2 text-sm leading-relaxed text-muted">
-            {chapter.learningObjective}
+            <HighlightText text={chapter.learningObjective} variant="soft" />
           </p>
         </div>
       </div>

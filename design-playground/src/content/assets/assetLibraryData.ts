@@ -84,7 +84,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'Brief & Specs',
     name: 'CREATIVE FREQUENCY Copy & Spec Sheet',
     description:
-      'Approved event copy, A3 Figma canvas specs (842 x 1191 px), and studio HEX palette in plain text.',
+      'Approved **event copy**, **A3 canvas specs** (842 x 1191 px), and studio **HEX palette**.',
     formats: ['TXT'],
     fileBaseName: 'cf-01-copy-spec-sheet',
     previewBg: 'surface',
@@ -96,7 +96,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'Wordmark',
     name: 'CREATIVE FREQUENCY Stacked Wordmark',
     description:
-      'Minimalist two-tone typographic lockup sized cleanly for poster headers and social covers.',
+      'Two-tone **typographic lockup** sized for poster headers and social covers.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'cf-02-wordmark-lockup',
     previewBg: 'dark',
@@ -118,7 +118,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'Vector Motif',
     name: 'Acoustic Frequency Rings & Equalizer',
     description:
-      'Refined geometric orbit rings paired with rhythmic pulse bars for minimalist focal visuals.',
+      'Geometric **orbit rings** paired with rhythmic bars for clean **focal visuals**.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'cf-03-soundwave-rings',
     previewBg: 'light',
@@ -144,7 +144,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'Geometric Kit',
     name: 'Swiss Modular Geometric Primitives',
     description:
-      'Clean drag-and-drop vector shapes (arcs, circles, triangles, stepped bars) to anchor grid layouts.',
+      'Drag-and-drop **arcs, circles, triangles, and bars** to anchor grid layouts.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'cf-04-swiss-geometric-kit',
     previewBg: 'surface',
@@ -177,7 +177,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'Event Badge',
     name: 'Bandung Date & Venue Card Lockup',
     description:
-      'Tabular event logistics stamp with clean spacing for footer or corner poster placement.',
+      'Pre-grouped **date, time, and venue badge** with tidy internal spacing.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'cf-05-venue-date-stamp',
     previewBg: 'light',
@@ -200,7 +200,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'Poster Graphic',
     name: 'Editorial Soundstage Geometric Artwork',
     description:
-      'Minimalist poster centerpiece balancing warm overlapping acoustic shapes on subtle hairline guides.',
+      'Layered **acoustic shapes** resting on clean **hairline grid guides**.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'cf-06-editorial-illustration',
     previewBg: 'surface',
@@ -227,7 +227,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'Color System',
     name: 'CRAFT Studio Color Swatch Card',
     description:
-      'Reference swatch card pairing Soft Off-White canvas, Charcoal ink, and Magenta-Orange accents.',
+      'Quick swatch reference pairing **Off-White, Charcoal**, and **Magenta-Orange**.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'cf-07-palette-reference',
     previewBg: 'surface',
@@ -259,7 +259,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'Type Specimen',
     name: 'Poster Type Scale & Hierarchy Specimen',
     description:
-      'Visual guide illustrating display headline sizing, subhead cadence, body copy, and CTA balance.',
+      'Scale guide showing **display headline sizing**, body rhythm, and **CTA hierarchy**.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'cf-08-typography-pairing',
     previewBg: 'light',
@@ -288,7 +288,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'UI Copy Sheet',
     name: 'Alex Morgan Profile & Hero Copy Sheet',
     description:
-      'Complete text brief holding Alex Morgan’s role, nav items, hero headline, subheadline, and button copy.',
+      'Full brief holding Alex Morgan’s **role, nav links, H1, bio**, and **button labels**.',
     formats: ['TXT'],
     fileBaseName: 'pf-01-alex-morgan-copy',
     previewBg: 'surface',
@@ -300,7 +300,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'Avatar Portrait',
     name: 'Alex Morgan Minimalist Vector Portrait',
     description:
-      'Editorial geometric portrait tailored cleanly for the right visual column of a desktop hero section.',
+      'Geometric portrait sized cleanly for the **right visual column** of a hero section.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'pf-02-alex-morgan-portrait',
     previewBg: 'surface',
@@ -332,7 +332,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'Brand Mark',
     name: 'AM Personal Geometric Monogram',
     description:
-      'Crisp navbar monogram emblem combining sharp A and M geometry on a minimalist dark tile.',
+      'Sharp **A and M navbar logo** on a dark rounded tile.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'pf-03-am-monogram-logo',
     previewBg: 'dark',
@@ -352,7 +352,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'UI Icons',
     name: 'Minimalist Navigation & Social Icon Set',
     description:
-      'Uniform vector UI icons (Arrow, Mail, Grid, Globe, LinkedIn, Spark) for portfolio navbars and footers.',
+      'Matching **vector UI icons** (Arrow, Mail, Grid, Globe, LinkedIn, Spark) for headers.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'pf-04-social-ui-icons',
     previewBg: 'light',
@@ -393,7 +393,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'Case Study Card',
     name: 'Project Card 01 — Visual Identity System',
     description:
-      'Clean miniature showcase card illustrating Alex Morgan’s Visual Identity case study preview.',
+      'Miniature **case study card** for Alex Morgan’s Visual Identity work.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'pf-05-project-thumb-identity',
     previewBg: 'surface',
@@ -416,7 +416,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'Case Study Card',
     name: 'Project Card 02 — Interactive UI System',
     description:
-      'Dark-surface UI case preview showing clean component hierarchy and audio control tokens.',
+      'Dark **UI preview card** highlighting clean components and **visual contrast**.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'pf-06-project-thumb-uiux',
     previewBg: 'dark',
@@ -443,7 +443,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'UI Color Tokens',
     name: 'Portfolio Hero UI Color Tokens',
     description:
-      'Accessible neutral surface and high-contrast Magenta CTA token swatches for web hero sections.',
+      'Calm **neutral surface tokens** + high-contrast **Magenta CTA** swatch.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'pf-07-ui-palette-tokens',
     previewBg: 'light',
@@ -472,7 +472,7 @@ export const ASSET_LIBRARY_ITEMS: AssetItem[] = [
     category: 'UI Type Scale',
     name: 'Desktop Hero Typography & CTA Scale',
     description:
-      '1440px UI typography spec showing navbar rhythm, Hero H1 scale, subhead measure, and button hierarchy.',
+      '1440px spec mapping **navbar size, Hero H1**, bio width, and **button hierarchy**.',
     formats: ['SVG', 'PNG'],
     fileBaseName: 'pf-08-ui-type-scale',
     previewBg: 'light',

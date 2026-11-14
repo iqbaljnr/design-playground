@@ -8,33 +8,33 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
     phase: 'phase-01',
     phaseLabel: 'Visual Foundations',
     title: 'Introduction to Design',
-    subtitle: 'How design helps people understand your message fast — before you even open Figma',
+    subtitle: 'How design makes people **understand your message fast** — before opening Figma',
     learningObjective:
-      'See design as clear communication and problem solving, not just pretty decoration.',
+      'See design as **clear communication** and **problem solving**, not just decoration.',
     durationMinutes: 30,
     accentColor: 'lime',
     introduction:
-      'Design is not just making things look pretty at the end. Before opening Figma or picking colors, start with a simple question: What does someone need to know right now, and what should they click or do next?',
+      'Design is not just making things look pretty. Before picking colors or opening Figma, ask one question: **What should someone understand**, and **what should they do next**?',
     terminology: [
       {
         term: 'Visual Communication',
         definition:
-          'Using words, shapes, size, and color to share an idea clearly in just a few seconds.',
+          'Using type, shapes, scale, and color to share one idea clearly in **a few seconds**.',
       },
       {
         term: 'Project Brief',
         definition:
-          'A short checklist saying what we are making, who it is for, and what text must be included.',
+          'A short checklist covering **what we are making**, **who it is for**, and **required text**.',
       },
       {
         term: 'Audience',
         definition:
-          'The real people who will see your poster or website.',
+          'The **real people** who will read your poster or screen.',
       },
       {
         term: 'Constraint',
         definition:
-          'Simple real-life limits — like paper size, screen width, or words that cannot be left out.',
+          'Fixed **real-world limits** like page size, screen width, or mandatory text.',
       },
     ],
     topics: [
@@ -43,13 +43,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '1.1',
         title: 'What Is Design?',
         summary:
-          'Design is planning how words and visuals sit together so anyone can understand them quickly.',
+          'Design organizes words and visuals so anyone can **understand the point fast**.',
         details: [
-          'Decoration asks: "Does this look cool?" Design asks: "Can a person understand this right away?"',
-          'Every size choice, color, and gap helps someone read faster without guessing.',
+          'Decoration asks: "Is this pretty?" Design asks: "**Is this immediately clear?**"',
+          'Every **size, color, and gap** removes guesswork for the reader.',
         ],
         exampleNote:
-          'An event pass with big, dark "GATE 04" text helps guests find their entrance in one glance.',
+          'An event badge with big, high-contrast "**GATE 04**" text guides guests in one glance.',
         diagram: 'what-is-design',
       },
       {
@@ -57,21 +57,21 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '1.2',
         title: 'Design vs. Art',
         summary:
-          'Art lets everyone feel something personal; design helps everyone understand the exact same message.',
+          'Art invites **personal feeling**; design communicates **one shared message**.',
         details: [
-          'If ten people look at a painting and feel ten different things, the painting works well.',
-          'If ten people read your "Buy Ticket" button and still feel confused, the design needs fixing.',
+          'If ten people see a painting and feel ten things, the art succeeds.',
+          'If ten people read a button and feel confused, the **design needs fixing**.',
         ],
         exampleNote:
-          'A wall mural can be poetic and mysterious, while an EXIT sign must be clear in 1 second.',
+          'A mural can be poetic, but an **EXIT sign** must be clear in one second.',
         diagram: 'design-vs-art',
         beforeAfter: {
           beforeTitle: 'Art Style Poster (Hard to Read)',
           beforeNote:
-            'Big decorative swirls cover the event title and hide the date in tiny gray text.',
+            'Heavy swirls cover the **event title** and bury the **date** in tiny gray ink.',
           afterTitle: 'Clear Visual Design',
           afterNote:
-            'Big event name first, clear date badge second, and an easy-to-spot button third.',
+            '**Big event name** first, clear **date badge** second, and an **obvious CTA button** third.',
         },
       },
       {
@@ -79,13 +79,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '1.3',
         title: 'How People Look First',
         summary:
-          'People notice big sizes, bright colors, and neat lines before reading a single sentence.',
+          'Viewers scan **large sizes**, **bright accents**, and **straight edges** before reading copy.',
         details: [
-          'Good layouts guide the eyes step by step: 1st Main Title -> 2nd Date & Place -> 3rd Action Button.',
-          'Bad layouts make every line look the same size, forcing readers to hunt for basic facts.',
+          'Guide eyes in steps: **1. Main Title → 2. Date & Place → 3. Action Button**.',
+          'When everything looks the same size, readers **hunt and give up**.',
         ],
         exampleNote:
-          'Put the event name biggest, keep the date in a bright box, and place the signup link clearly.',
+          'Make the event name biggest, place the date in a badge, and anchor one clear button.',
         diagram: 'eye-sequence',
       },
       {
@@ -93,13 +93,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '1.4',
         title: 'Design Solves Confusion',
         summary:
-          'Most messy designs happen because information feels hidden or crowded — not because of bad software.',
+          'Messy layouts happen when key facts feel **hidden or crowded** — not from weak software.',
         details: [
-          'Before adding stickers or fancy backgrounds, ask: What might confuse the viewer here?',
-          'Fixed page sizes (like an A3 poster or laptop screen) help keep your choices focused.',
+          'Before adding stickers, ask: "**What might confuse someone here?**"',
+          'Fixed page limits (like an **A3 poster** or laptop screen) sharpen every choice.',
         ],
         exampleNote:
-          'If people keep asking "Where is the event?", putting the room name inside a dark box solves it immediately.',
+          'Placing the room name inside a **high-contrast box** stops "Where is it?" questions instantly.',
         diagram: 'problem-solving',
       },
       {
@@ -107,13 +107,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '1.5',
         title: 'Know Who Is Looking',
         summary:
-          'Think about where someone sees your work: walking past a wall poster or sitting at a laptop?',
+          'Match size and detail to context: **walking past a wall** vs. **sitting at a laptop**.',
         details: [
-          'A hallway poster needs huge text people can read from 3 meters away.',
-          'A website hero sits on a screen up close, with short text and clear buttons.',
+          'A hallway poster needs **huge text** readable from 3 meters away.',
+          'A website hero sits up close, built around **short copy** and **clear buttons**.',
         ],
         exampleNote:
-          'Write simple words your actual audience uses — skip complicated inside jokes or jargon.',
+          'Use **simple words** your audience uses — skip heavy jargon.',
         diagram: 'audience-fit',
       },
       {
@@ -121,35 +121,35 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '1.6',
         title: 'The 4 Simple Steps',
         summary:
-          'Great designers follow four easy steps every time: Understand -> Explore -> Create -> Review.',
+          'Follow four reliable steps every project: **Understand → Explore → Create → Review**.',
         details: [
-          'Understand & Explore: read the real text first and sketch 3 tiny box ideas on paper.',
-          'Create & Review: build cleanly in Figma, then step back and check if everything is easy to read.',
+          '**Understand & Explore:** read the real text first and sketch 3 quick box layouts.',
+          '**Create & Review:** build cleanly in Figma, then step back to test readability.',
         ],
         exampleNote:
-          'Five minutes sketching boxes on paper saves thirty minutes of moving things around in Figma.',
+          'Five minutes of **rough sketching** saves thirty minutes of random dragging in Figma.',
         diagram: 'design-process',
       },
     ],
     interactiveDemo: 'communication-compare',
     interactiveTitle: 'Compare Two Posters Side by Side',
     interactiveInstructions:
-      'Click Poster A and Poster B below to see why size, order, and space help people read a poster in under two seconds.',
+      'Switch between Poster A and Poster B to see how **size, order, and space** speed up reading.',
     studentActivity: {
-      title: 'Spot the Better Poster (3 Mins)',
+      title: 'Spot the Better Poster',
       instructions: [
-        'Compare Poster A and Poster B in the tool below.',
-        'Notice what your eyes see 1st, 2nd, and 3rd on each poster.',
-        'Say in one short sentence why Poster B is easier to understand.',
+        'Compare **Poster A** and **Poster B** in the preview below.',
+        'Track what your eyes hit **1st, 2nd, and 3rd** on each version.',
+        'Summarize in **one short sentence** why Poster B reads faster.',
       ],
-      deliverable: 'One clear sentence explaining what makes Poster B easy to read.',
+      deliverable: 'One sentence explaining what makes **Poster B** easier to read.',
     },
     learningCheckpoint:
-      'You know why design focuses on clear messages — not just pretty extras.',
+      'You treat design as **clear problem-solving**, not just visual decoration.',
     keyTakeaways: [
-      'Always start with who is looking and what they need to know.',
-      'A pretty layout still fails if people cannot find the main message.',
-      'Follow the 4 steps: Understand -> Explore -> Create -> Review.',
+      'Start with **who is looking** and **what they need to know**.',
+      'Pretty decoration still fails if the **main message** is hidden.',
+      'Work in order: **Understand → Explore → Create → Review**.',
     ],
     miniChecks: [
       {
@@ -162,7 +162,7 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         ],
         correctIndex: 1,
         explanation:
-          'Art lets people feel many things freely, while design helps everyone understand the same message quickly.',
+          'Art invites **many feelings**, while design delivers **one clear message** quickly.',
       },
       {
         id: 'm1-q2',
@@ -174,7 +174,7 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         ],
         correctIndex: 1,
         explanation:
-          'Knowing your audience and real text tells you how big and clear each element needs to be.',
+          'Knowing your **audience and real text** determines every size and layout priority.',
       },
     ],
   },
@@ -185,28 +185,28 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
     phase: 'phase-01',
     phaseLabel: 'Visual Foundations',
     title: 'Elements of Design',
-    subtitle: 'The 7 basic building blocks inside every poster, app screen, and website',
+    subtitle: 'The **7 basic building blocks** inside every poster, card, and website',
     learningObjective:
-      'Spot the 7 basic visual building blocks and know when a layout needs more space or darker text.',
+      'Spot all **7 visual elements** and diagnose when a layout needs **open space** or **stronger contrast**.',
     durationMinutes: 25,
     accentColor: 'cobalt',
     introduction:
-      'Every poster or website is built from the same 7 basic pieces — just like cooking starts with simple ingredients. Once you know them, you can quickly spot why a design feels messy or hard to read.',
+      'Every poster or interface uses the same **7 core ingredients**. Once you spot them, you can fix cluttered or washed-out drafts right away.',
     terminology: [
       {
         term: 'Open Space (Negative Space)',
         definition:
-          'The empty background around text and pictures that helps things feel calm and neat.',
+          'The **empty room** around words and visuals that keeps a page calm and scannable.',
       },
       {
         term: 'Lightness & Darkness (Value)',
         definition:
-          'How light or dark something looks — the #1 thing that makes words easy to read.',
+          'How **light or dark** an item looks — the #1 driver of readable text.',
       },
       {
         term: 'Flat vs. Layered (Shape & Form)',
         definition:
-          'Shapes are flat circles or boxes; overlapping layers add depth so items look in front or behind.',
+          '**Shapes** are flat circles or boxes; **overlapping layers** create depth and focus.',
       },
     ],
     topics: [
@@ -215,13 +215,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '2.1',
         title: 'Line — Guides & Dividers',
         summary:
-          'Simple thin lines separate sections cleanly and guide where the eyes look next.',
+          'Thin lines **separate sections cleanly** and lead the eye from block to block.',
         details: [
-          'Horizontal lines split rows calmly without needing heavy dark boxes.',
-          'Vertical guides line up titles and paragraphs neatly down one edge.',
+          'Horizontal rules divide rows **without heavy dark boxes**.',
+          'Vertical guides **align headings and paragraphs** down one straight edge.',
         ],
         exampleNote:
-          'Notice how light gray lines separate sections cleanly across this page.',
+          'Light **1px hairline dividers** organize crowded screens effortlessly.',
         diagram: 'line-demo',
       },
       {
@@ -229,13 +229,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '2.2',
         title: 'Shape — Boxes, Circles & Pills',
         summary:
-          'Every card, button, and badge starts as a simple square, circle, or rounded pill.',
+          'Every card, icon, and button starts as a **rectangle, circle, or rounded pill**.',
         details: [
-          'Clean squares and circles feel neat, organized, and modern.',
-          'Soft rounded pills feel friendly and great for buttons or tags.',
+          'Crisp squares and circles feel **structured and modern**.',
+          'Soft pill shapes suit **tags, status chips, and buttons**.',
         ],
         exampleNote:
-          'Even turning one simple rectangle slightly behind a title adds instant energy.',
+          'Even tilting one rectangle slightly adds **instant energy** behind a title.',
         diagram: 'elements-matrix',
       },
       {
@@ -243,13 +243,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '2.3',
         title: 'Form — Overlapping for Depth',
         summary:
-          'Putting one shape slightly over another makes the front element pop forward cleanly.',
+          'Layering one element slightly **in front of another** pulls focus forward.',
         details: [
-          'Overlapping cards or shapes tells the viewer which item is most important.',
-          'You do not need heavy 3D shadows — simple layered overlap looks cleaner.',
+          'Clean overlap shows **which element sits on top** in importance.',
+          'Skip heavy blurred shadows — **crisp layer overlap** looks sharper.',
         ],
         exampleNote:
-          'A crisp white card sitting slightly in front of a bright orange circle feels lively right away.',
+          'A crisp white card overlapping a bright circle feels **lively and clean**.',
         diagram: 'form-depth',
       },
       {
@@ -257,13 +257,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '2.4',
         title: 'Color — One Star Accent',
         summary:
-          'Keep most of your page calm neutral colors, then use one bright color for your main button.',
+          'Keep most screens **calm neutral**, then use **one vivid accent** for your main action.',
         details: [
-          'If every button is neon bright, your eyes do not know where to click.',
-          'Bright magenta or orange pops best when surrounded by soft light gray.',
+          'When every box is neon bright, users **freeze and miss the CTA**.',
+          'Magenta or orange pops sharpest against **soft light gray**.',
         ],
         exampleNote:
-          'One bright magenta button stands out fast on a soft off-white background.',
+          'One **bright magenta button** draws clicks on an off-white canvas.',
         diagram: 'color-focus',
       },
       {
@@ -271,13 +271,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '2.5',
         title: 'Texture — Surface Feel',
         summary:
-          'Subtle grids or soft paper textures add craft — but busy patterns behind small text ruin reading.',
+          'Subtle grids add craft, but **busy textures behind small type** hurt reading.',
         details: [
-          'Keep backgrounds calm and plain behind paragraphs and labels.',
-          'Save fun patterns or photos for quiet corners or big picture boxes.',
+          'Keep areas behind paragraphs **flat and clean**.',
+          'Save patterns or photos for **quiet corners** or dedicated media frames.',
         ],
         exampleNote:
-          'Keep words over clean solid areas so nobody has to squint.',
+          'Always place body text on **solid surfaces** so nobody squints.',
         diagram: 'texture-surface',
       },
       {
@@ -285,13 +285,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '2.6',
         title: 'Space — Let It Breathe',
         summary:
-          'Empty space is not wasted room — it stops posters and websites from feeling cramped.',
+          'Empty space is **active structure** — it prevents designs from looking cramped.',
         details: [
-          'Beginners often fill every empty corner with extra stickers or icons.',
-          'Leaving plenty of open room around titles makes your design look confident.',
+          'Beginners often fill blank corners with unneeded stickers.',
+          '**Generous breathing room** around headlines signals confidence.',
         ],
         exampleNote:
-          'Extra space inside a card edge instantly makes the text inside look cleaner.',
+          'Widening inner card padding makes text look **instantly calmer**.',
         diagram: 'space-breathing',
       },
       {
@@ -299,35 +299,35 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '2.7',
         title: 'Value — Dark vs. Light',
         summary:
-          'Value just means light vs. dark. High difference makes words effortless to read.',
+          'Value means **light vs. dark**. Strong difference keeps words clear at a glance.',
         details: [
-          'Quick trick: squint your eyes at your screen! If the title blends into the back, make text darker.',
-          'Dark charcoal ink (#171717) on soft off-white (#F2F2F2) is always crisp and gentle on eyes.',
+          '**Squint test:** if your title fades into the background when squinting, darken the ink.',
+          'Dark charcoal (**#171717**) on soft off-white (**#F2F2F2**) stays **crisp and easy**.',
         ],
         exampleNote:
-          'Always check dark-on-light or light-on-dark before worrying about fancy shades.',
+          'Lock in **light-vs-dark clarity** before tuning subtle color shades.',
         diagram: 'value-scale',
       },
     ],
     interactiveDemo: 'elements-explorer',
     interactiveTitle: 'Play With Basic Shapes & Space',
     interactiveInstructions:
-      'Click shapes below, move sliders to resize or turn them, change colors, and notice how leaving open space makes one shape stand out.',
+      'Select shapes below, adjust **scale, rotation, and color**, and watch empty space spotlight one hero shape.',
     studentActivity: {
-      title: 'Make a 3-Shape Balance Card (5 Mins)',
+      title: 'Make a 3-Shape Balance Card',
       instructions: [
-        'Use the canvas below to arrange 3 simple pieces: 1 circle, 1 rectangle, and 1 line.',
-        'Leave plenty of empty background room (about a third of the box) so it feels calm.',
-        'Pick one shape to be the "star" by making it larger or brightly colored.',
+        'Arrange **1 circle, 1 square, and 1 line** in the composition canvas.',
+        'Keep about **one-third empty background** so the frame breathes.',
+        'Make one piece the **clear star** using size or a vivid fill.',
       ],
-      deliverable: 'A clean 3-shape picture with one clear main focus and plenty of room.',
+      deliverable: 'A balanced **3-shape layout** with one obvious focal point.',
     },
     learningCheckpoint:
-      'You can name the 7 building blocks and use open space and dark/light contrast well.',
+      'You can spot the **7 visual elements** and balance **open space** with **Value contrast**.',
     keyTakeaways: [
-      'Every poster and UI screen is built from the same 7 simple pieces.',
-      'Open space is good! Do not try to fill every blank corner.',
-      'Strong dark-vs-light contrast keeps words readable for everyone.',
+      'Every interface and poster uses the same **7 core building blocks**.',
+      '**Open space** organizes content — never cram every corner.',
+      'Strong **dark-vs-light Value** keeps copy quick to scan.',
     ],
     miniChecks: [
       {
@@ -336,7 +336,7 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         options: ['Texture', 'Value', 'Line'],
         correctIndex: 1,
         explanation:
-          'Value measures how light or dark something is — dark text on light cards makes reading easy.',
+          '**Value** measures lightness vs. darkness — the foundation of readable type.',
       },
       {
         id: 'm2-q2',
@@ -348,7 +348,7 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         ],
         correctIndex: 0,
         explanation:
-          'Open space helps separate groups cleanly so the viewer does not feel overwhelmed.',
+          '**Open space** separates sections cleanly so your main CTA stands out.',
       },
     ],
     linkedLabTool: 'composition',
@@ -360,28 +360,28 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
     phase: 'phase-01',
     phaseLabel: 'Visual Foundations',
     title: 'Principles of Design',
-    subtitle: 'Simple rules to organize words and boxes so nothing looks messy or scattered',
+    subtitle: 'Simple **layout rules** that organize scattered text into clear reading flow',
     learningObjective:
-      'Organize any messy draft cleanly using 5 daily rules: Contrast, Balance, Hierarchy, Alignment, and Proximity.',
+      'Fix messy drafts fast using **Contrast, Balance, Hierarchy, Alignment, and Proximity**.',
     durationMinutes: 15,
     accentColor: 'orange',
     introduction:
-      'Having shapes and text is one thing — arranging them cleanly is another! Focus first on 5 everyday rules that fix almost every messy beginner design right away.',
+      'Having elements is only step one — **how you arrange them** creates clarity. Start with **5 everyday principles** that fix almost any messy beginner layout.',
     terminology: [
       {
         term: 'Visual Hierarchy',
         definition:
-          'Making the biggest thing look #1, medium details look #2, and small notes look #3.',
+          'Ordering information by size and weight so eyes read **#1 Title, #2 Details, #3 Notes**.',
       },
       {
         term: 'Proximity (Grouping)',
         definition:
-          'Putting related info close together (like Date + Time) and leaving wider gaps between separate blocks.',
+          'Keeping related text **close together** (Date + Time) and leaving wider gaps between separate blocks.',
       },
       {
         term: 'Alignment',
         definition:
-          'Lining text and boxes up neatly along an invisible straight edge.',
+          'Snapping headings, body text, and boxes along one **clean straight edge**.',
       },
     ],
     topics: [
@@ -390,13 +390,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '3.1 · CORE',
         title: 'Contrast — Make Differences Clear',
         summary:
-          'Make big titles really big and dark — small shy differences look like typing mistakes.',
+          'Use **decisive jumps** in size, weight, and color — shy differences look like mistakes.',
         details: [
-          'A 16px paragraph next to a 18px title looks accidental; a 48px bold title looks clear and planned.',
-          'Always make your main button stand out from normal grey links.',
+          'A 16px paragraph next to an 18px title blurs together; a **48px title** feels intentional.',
+          'Keep your **primary CTA** clearly distinct from quiet text links.',
         ],
         exampleNote:
-          'White text on bright magenta button + charcoal text on white cards gives clean readable contrast.',
+          '**White text on magenta CTA** + **dark charcoal on clean cards** snaps cleanly.',
         diagram: 'principles-diagram',
       },
       {
@@ -404,13 +404,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '3.2 · CORE',
         title: 'Balance — Feel Steady, Not Tipped Over',
         summary:
-          'Spread visual weight nicely across the frame — either centered (calm) or split left/right (lively).',
+          'Distribute visual weight steadily — either **centered (calm)** or **split left/right (dynamic)**.',
         details: [
-          'Centered balance feels calm and formal, great for invitations.',
-          'Lopsided (asymmetrical) balance puts bold words on the left and a bright graphic on the right.',
+          '**Symmetrical** layouts center everything for formal invitations.',
+          '**Asymmetrical** balance pairs heavy left copy with an expressive right visual.',
         ],
         exampleNote:
-          'Big title on the left + orange shape on the right feels energetic and modern.',
+          '**Left headline stack + right orange circle** feels modern and balanced.',
         diagram: 'balance-compare',
       },
       {
@@ -418,21 +418,21 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '3.3 · CORE',
         title: 'Hierarchy — Read 1, Then 2, Then 3',
         summary:
-          'Show people what to read first, second, and third using size and boldness.',
+          'Control reading order using **clear jumps in scale and boldness**.',
         details: [
-          'Mistake to skip: making EVERY sentence huge and bold. When everything shouts, nobody listens.',
-          'Pick 1 main star headline, 1 short subtitle, and 1 clear button.',
+          'Avoid making every line huge and bold — if everything shouts, **nothing stands out**.',
+          'Assign one clear **#1 Title**, one **#2 Detail row**, and one **#3 CTA**.',
         ],
         exampleNote:
-          'Event Name (huge) -> Saturday Dec 20 (medium) -> Book Spot (bright button).',
+          '**Event Name (72px)** → **Date Pill (16px)** → **Book Spot (CTA)**.',
         diagram: 'hierarchy-pyramid',
         beforeAfter: {
           beforeTitle: 'Everything Same Size (Confusing)',
           beforeNote:
-            'Every line is 15px centered with random pale colors competing together.',
+            'Every line sits at **15px centered** with pale colors competing evenly.',
           afterTitle: 'Clear 1 - 2 - 3 Order',
           afterNote:
-            'Huge Event Title first -> Clear Date Box second -> Short summary & button third.',
+            '**Oversized Event Title** first → **Date Box** second → **Action Button** third.',
         },
       },
       {
@@ -440,13 +440,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '3.4 · CORE',
         title: 'Alignment — Line Everything Up',
         summary:
-          'Snap words and cards along one clean vertical line so nothing floats randomly.',
+          'Anchor labels, cards, and buttons along **one invisible straight line**.',
         details: [
-          'Mixing centered titles with left-aligned paragraphs on one tiny card looks messy.',
-          'Easy beginner habit: line everything neatly up along the left edge!',
+          'Mixing centered titles with left-aligned text inside one card feels scattered.',
+          'Reliable rule: **align blocks down one strong left edge**.',
         ],
         exampleNote:
-          'Putting badge, title, text, and button along the exact same left line looks instantly pro.',
+          'Sharing one **exact left rail** makes any card look tidy right away.',
         diagram: 'principles-mistakes',
       },
       {
@@ -454,13 +454,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '3.5 · CORE',
         title: 'Proximity — Keep Friends Close',
         summary:
-          'Things that belong together (like Date and Time) sit close together with a tight gap.',
+          'Related items (like Date + Time) belong **tightly grouped**; unrelated blocks get **wider gaps**.',
         details: [
-          'Use tiny gaps (4–8px) inside one group, and bigger gaps (24–40px) between different sections.',
-          'Equal spacing everywhere makes people unsure which title belongs to which paragraph.',
+          'Use **4–8px gaps** inside a group, and **24–40px gaps** between sections.',
+          'Equal spacing everywhere makes readers guess which title matches which copy.',
         ],
         exampleNote:
-          'Keep Date right next to Time, with wide breathing room above the sponsor footer.',
+          'Lock **Date + Time close together**, far away from footer credits.',
         diagram: 'proximity-grouping',
       },
       {
@@ -468,12 +468,12 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '3.6 · BONUS',
         title: 'Emphasis — Pick One Star Button',
         summary:
-          'Give each section one clear star button so people know the main step right away.',
+          'Give each view **one spotlight button** so the primary click is obvious.',
         details: [
-          'Color only the #1 main button bright magenta; leave secondary links simple and outlined.',
+          'Highlight only the **#1 main button** in magenta; keep secondary options outlined.',
         ],
         exampleNote:
-          'One bright "Join Workshop" button next to a plain "More Info" link is super easy to scan.',
+          'Solid "**Join Workshop**" button next to a quiet outlined "**More Info**".',
         diagram: 'emphasis-spotlight',
       },
       {
@@ -481,12 +481,12 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '3.7 · BONUS',
         title: 'Repetition — Match Your Style',
         summary:
-          'Reuse the same button corners, font styles, and borders across every card.',
+          'Reuse the same **radius, type scale, and borders** across every sibling card.',
         details: [
-          'Once someone learns how Card 01 looks, matching Cards 02 and 03 feel familiar and safe.',
+          'Consistent patterns help readers scan **Cards 02 and 03** without re-learning the UI.',
         ],
         exampleNote:
-          'Keep every card border the same soft light gray and rounded corners the same size.',
+          'Keep **corner rounding and 1px borders** uniform across cards.',
         diagram: 'repetition-cards',
       },
       {
@@ -494,12 +494,12 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '3.8 · BONUS',
         title: 'Rhythm — Mix Big & Calm',
         summary:
-          'Change up light sections and dark callouts so reading down a page feels pleasant.',
+          'Alternate **light surfaces and dark callouts** so long pages pace comfortably.',
         details: [
-          'Too many cramped cards in a row make eyes tired — mix in a dark summary banner as a visual pause.',
+          'A **charcoal summary strip** acts as a restful pause after dense white cards.',
         ],
         exampleNote:
-          'Alternating off-white cards with charcoal dark callouts creates smooth visual pacing.',
+          'Mixing **off-white cards** with **charcoal banners** creates natural visual tempo.',
         diagram: 'rhythm-bands',
       },
       {
@@ -507,34 +507,34 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '3.9 · BONUS',
         title: 'Unity — Make It Feel Like 1 Family',
         summary:
-          'Check your whole screen at once to make sure every box shares the same style family.',
+          'Zoom out to confirm every block belongs to the **same visual family**.',
         details: [
-          'Nothing should look like it was copied and pasted from a totally different app.',
+          'No widget should look pasted from an unrelated template.',
         ],
         exampleNote:
-          'Same fonts + same 2–3 colors + same corner style = instant polish.',
+          '**Shared fonts + 3 colors + uniform corners** create instant polish.',
         diagram: 'unity-check',
       },
     ],
     interactiveDemo: 'principles-before-after',
     interactiveTitle: 'Fix a Messy Poster Step by Step',
     interactiveInstructions:
-      'Start on "Ineffective (Before)", then click Hierarchy, Alignment, Proximity, and Contrast one by one to see each rule fix the poster.',
+      'Start on Ineffective (Before), then toggle **Hierarchy, Alignment, Proximity, and Contrast** to watch each fix transform clarity.',
     studentActivity: {
-      title: 'Spot & Fix 4 Layout Bugs (3 Mins)',
+      title: 'Spot & Fix 4 Layout Bugs',
       instructions: [
-        'Click "Ineffective (Before)" in the demo below.',
-        'Spot what looks off: scattered lines, tiny title, cramped space, and weak contrast.',
-        'Turn on each fix switch one by one and watch the poster turn clear.',
+        'Switch to **Ineffective (Before)** in the demo below.',
+        'Spot four bugs: **flat hierarchy, scattered edges, equal gaps, and weak contrast**.',
+        'Toggle all **4 fixes on** and note which rule clarified the poster fastest.',
       ],
-      deliverable: 'Notice which switch improved readability fastest for you.',
+      deliverable: 'Identify which single fix gave the **biggest readability boost**.',
     },
     learningCheckpoint:
-      'You can look at any messy poster and fix its alignment, spacing, and hierarchy.',
+      'You can diagnose messy layouts and fix **hierarchy, alignment, and spacing**.',
     keyTakeaways: [
-      'Remember the 5 main helpers: Contrast, Balance, Hierarchy, Alignment, Proximity.',
-      'Line things up along one clean left edge and keep related text close together.',
-      'Decide what should be read 1st, 2nd, and 3rd before styling details.',
+      'Master the core 5: **Contrast, Balance, Hierarchy, Alignment, Proximity**.',
+      'Snap related text to a **shared left edge** and group by **tight vs. wide gaps**.',
+      'Lock in **#1, #2, #3 reading order** before adding details.',
     ],
     miniChecks: [
       {
@@ -543,7 +543,7 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         options: ['Proximity (Grouping)', 'Repetition', 'Unity'],
         correctIndex: 0,
         explanation:
-          'Proximity means keeping related headings close to their own paragraph.',
+          '**Proximity** groups related titles close to their own paragraphs.',
       },
       {
         id: 'm3-q2',
@@ -555,7 +555,7 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         ],
         correctIndex: 0,
         explanation:
-          'A straight left line makes cards and text blocks feel neat right away.',
+          'A **straight left rail** gives every text block instant structure.',
       },
     ],
   },
@@ -566,33 +566,33 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
     phase: 'phase-01',
     phaseLabel: 'Visual Foundations',
     title: 'Typography & Color Theory',
-    subtitle: 'Choosing clean readable fonts and colors that feel right without straining eyes',
+    subtitle: 'Choosing **readable fonts**, clean spacing, and **high-contrast colors**',
     learningObjective:
-      'Pick clear fonts, tune line spacing cleanly, and pick color combos that pass readability checks.',
+      'Pick clear font pairs, tune **line height**, and verify **accessible color contrast**.',
     durationMinutes: 35,
     accentColor: 'lime',
     introduction:
-      'Words tell people what you offer, and colors set the mood! With just a couple of simple font and color rules, your posters and websites will look clean, modern, and easy to read.',
+      'Type carries your message and color sets the mood. A few reliable **scale, spacing, and contrast rules** make every poster and hero legible.',
     terminology: [
       {
         term: 'Typeface vs. Font',
         definition:
-          'Typeface is the font family name (like Inter); Font is the specific cut inside it (like Inter Bold).',
+          '**Typeface** is the family (like Inter); **Font** is one specific weight/cut (like Inter Bold).',
       },
       {
         term: 'Letter Spacing',
         definition:
-          'Space between letters — slightly tighter looks sharp on huge headlines, wider helps tiny tags.',
+          'Gap between letters — **tighter** on giant titles, **wider** on small tags.',
       },
       {
         term: 'Line Height (Line Spacing)',
         definition:
-          'Vertical gap between rows of text — tight (~1.0) on giant titles, airy (~1.5) on reading text.',
+          'Vertical gap between rows — **tight (~1.0)** on giant titles, **airy (~1.5)** on body text.',
       },
       {
         term: 'Readability Contrast',
         definition:
-          'Making sure words stand out strongly against the background color (avoid light gray ink on white cards!).',
+          'Ensuring **foreground ink stands out strongly** against its background surface.',
       },
     ],
     topics: [
@@ -601,13 +601,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '4.1',
         title: 'Typeface vs. Font',
         summary:
-          'One typeface family includes thin, normal, bold, and italic versions you can mix cleanly.',
+          'One strong typeface family gives you **Light, Regular, and Bold** weights that harmonize.',
         details: [
-          'Before installing 10 random fonts, try just using Regular + Bold from ONE solid family.',
-          'Fonts with taller lowercase letters (like Inter or Space Grotesk) stay crisp on screens.',
+          'Try mixing **Regular + Bold** from one clean family before juggling multiple fonts.',
+          'Screens favor crisp fonts with tall lowercase letters like **Inter** or **Montserrat**.',
         ],
         exampleNote:
-          'Using Space Grotesk Bold for headlines and Regular for details already looks clean and organized.',
+          'Using **Space Grotesk Bold** for headings and Regular for meta already feels cohesive.',
         diagram: 'type-anatomy',
       },
       {
@@ -615,14 +615,14 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '4.2',
         title: 'Sans Serif, Serif & Display Fonts',
         summary:
-          'Sans serif is clean for apps; Serif feels classic and book-like; Display is for big bold titles only.',
+          '**Sans Serif** suits UI; **Serif** feels editorial; **Display** works on huge titles only.',
         details: [
-          'Sans Serif (clean edges): awesome for buttons, menus, and small body paragraphs.',
-          'Serif (tiny decorative feet): feels warm, literary, and editorial for magazines or quotes.',
-          'Display fonts: loud personality — ONLY use for large 32px+ titles, never long paragraphs.',
+          '**Sans Serif:** crisp, clean edges for navbars, buttons, and body copy.',
+          '**Serif:** warm, bookish details ideal for essays and editorial quotes.',
+          '**Display:** loud personality — limit strictly to **32px+ headlines**.',
         ],
         exampleNote:
-          'Never write a tiny 12px paragraph in a curly decorative Display font — people will skip reading it.',
+          'Never set tiny **12px paragraphs** in decorative Display fonts.',
         diagram: 'font-styles',
       },
       {
@@ -630,13 +630,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '4.3',
         title: '4 Quick Text Settings',
         summary:
-          'Change Size, Boldness, Line Spacing, and Letter Spacing so giant titles and paragraphs both read nicely.',
+          'Tune **Size, Weight, Line Height, and Tracking** to separate bold titles from smooth body copy.',
         details: [
-          'Make titles at least 2x–3x bigger than normal body text so people spot the hook.',
-          'Keep Line Spacing tight (~1.0) on big 2-line titles, and relaxed (~1.5) on small paragraphs.',
+          'Scale headlines at least **2×–3× larger** than normal body text.',
+          'Use **~1.0 line height** on stacked big titles and **~1.5** on reading copy.',
         ],
         exampleNote:
-          'Turning giant headline line-height down from 1.5 to 1.0 stops two title words from drifting apart.',
+          'Tightening giant title line height from 1.5 to **1.0** locks stacked words together.',
         diagram: 'type-levers',
       },
       {
@@ -644,13 +644,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '4.4',
         title: 'Pairing Fonts Easily',
         summary:
-          'Stick to a maximum of 2 fonts per project: one eye-catching headline font + one simple reading font.',
+          'Stick to a **maximum of 2 fonts** per project: one expressive title + one clean body face.',
         details: [
-          'Pick two fonts that look noticeably different — never pair two almost-identical plain fonts.',
-          'Keep reading paragraphs to a comfortable medium line width (~6–12 words per line).',
+          'Choose fonts with **clear contrast** — avoid pairing two look-alike sans serifs.',
+          'Limit body line width to a comfortable **45–65 characters** (~6–12 words).',
         ],
         exampleNote:
-          'Pair Space Grotesk (bold headlines) with Inter (clean body copy) — simple, timeless, reliable.',
+          '**Montserrat Bold headlines** + **Inter Regular paragraphs** stays sharp and reliable.',
         diagram: 'font-pairing',
       },
       {
@@ -658,13 +658,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '4.5',
         title: 'Warm, Cool & Calm Neutral Colors',
         summary:
-          'Use calm grays/off-white for 80% of your screen, and save warm orange or bold magenta for focal highlights.',
+          'Anchor most of the screen in **calm neutrals**, saving warm orange or magenta for key highlights.',
         details: [
-          'Warm tones (orange, red, magenta) feel energetic and grab focus toward buttons.',
-          'Neutral backgrounds (#F2F2F2 canvas, #FFFFFF white cards) keep eyes relaxed for hours.',
+          'Warm hues (**orange, red, magenta**) pull energy directly toward primary CTAs.',
+          'Neutral surfaces (**#F2F2F2** & **#FFFFFF**) prevent visual fatigue.',
         ],
         exampleNote:
-          'Soft off-white + charcoal ink makes small touches of magenta or orange look vivid cleanly.',
+          'Off-white + charcoal ink makes **small magenta highlights** look vibrant.',
         diagram: 'color-wheel',
       },
       {
@@ -672,13 +672,13 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '4.6',
         title: 'Color Combos & Readable Text',
         summary:
-          'Check that every word is darker or lighter enough against its background card so anyone can read it.',
+          'Verify that **every label passes luminance contrast** against its card or button fill.',
         details: [
-          'Opposite (Complementary) colors pop loudly; neighboring (Analogous) colors blend calmly.',
-          'Always test bright buttons! Orange or yellow backgrounds usually need dark black ink, not white text.',
+          '**Complementary** colors clash boldly; **analogous** colors blend gently.',
+          'Bright orange or yellow fills usually demand **dark charcoal ink**, not white text.',
         ],
         exampleNote:
-          'White text works nicely on dark Magenta (#C2185B) or Charcoal (#171717), while pale off-white needs dark ink.',
+          'White text stays crisp on **Magenta (#C2185B)**, whereas light gray needs #171717 ink.',
         diagram: 'color-contrast',
       },
       {
@@ -686,34 +686,34 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         number: '4.7',
         title: 'Color Meaning Changes With Context',
         summary:
-          'There is no magic rule saying "blue always means corporate" — color mood depends on where it sits.',
+          'Color emotion isn’t rigid — **context and surrounding layout** decide how a hue feels.',
         details: [
-          'Bright orange on a music poster feels playful and creative; the same orange on a form warning says "check this."',
-          'Test colors together inside your real card instead of trusting rigid color personality charts.',
+          'Orange on a music poster feels **festive**; orange on a form alert reads "**check input**."',
+          'Test colors **inside your real card** rather than memorizing rigid meaning charts.',
         ],
         exampleNote:
-          'Try your HEX colors right next to your fonts and photos before locking your final poster.',
+          'Preview HEX swatches directly behind your **real headline** before locking colors.',
         diagram: 'color-context',
       },
     ],
     interactiveDemo: 'typography-and-color',
     interactiveTitle: 'Test Fonts, Spacing & Color Contrast Live',
     interactiveInstructions:
-      'Adjust headline fonts and line spacing up top, then pick HEX colors below to check whether text passes readability contrast.',
+      'Experiment with **headline scale and line height** up top, then verify **text contrast ratios** below.',
     studentActivity: {
-      title: 'Test a Title & Color Pair (5 Mins)',
+      title: 'Test a Title & Color Pair',
       instructions: [
-        'In the font box, type "CREATIVE FREQUENCY" and try making the headline big with tight line spacing (~1.0).',
-        'In the color tool below, click two swatches and check if they get a passing readability badge (4.5:1 or better).',
+        'Type **CREATIVE FREQUENCY** in the font playground and tighten headline spacing (~**1.0**).',
+        'Test two color swatches below until body copy earns a passing **4.5:1 badge**.',
       ],
-      deliverable: 'One font pair + 2–3 tested colors ready for afternoon challenges.',
+      deliverable: 'One clean **font pair** + **high-contrast palette** ready for Figma.',
     },
     learningCheckpoint:
-      'You know how to pick clean fonts, tighten big headline spacing, and verify text contrast.',
+      'You can set **tight headline leading**, limit font families cleanly, and test **4.5:1 contrast**.',
     keyTakeaways: [
-      'Tighten line spacing on giant titles (~1.0); relax line spacing on paragraphs (~1.5).',
-      'Use mostly calm neutrals (~80%) plus one clear highlight color (~20%).',
-      'Always test text contrast and judge color mood inside your real layout.',
+      'Use **~1.0 line height** on giant titles and **~1.5** on body text.',
+      'Build on **calm neutrals** with **one focal accent color**.',
+      'Judge contrast and color mood **inside the actual layout**.',
     ],
     miniChecks: [
       {
@@ -726,7 +726,7 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         ],
         correctIndex: 0,
         explanation:
-          'Tight spacing pulls huge words together cleanly; wider spacing keeps small reading lines easy to follow.',
+          '**Tight line height** locks big headlines together; **open spacing** keeps body lines readable.',
       },
       {
         id: 'm4-q2',
@@ -738,7 +738,7 @@ export const CHAPTERS_1_TO_4: Chapter[] = [
         ],
         correctIndex: 1,
         explanation:
-          'Color mood shifts depending on where and how it is used — always check it inside your actual design.',
+          'Color mood shifts with **context and layout** — always test inside your design.',
       },
     ],
     linkedLabTool: 'typography',

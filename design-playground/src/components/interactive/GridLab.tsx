@@ -1,31 +1,32 @@
 import { useState } from 'react';
 import { Eye, EyeOff, RotateCcw } from 'lucide-react';
 import { Badge } from '../ui/Badge';
+import { HighlightText } from '../ui/HighlightText';
 
 const SAMPLE_CARDS = [
   {
     id: 'card-1',
     num: '01',
     title: 'Primary Module',
-    copy: 'Clear spatial gutters separate adjacent blocks without extra lines.',
+    copy: '**Gutters** separate blocks cleanly without heavy divider lines.',
   },
   {
     id: 'card-2',
     num: '02',
     title: 'Grid Discipline',
-    copy: 'Columns share one unified outer margin across the entire container.',
+    copy: 'Columns share one **outer margin** across the whole container.',
   },
   {
     id: 'card-3',
     num: '03',
     title: 'Breathing Room',
-    copy: 'Internal padding protects text from colliding with container borders.',
+    copy: '**Inner padding** keeps text away from card borders.',
   },
   {
     id: 'card-4',
     num: '04',
     title: 'Visual Flow',
-    copy: 'Predictable column tracks allow eyes to scan left-to-right smoothly.',
+    copy: '**Predictable columns** help eyes scan left-to-right fast.',
   },
 ];
 
@@ -219,7 +220,7 @@ export function GridLab() {
                   {card.title}
                 </h4>
                 <p className="mt-1 text-xs leading-relaxed text-muted">
-                  {card.copy}
+                  <HighlightText text={card.copy} variant="soft" />
                 </p>
               </div>
             ))}
@@ -231,8 +232,8 @@ export function GridLab() {
             Rule check:{' '}
             <strong className="text-ink">
               {padding >= gutter
-                ? 'Good spatial framing — outer padding is >= inner gutter.'
-                : 'Notice how tight outer padding makes inner gaps feel wider than the frame.'}
+                ? 'Balanced framing — outer padding is >= inner gutter.'
+                : 'Tight outer padding makes inner gaps feel wider than the frame.'}
             </strong>
           </span>
           <span className="font-mono">
